@@ -1,0 +1,16 @@
+{
+  "changelogDate": "20160806123739",
+  "dto": "no",
+  "entityTableName": "entity_with_service_class_and_pagination",
+  "fields": [
+    {
+      "fieldName": "enzo",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "name": "EntityWithServiceClassAndPagination",
+  "pagination": "pagination",
+  "relationships": [],
+  "service": "serviceClass"
+}

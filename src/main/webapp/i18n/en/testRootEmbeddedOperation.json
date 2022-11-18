@@ -1,0 +1,26 @@
+{
+  "sampleWebfluxMongodbOauth2App": {
+    "testRootEmbeddedOperation": {
+      "home": {
+        "title": "Embedded Operations",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Embedded Operation",
+        "createOrEditLabel": "Create or edit a Embedded Operation",
+        "notFound": "No Embedded Operations found"
+      },
+      "created": "A new Embedded Operation is created with identifier {{ param }}",
+      "updated": "A Embedded Operation is updated with identifier {{ param }}",
+      "deleted": "A Embedded Operation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Embedded Operation {{ id }}?"
+      },
+      "detail": {
+        "title": "Embedded Operation"
+      },
+      "date": "Date",
+      "description": "Description",
+      "amount": "Amount",
+      "documentBankAccount": "Document Bank Account"
+    }
+  }
+}

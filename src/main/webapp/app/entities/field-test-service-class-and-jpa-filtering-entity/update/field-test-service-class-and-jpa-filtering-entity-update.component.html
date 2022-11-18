@@ -1,0 +1,1664 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-field-test-service-class-and-jpa-filtering-entity-heading"
+        data-cy="FieldTestServiceClassAndJpaFilteringEntityCreateUpdateHeading"
+        jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.home.createOrEditLabel"
+      >
+        Create or edit a Field Test Service Class And Jpa Filtering Entity
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.stringBob"
+            for="field_stringBob"
+            >String Bob</label
+          >
+          <input type="text" class="form-control" name="stringBob" id="field_stringBob" data-cy="stringBob" formControlName="stringBob" />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.stringRequiredBob"
+            for="field_stringRequiredBob"
+            >String Required Bob</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringRequiredBob"
+            id="field_stringRequiredBob"
+            data-cy="stringRequiredBob"
+            formControlName="stringRequiredBob"
+          />
+          <div
+            *ngIf="
+              editForm.get('stringRequiredBob')!.invalid &&
+              (editForm.get('stringRequiredBob')!.dirty || editForm.get('stringRequiredBob')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('stringRequiredBob')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.stringMinlengthBob"
+            for="field_stringMinlengthBob"
+            >String Minlength Bob</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringMinlengthBob"
+            id="field_stringMinlengthBob"
+            data-cy="stringMinlengthBob"
+            formControlName="stringMinlengthBob"
+          />
+          <div
+            *ngIf="
+              editForm.get('stringMinlengthBob')!.invalid &&
+              (editForm.get('stringMinlengthBob')!.dirty || editForm.get('stringMinlengthBob')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('stringMinlengthBob')?.errors?.minlength"
+              jhiTranslate="entity.validation.minlength"
+              [translateValues]="{ min: 0 }"
+            >
+              This field is required to be at least 0 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.stringMaxlengthBob"
+            for="field_stringMaxlengthBob"
+            >String Maxlength Bob</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringMaxlengthBob"
+            id="field_stringMaxlengthBob"
+            data-cy="stringMaxlengthBob"
+            formControlName="stringMaxlengthBob"
+          />
+          <div
+            *ngIf="
+              editForm.get('stringMaxlengthBob')!.invalid &&
+              (editForm.get('stringMaxlengthBob')!.dirty || editForm.get('stringMaxlengthBob')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('stringMaxlengthBob')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 20 }"
+            >
+              This field cannot be longer than 20 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.stringPatternBob"
+            for="field_stringPatternBob"
+            >String Pattern Bob</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringPatternBob"
+            id="field_stringPatternBob"
+            data-cy="stringPatternBob"
+            formControlName="stringPatternBob"
+          />
+          <div
+            *ngIf="
+              editForm.get('stringPatternBob')!.invalid &&
+              (editForm.get('stringPatternBob')!.dirty || editForm.get('stringPatternBob')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('stringPatternBob')?.errors?.pattern"
+              jhiTranslate="entity.validation.pattern"
+              [translateValues]="{ pattern: 'String Pattern Bob' }"
+            >
+              This field should follow pattern for String Pattern Bob.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.integerBob"
+            for="field_integerBob"
+            >Integer Bob</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerBob"
+            id="field_integerBob"
+            data-cy="integerBob"
+            formControlName="integerBob"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.integerRequiredBob"
+            for="field_integerRequiredBob"
+            >Integer Required Bob</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerRequiredBob"
+            id="field_integerRequiredBob"
+            data-cy="integerRequiredBob"
+            formControlName="integerRequiredBob"
+          />
+          <div
+            *ngIf="
+              editForm.get('integerRequiredBob')!.invalid &&
+              (editForm.get('integerRequiredBob')!.dirty || editForm.get('integerRequiredBob')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('integerRequiredBob')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('integerRequiredBob')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.integerMinBob"
+            for="field_integerMinBob"
+            >Integer Min Bob</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerMinBob"
+            id="field_integerMinBob"
+            data-cy="integerMinBob"
+            formControlName="integerMinBob"
+          />
+          <div
+            *ngIf="
+              editForm.get('integerMinBob')!.invalid && (editForm.get('integerMinBob')!.dirty || editForm.get('integerMinBob')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('integerMinBob')?.errors?.min"
+              jhiTranslate="entity.validation.min"
+              [translateValues]="{ min: 0 }"
+            >
+              This field should be at least 0.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('integerMinBob')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.integerMaxBob"
+            for="field_integerMaxBob"
+            >Integer Max Bob</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerMaxBob"
+            id="field_integerMaxBob"
+            data-cy="integerMaxBob"
+            formControlName="integerMaxBob"
+          />
+          <div
+            *ngIf="
+              editForm.get('integerMaxBob')!.invalid && (editForm.get('integerMaxBob')!.dirty || editForm.get('integerMaxBob')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('integerMaxBob')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be more than 100.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('integerMaxBob')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.longBob"
+            for="field_longBob"
+            >Long Bob</label
+          >
+          <input type="number" class="form-control" name="longBob" id="field_longBob" data-cy="longBob" formControlName="longBob" />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.longRequiredBob"
+            for="field_longRequiredBob"
+            >Long Required Bob</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="longRequiredBob"
+            id="field_longRequiredBob"
+            data-cy="longRequiredBob"
+            formControlName="longRequiredBob"
+          />
+          <div
+            *ngIf="
+              editForm.get('longRequiredBob')!.invalid &&
+              (editForm.get('longRequiredBob')!.dirty || editForm.get('longRequiredBob')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('longRequiredBob')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('longRequiredBob')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.longMinBob"
+            for="field_longMinBob"
+            >Long Min Bob</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="longMinBob"
+            id="field_longMinBob"
+            data-cy="longMinBob"
+            formControlName="longMinBob"
+          />
+          <div *ngIf="editForm.get('longMinBob')!.invalid && (editForm.get('longMinBob')!.dirty || editForm.get('longMinBob')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('longMinBob')?.errors?.min"
+              jhiTranslate="entity.validation.min"
+              [translateValues]="{ min: 0 }"
+            >
+              This field should be at least 0.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('longMinBob')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.longMaxBob"
+            for="field_longMaxBob"
+            >Long Max Bob</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="longMaxBob"
+            id="field_longMaxBob"
+            data-cy="longMaxBob"
+            formControlName="longMaxBob"
+          />
+          <div *ngIf="editForm.get('longMaxBob')!.invalid && (editForm.get('longMaxBob')!.dirty || editForm.get('longMaxBob')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('longMaxBob')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be more than 100.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('longMaxBob')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.floatBob"
+            for="field_floatBob"
+            >Float Bob</label
+          >
+          <input type="number" class="form-control" name="floatBob" id="field_floatBob" data-cy="floatBob" formControlName="floatBob" />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.floatRequiredBob"
+            for="field_floatRequiredBob"
+            >Float Required Bob</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="floatRequiredBob"
+            id="field_floatRequiredBob"
+            data-cy="floatRequiredBob"
+            formControlName="floatRequiredBob"
+          />
+          <div
+            *ngIf="
+              editForm.get('floatRequiredBob')!.invalid &&
+              (editForm.get('floatRequiredBob')!.dirty || editForm.get('floatRequiredBob')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('floatRequiredBob')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('floatRequiredBob')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.floatMinBob"
+            for="field_floatMinBob"
+            >Float Min Bob</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="floatMinBob"
+            id="field_floatMinBob"
+            data-cy="floatMinBob"
+            formControlName="floatMinBob"
+          />
+          <div *ngIf="editForm.get('floatMinBob')!.invalid && (editForm.get('floatMinBob')!.dirty || editForm.get('floatMinBob')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('floatMinBob')?.errors?.min"
+              jhiTranslate="entity.validation.min"
+              [translateValues]="{ min: 0 }"
+            >
+              This field should be at least 0.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('floatMinBob')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.floatMaxBob"
+            for="field_floatMaxBob"
+            >Float Max Bob</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="floatMaxBob"
+            id="field_floatMaxBob"
+            data-cy="floatMaxBob"
+            formControlName="floatMaxBob"
+          />
+          <div *ngIf="editForm.get('floatMaxBob')!.invalid && (editForm.get('floatMaxBob')!.dirty || editForm.get('floatMaxBob')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('floatMaxBob')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be more than 100.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('floatMaxBob')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.doubleRequiredBob"
+            for="field_doubleRequiredBob"
+            >Double Required Bob</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="doubleRequiredBob"
+            id="field_doubleRequiredBob"
+            data-cy="doubleRequiredBob"
+            formControlName="doubleRequiredBob"
+          />
+          <div
+            *ngIf="
+              editForm.get('doubleRequiredBob')!.invalid &&
+              (editForm.get('doubleRequiredBob')!.dirty || editForm.get('doubleRequiredBob')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('doubleRequiredBob')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('doubleRequiredBob')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.doubleMinBob"
+            for="field_doubleMinBob"
+            >Double Min Bob</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="doubleMinBob"
+            id="field_doubleMinBob"
+            data-cy="doubleMinBob"
+            formControlName="doubleMinBob"
+          />
+          <div
+            *ngIf="editForm.get('doubleMinBob')!.invalid && (editForm.get('doubleMinBob')!.dirty || editForm.get('doubleMinBob')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('doubleMinBob')?.errors?.min"
+              jhiTranslate="entity.validation.min"
+              [translateValues]="{ min: 0 }"
+            >
+              This field should be at least 0.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('doubleMinBob')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.doubleMaxBob"
+            for="field_doubleMaxBob"
+            >Double Max Bob</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="doubleMaxBob"
+            id="field_doubleMaxBob"
+            data-cy="doubleMaxBob"
+            formControlName="doubleMaxBob"
+          />
+          <div
+            *ngIf="editForm.get('doubleMaxBob')!.invalid && (editForm.get('doubleMaxBob')!.dirty || editForm.get('doubleMaxBob')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('doubleMaxBob')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be more than 100.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('doubleMaxBob')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.bigDecimalRequiredBob"
+            for="field_bigDecimalRequiredBob"
+            >Big Decimal Required Bob</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bigDecimalRequiredBob"
+            id="field_bigDecimalRequiredBob"
+            data-cy="bigDecimalRequiredBob"
+            formControlName="bigDecimalRequiredBob"
+          />
+          <div
+            *ngIf="
+              editForm.get('bigDecimalRequiredBob')!.invalid &&
+              (editForm.get('bigDecimalRequiredBob')!.dirty || editForm.get('bigDecimalRequiredBob')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('bigDecimalRequiredBob')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('bigDecimalRequiredBob')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.bigDecimalMinBob"
+            for="field_bigDecimalMinBob"
+            >Big Decimal Min Bob</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bigDecimalMinBob"
+            id="field_bigDecimalMinBob"
+            data-cy="bigDecimalMinBob"
+            formControlName="bigDecimalMinBob"
+          />
+          <div
+            *ngIf="
+              editForm.get('bigDecimalMinBob')!.invalid &&
+              (editForm.get('bigDecimalMinBob')!.dirty || editForm.get('bigDecimalMinBob')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('bigDecimalMinBob')?.errors?.min"
+              jhiTranslate="entity.validation.min"
+              [translateValues]="{ min: 0 }"
+            >
+              This field should be at least 0.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('bigDecimalMinBob')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.bigDecimalMaxBob"
+            for="field_bigDecimalMaxBob"
+            >Big Decimal Max Bob</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bigDecimalMaxBob"
+            id="field_bigDecimalMaxBob"
+            data-cy="bigDecimalMaxBob"
+            formControlName="bigDecimalMaxBob"
+          />
+          <div
+            *ngIf="
+              editForm.get('bigDecimalMaxBob')!.invalid &&
+              (editForm.get('bigDecimalMaxBob')!.dirty || editForm.get('bigDecimalMaxBob')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('bigDecimalMaxBob')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be more than 100.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('bigDecimalMaxBob')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.localDateBob"
+            for="field_localDateBob"
+            >Local Date Bob</label
+          >
+          <div class="input-group">
+            <input
+              id="field_localDateBob"
+              data-cy="localDateBob"
+              type="text"
+              class="form-control"
+              name="localDateBob"
+              ngbDatepicker
+              #localDateBobDp="ngbDatepicker"
+              formControlName="localDateBob"
+            />
+            <button type="button" class="btn btn-secondary" (click)="localDateBobDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.localDateRequiredBob"
+            for="field_localDateRequiredBob"
+            >Local Date Required Bob</label
+          >
+          <div class="input-group">
+            <input
+              id="field_localDateRequiredBob"
+              data-cy="localDateRequiredBob"
+              type="text"
+              class="form-control"
+              name="localDateRequiredBob"
+              ngbDatepicker
+              #localDateRequiredBobDp="ngbDatepicker"
+              formControlName="localDateRequiredBob"
+            />
+            <button type="button" class="btn btn-secondary" (click)="localDateRequiredBobDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+          <div
+            *ngIf="
+              editForm.get('localDateRequiredBob')!.invalid &&
+              (editForm.get('localDateRequiredBob')!.dirty || editForm.get('localDateRequiredBob')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('localDateRequiredBob')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.instantBob"
+            for="field_instantBob"
+            >Instant Bob</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_instantBob"
+              data-cy="instantBob"
+              type="datetime-local"
+              class="form-control"
+              name="instantBob"
+              formControlName="instantBob"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.instanteRequiredBob"
+            for="field_instanteRequiredBob"
+            >Instante Required Bob</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_instanteRequiredBob"
+              data-cy="instanteRequiredBob"
+              type="datetime-local"
+              class="form-control"
+              name="instanteRequiredBob"
+              formControlName="instanteRequiredBob"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          <div
+            *ngIf="
+              editForm.get('instanteRequiredBob')!.invalid &&
+              (editForm.get('instanteRequiredBob')!.dirty || editForm.get('instanteRequiredBob')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('instanteRequiredBob')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('instanteRequiredBob')?.errors?.datetimelocal"
+              jhiTranslate="entity.validation.datetimelocal"
+            >
+              This field should be a date and time.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.zonedDateTimeBob"
+            for="field_zonedDateTimeBob"
+            >Zoned Date Time Bob</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_zonedDateTimeBob"
+              data-cy="zonedDateTimeBob"
+              type="datetime-local"
+              class="form-control"
+              name="zonedDateTimeBob"
+              formControlName="zonedDateTimeBob"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.zonedDateTimeRequiredBob"
+            for="field_zonedDateTimeRequiredBob"
+            >Zoned Date Time Required Bob</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_zonedDateTimeRequiredBob"
+              data-cy="zonedDateTimeRequiredBob"
+              type="datetime-local"
+              class="form-control"
+              name="zonedDateTimeRequiredBob"
+              formControlName="zonedDateTimeRequiredBob"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          <div
+            *ngIf="
+              editForm.get('zonedDateTimeRequiredBob')!.invalid &&
+              (editForm.get('zonedDateTimeRequiredBob')!.dirty || editForm.get('zonedDateTimeRequiredBob')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('zonedDateTimeRequiredBob')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('zonedDateTimeRequiredBob')?.errors?.datetimelocal"
+              jhiTranslate="entity.validation.datetimelocal"
+            >
+              This field should be a date and time.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.durationBob"
+            for="field_durationBob"
+            >Duration Bob</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="durationBob"
+            id="field_durationBob"
+            data-cy="durationBob"
+            formControlName="durationBob"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.durationRequiredBob"
+            for="field_durationRequiredBob"
+            >Duration Required Bob</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="durationRequiredBob"
+            id="field_durationRequiredBob"
+            data-cy="durationRequiredBob"
+            formControlName="durationRequiredBob"
+          />
+          <div
+            *ngIf="
+              editForm.get('durationRequiredBob')!.invalid &&
+              (editForm.get('durationRequiredBob')!.dirty || editForm.get('durationRequiredBob')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('durationRequiredBob')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('durationRequiredBob')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.booleanBob"
+            for="field_booleanBob"
+            >Boolean Bob</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="booleanBob"
+            id="field_booleanBob"
+            data-cy="booleanBob"
+            formControlName="booleanBob"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.booleanRequiredBob"
+            for="field_booleanRequiredBob"
+            >Boolean Required Bob</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="booleanRequiredBob"
+            id="field_booleanRequiredBob"
+            data-cy="booleanRequiredBob"
+            formControlName="booleanRequiredBob"
+          />
+          <div
+            *ngIf="
+              editForm.get('booleanRequiredBob')!.invalid &&
+              (editForm.get('booleanRequiredBob')!.dirty || editForm.get('booleanRequiredBob')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('booleanRequiredBob')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.enumBob"
+            for="field_enumBob"
+            >Enum Bob</label
+          >
+          <select class="form-control" name="enumBob" formControlName="enumBob" id="field_enumBob" data-cy="enumBob">
+            <option [ngValue]="null">{{ 'sampleWebfluxMongodbOauth2App.EnumFieldClass.null' | translate }}</option>
+            <option *ngFor="let enumFieldClass of enumFieldClassValues" [value]="enumFieldClass">
+              {{ 'sampleWebfluxMongodbOauth2App.EnumFieldClass.' + enumFieldClass | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.enumRequiredBob"
+            for="field_enumRequiredBob"
+            >Enum Required Bob</label
+          >
+          <select
+            class="form-control"
+            name="enumRequiredBob"
+            formControlName="enumRequiredBob"
+            id="field_enumRequiredBob"
+            data-cy="enumRequiredBob"
+          >
+            <option [ngValue]="null">{{ 'sampleWebfluxMongodbOauth2App.EnumRequiredFieldClass.null' | translate }}</option>
+            <option *ngFor="let enumRequiredFieldClass of enumRequiredFieldClassValues" [value]="enumRequiredFieldClass">
+              {{ 'sampleWebfluxMongodbOauth2App.EnumRequiredFieldClass.' + enumRequiredFieldClass | translate }}
+            </option>
+          </select>
+          <div
+            *ngIf="
+              editForm.get('enumRequiredBob')!.invalid &&
+              (editForm.get('enumRequiredBob')!.dirty || editForm.get('enumRequiredBob')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('enumRequiredBob')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.uuidBob"
+            for="field_uuidBob"
+            >Uuid Bob</label
+          >
+          <input type="text" class="form-control" name="uuidBob" id="field_uuidBob" data-cy="uuidBob" formControlName="uuidBob" />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.uuidRequiredBob"
+            for="field_uuidRequiredBob"
+            >Uuid Required Bob</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="uuidRequiredBob"
+            id="field_uuidRequiredBob"
+            data-cy="uuidRequiredBob"
+            formControlName="uuidRequiredBob"
+          />
+          <div
+            *ngIf="
+              editForm.get('uuidRequiredBob')!.invalid &&
+              (editForm.get('uuidRequiredBob')!.dirty || editForm.get('uuidRequiredBob')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('uuidRequiredBob')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.byteImageBob"
+            for="field_byteImageBob"
+            >Byte Image Bob</label
+          >
+          <div>
+            <img
+              [src]="'data:' + editForm.get('byteImageBobContentType')!.value + ';base64,' + editForm.get('byteImageBob')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('byteImageBob')!.value"
+              alt="fieldTestServiceClassAndJpaFilteringEntity image"
+            />
+            <div *ngIf="editForm.get('byteImageBob')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('byteImageBobContentType')!.value }}, {{ byteSize(editForm.get('byteImageBob')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('byteImageBob', 'byteImageBobContentType', 'file_byteImageBob')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteImageBob"
+              data-cy="byteImageBob"
+              (change)="setFileData($event, 'byteImageBob', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageBob"
+            id="field_byteImageBob"
+            data-cy="byteImageBob"
+            formControlName="byteImageBob"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageBobContentType"
+            id="field_byteImageBobContentType"
+            formControlName="byteImageBobContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.byteImageRequiredBob"
+            for="field_byteImageRequiredBob"
+            >Byte Image Required Bob</label
+          >
+          <div>
+            <img
+              [src]="
+                'data:' + editForm.get('byteImageRequiredBobContentType')!.value + ';base64,' + editForm.get('byteImageRequiredBob')!.value
+              "
+              style="max-height: 100px"
+              *ngIf="editForm.get('byteImageRequiredBob')!.value"
+              alt="fieldTestServiceClassAndJpaFilteringEntity image"
+            />
+            <div *ngIf="editForm.get('byteImageRequiredBob')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('byteImageRequiredBobContentType')!.value }},
+                {{ byteSize(editForm.get('byteImageRequiredBob')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('byteImageRequiredBob', 'byteImageRequiredBobContentType', 'file_byteImageRequiredBob')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteImageRequiredBob"
+              data-cy="byteImageRequiredBob"
+              (change)="setFileData($event, 'byteImageRequiredBob', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageRequiredBob"
+            id="field_byteImageRequiredBob"
+            data-cy="byteImageRequiredBob"
+            formControlName="byteImageRequiredBob"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageRequiredBobContentType"
+            id="field_byteImageRequiredBobContentType"
+            formControlName="byteImageRequiredBobContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('byteImageRequiredBob')!.invalid &&
+              (editForm.get('byteImageRequiredBob')!.dirty || editForm.get('byteImageRequiredBob')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('byteImageRequiredBob')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.byteImageMinbytesBob"
+            for="field_byteImageMinbytesBob"
+            >Byte Image Minbytes Bob</label
+          >
+          <div>
+            <img
+              [src]="
+                'data:' + editForm.get('byteImageMinbytesBobContentType')!.value + ';base64,' + editForm.get('byteImageMinbytesBob')!.value
+              "
+              style="max-height: 100px"
+              *ngIf="editForm.get('byteImageMinbytesBob')!.value"
+              alt="fieldTestServiceClassAndJpaFilteringEntity image"
+            />
+            <div *ngIf="editForm.get('byteImageMinbytesBob')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('byteImageMinbytesBobContentType')!.value }},
+                {{ byteSize(editForm.get('byteImageMinbytesBob')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('byteImageMinbytesBob', 'byteImageMinbytesBobContentType', 'file_byteImageMinbytesBob')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteImageMinbytesBob"
+              data-cy="byteImageMinbytesBob"
+              (change)="setFileData($event, 'byteImageMinbytesBob', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMinbytesBob"
+            id="field_byteImageMinbytesBob"
+            data-cy="byteImageMinbytesBob"
+            formControlName="byteImageMinbytesBob"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMinbytesBobContentType"
+            id="field_byteImageMinbytesBobContentType"
+            formControlName="byteImageMinbytesBobContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('byteImageMinbytesBob')!.invalid &&
+              (editForm.get('byteImageMinbytesBob')!.dirty || editForm.get('byteImageMinbytesBob')!.touched)
+            "
+          ></div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.byteImageMaxbytesBob"
+            for="field_byteImageMaxbytesBob"
+            >Byte Image Maxbytes Bob</label
+          >
+          <div>
+            <img
+              [src]="
+                'data:' + editForm.get('byteImageMaxbytesBobContentType')!.value + ';base64,' + editForm.get('byteImageMaxbytesBob')!.value
+              "
+              style="max-height: 100px"
+              *ngIf="editForm.get('byteImageMaxbytesBob')!.value"
+              alt="fieldTestServiceClassAndJpaFilteringEntity image"
+            />
+            <div *ngIf="editForm.get('byteImageMaxbytesBob')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('byteImageMaxbytesBobContentType')!.value }},
+                {{ byteSize(editForm.get('byteImageMaxbytesBob')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('byteImageMaxbytesBob', 'byteImageMaxbytesBobContentType', 'file_byteImageMaxbytesBob')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteImageMaxbytesBob"
+              data-cy="byteImageMaxbytesBob"
+              (change)="setFileData($event, 'byteImageMaxbytesBob', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMaxbytesBob"
+            id="field_byteImageMaxbytesBob"
+            data-cy="byteImageMaxbytesBob"
+            formControlName="byteImageMaxbytesBob"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMaxbytesBobContentType"
+            id="field_byteImageMaxbytesBobContentType"
+            formControlName="byteImageMaxbytesBobContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('byteImageMaxbytesBob')!.invalid &&
+              (editForm.get('byteImageMaxbytesBob')!.dirty || editForm.get('byteImageMaxbytesBob')!.touched)
+            "
+          ></div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.byteAnyBob"
+            for="field_byteAnyBob"
+            >Byte Any Bob</label
+          >
+          <div>
+            <div *ngIf="editForm.get('byteAnyBob')!.value" class="form-text text-danger clearfix">
+              <a
+                class="pull-start"
+                (click)="openFile(editForm.get('byteAnyBob')!.value!, editForm.get('byteAnyBobContentType')!.value!)"
+                jhiTranslate="entity.action.open"
+                >Open</a
+              ><br />
+              <span class="pull-start"
+                >{{ editForm.get('byteAnyBobContentType')!.value }}, {{ byteSize(editForm.get('byteAnyBob')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="editForm.patchValue({ byteAnyBob: undefined, byteAnyBobContentType: undefined })"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteAnyBob"
+              data-cy="byteAnyBob"
+              (change)="setFileData($event, 'byteAnyBob', false)"
+              jhiTranslate="entity.action.addblob"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyBob"
+            id="field_byteAnyBob"
+            data-cy="byteAnyBob"
+            formControlName="byteAnyBob"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyBobContentType"
+            id="field_byteAnyBobContentType"
+            formControlName="byteAnyBobContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.byteAnyRequiredBob"
+            for="field_byteAnyRequiredBob"
+            >Byte Any Required Bob</label
+          >
+          <div>
+            <div *ngIf="editForm.get('byteAnyRequiredBob')!.value" class="form-text text-danger clearfix">
+              <a
+                class="pull-start"
+                (click)="openFile(editForm.get('byteAnyRequiredBob')!.value!, editForm.get('byteAnyRequiredBobContentType')!.value!)"
+                jhiTranslate="entity.action.open"
+                >Open</a
+              ><br />
+              <span class="pull-start"
+                >{{ editForm.get('byteAnyRequiredBobContentType')!.value }},
+                {{ byteSize(editForm.get('byteAnyRequiredBob')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="editForm.patchValue({ byteAnyRequiredBob: undefined, byteAnyRequiredBobContentType: undefined })"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteAnyRequiredBob"
+              data-cy="byteAnyRequiredBob"
+              (change)="setFileData($event, 'byteAnyRequiredBob', false)"
+              jhiTranslate="entity.action.addblob"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyRequiredBob"
+            id="field_byteAnyRequiredBob"
+            data-cy="byteAnyRequiredBob"
+            formControlName="byteAnyRequiredBob"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyRequiredBobContentType"
+            id="field_byteAnyRequiredBobContentType"
+            formControlName="byteAnyRequiredBobContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('byteAnyRequiredBob')!.invalid &&
+              (editForm.get('byteAnyRequiredBob')!.dirty || editForm.get('byteAnyRequiredBob')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('byteAnyRequiredBob')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.byteAnyMinbytesBob"
+            for="field_byteAnyMinbytesBob"
+            >Byte Any Minbytes Bob</label
+          >
+          <div>
+            <div *ngIf="editForm.get('byteAnyMinbytesBob')!.value" class="form-text text-danger clearfix">
+              <a
+                class="pull-start"
+                (click)="openFile(editForm.get('byteAnyMinbytesBob')!.value!, editForm.get('byteAnyMinbytesBobContentType')!.value!)"
+                jhiTranslate="entity.action.open"
+                >Open</a
+              ><br />
+              <span class="pull-start"
+                >{{ editForm.get('byteAnyMinbytesBobContentType')!.value }},
+                {{ byteSize(editForm.get('byteAnyMinbytesBob')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="editForm.patchValue({ byteAnyMinbytesBob: undefined, byteAnyMinbytesBobContentType: undefined })"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteAnyMinbytesBob"
+              data-cy="byteAnyMinbytesBob"
+              (change)="setFileData($event, 'byteAnyMinbytesBob', false)"
+              jhiTranslate="entity.action.addblob"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMinbytesBob"
+            id="field_byteAnyMinbytesBob"
+            data-cy="byteAnyMinbytesBob"
+            formControlName="byteAnyMinbytesBob"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMinbytesBobContentType"
+            id="field_byteAnyMinbytesBobContentType"
+            formControlName="byteAnyMinbytesBobContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('byteAnyMinbytesBob')!.invalid &&
+              (editForm.get('byteAnyMinbytesBob')!.dirty || editForm.get('byteAnyMinbytesBob')!.touched)
+            "
+          ></div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.byteAnyMaxbytesBob"
+            for="field_byteAnyMaxbytesBob"
+            >Byte Any Maxbytes Bob</label
+          >
+          <div>
+            <div *ngIf="editForm.get('byteAnyMaxbytesBob')!.value" class="form-text text-danger clearfix">
+              <a
+                class="pull-start"
+                (click)="openFile(editForm.get('byteAnyMaxbytesBob')!.value!, editForm.get('byteAnyMaxbytesBobContentType')!.value!)"
+                jhiTranslate="entity.action.open"
+                >Open</a
+              ><br />
+              <span class="pull-start"
+                >{{ editForm.get('byteAnyMaxbytesBobContentType')!.value }},
+                {{ byteSize(editForm.get('byteAnyMaxbytesBob')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="editForm.patchValue({ byteAnyMaxbytesBob: undefined, byteAnyMaxbytesBobContentType: undefined })"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteAnyMaxbytesBob"
+              data-cy="byteAnyMaxbytesBob"
+              (change)="setFileData($event, 'byteAnyMaxbytesBob', false)"
+              jhiTranslate="entity.action.addblob"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMaxbytesBob"
+            id="field_byteAnyMaxbytesBob"
+            data-cy="byteAnyMaxbytesBob"
+            formControlName="byteAnyMaxbytesBob"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMaxbytesBobContentType"
+            id="field_byteAnyMaxbytesBobContentType"
+            formControlName="byteAnyMaxbytesBobContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('byteAnyMaxbytesBob')!.invalid &&
+              (editForm.get('byteAnyMaxbytesBob')!.dirty || editForm.get('byteAnyMaxbytesBob')!.touched)
+            "
+          ></div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.byteTextBob"
+            for="field_byteTextBob"
+            >Byte Text Bob</label
+          >
+          <textarea
+            class="form-control"
+            name="byteTextBob"
+            id="field_byteTextBob"
+            data-cy="byteTextBob"
+            formControlName="byteTextBob"
+          ></textarea>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.byteTextRequiredBob"
+            for="field_byteTextRequiredBob"
+            >Byte Text Required Bob</label
+          >
+          <textarea
+            class="form-control"
+            name="byteTextRequiredBob"
+            id="field_byteTextRequiredBob"
+            data-cy="byteTextRequiredBob"
+            formControlName="byteTextRequiredBob"
+          ></textarea>
+          <div
+            *ngIf="
+              editForm.get('byteTextRequiredBob')!.invalid &&
+              (editForm.get('byteTextRequiredBob')!.dirty || editForm.get('byteTextRequiredBob')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('byteTextRequiredBob')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

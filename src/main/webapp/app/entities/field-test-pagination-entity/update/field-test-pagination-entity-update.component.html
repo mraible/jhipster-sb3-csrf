@@ -1,0 +1,1693 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-field-test-pagination-entity-heading"
+        data-cy="FieldTestPaginationEntityCreateUpdateHeading"
+        jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.home.createOrEditLabel"
+      >
+        Create or edit a Field Test Pagination Entity
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.stringAlice"
+            for="field_stringAlice"
+            >String Alice</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringAlice"
+            id="field_stringAlice"
+            data-cy="stringAlice"
+            formControlName="stringAlice"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.stringRequiredAlice"
+            for="field_stringRequiredAlice"
+            >String Required Alice</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringRequiredAlice"
+            id="field_stringRequiredAlice"
+            data-cy="stringRequiredAlice"
+            formControlName="stringRequiredAlice"
+          />
+          <div
+            *ngIf="
+              editForm.get('stringRequiredAlice')!.invalid &&
+              (editForm.get('stringRequiredAlice')!.dirty || editForm.get('stringRequiredAlice')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('stringRequiredAlice')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.stringMinlengthAlice"
+            for="field_stringMinlengthAlice"
+            >String Minlength Alice</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringMinlengthAlice"
+            id="field_stringMinlengthAlice"
+            data-cy="stringMinlengthAlice"
+            formControlName="stringMinlengthAlice"
+          />
+          <div
+            *ngIf="
+              editForm.get('stringMinlengthAlice')!.invalid &&
+              (editForm.get('stringMinlengthAlice')!.dirty || editForm.get('stringMinlengthAlice')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('stringMinlengthAlice')?.errors?.minlength"
+              jhiTranslate="entity.validation.minlength"
+              [translateValues]="{ min: 0 }"
+            >
+              This field is required to be at least 0 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.stringMaxlengthAlice"
+            for="field_stringMaxlengthAlice"
+            >String Maxlength Alice</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringMaxlengthAlice"
+            id="field_stringMaxlengthAlice"
+            data-cy="stringMaxlengthAlice"
+            formControlName="stringMaxlengthAlice"
+          />
+          <div
+            *ngIf="
+              editForm.get('stringMaxlengthAlice')!.invalid &&
+              (editForm.get('stringMaxlengthAlice')!.dirty || editForm.get('stringMaxlengthAlice')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('stringMaxlengthAlice')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 20 }"
+            >
+              This field cannot be longer than 20 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.stringPatternAlice"
+            for="field_stringPatternAlice"
+            >String Pattern Alice</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringPatternAlice"
+            id="field_stringPatternAlice"
+            data-cy="stringPatternAlice"
+            formControlName="stringPatternAlice"
+          />
+          <div
+            *ngIf="
+              editForm.get('stringPatternAlice')!.invalid &&
+              (editForm.get('stringPatternAlice')!.dirty || editForm.get('stringPatternAlice')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('stringPatternAlice')?.errors?.pattern"
+              jhiTranslate="entity.validation.pattern"
+              [translateValues]="{ pattern: 'String Pattern Alice' }"
+            >
+              This field should follow pattern for String Pattern Alice.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.integerAlice"
+            for="field_integerAlice"
+            >Integer Alice</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerAlice"
+            id="field_integerAlice"
+            data-cy="integerAlice"
+            formControlName="integerAlice"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.integerRequiredAlice"
+            for="field_integerRequiredAlice"
+            >Integer Required Alice</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerRequiredAlice"
+            id="field_integerRequiredAlice"
+            data-cy="integerRequiredAlice"
+            formControlName="integerRequiredAlice"
+          />
+          <div
+            *ngIf="
+              editForm.get('integerRequiredAlice')!.invalid &&
+              (editForm.get('integerRequiredAlice')!.dirty || editForm.get('integerRequiredAlice')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('integerRequiredAlice')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('integerRequiredAlice')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.integerMinAlice"
+            for="field_integerMinAlice"
+            >Integer Min Alice</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerMinAlice"
+            id="field_integerMinAlice"
+            data-cy="integerMinAlice"
+            formControlName="integerMinAlice"
+          />
+          <div
+            *ngIf="
+              editForm.get('integerMinAlice')!.invalid &&
+              (editForm.get('integerMinAlice')!.dirty || editForm.get('integerMinAlice')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('integerMinAlice')?.errors?.min"
+              jhiTranslate="entity.validation.min"
+              [translateValues]="{ min: 0 }"
+            >
+              This field should be at least 0.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('integerMinAlice')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.integerMaxAlice"
+            for="field_integerMaxAlice"
+            >Integer Max Alice</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerMaxAlice"
+            id="field_integerMaxAlice"
+            data-cy="integerMaxAlice"
+            formControlName="integerMaxAlice"
+          />
+          <div
+            *ngIf="
+              editForm.get('integerMaxAlice')!.invalid &&
+              (editForm.get('integerMaxAlice')!.dirty || editForm.get('integerMaxAlice')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('integerMaxAlice')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be more than 100.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('integerMaxAlice')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.longAlice" for="field_longAlice"
+            >Long Alice</label
+          >
+          <input type="number" class="form-control" name="longAlice" id="field_longAlice" data-cy="longAlice" formControlName="longAlice" />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.longRequiredAlice"
+            for="field_longRequiredAlice"
+            >Long Required Alice</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="longRequiredAlice"
+            id="field_longRequiredAlice"
+            data-cy="longRequiredAlice"
+            formControlName="longRequiredAlice"
+          />
+          <div
+            *ngIf="
+              editForm.get('longRequiredAlice')!.invalid &&
+              (editForm.get('longRequiredAlice')!.dirty || editForm.get('longRequiredAlice')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('longRequiredAlice')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('longRequiredAlice')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.longMinAlice"
+            for="field_longMinAlice"
+            >Long Min Alice</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="longMinAlice"
+            id="field_longMinAlice"
+            data-cy="longMinAlice"
+            formControlName="longMinAlice"
+          />
+          <div
+            *ngIf="editForm.get('longMinAlice')!.invalid && (editForm.get('longMinAlice')!.dirty || editForm.get('longMinAlice')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('longMinAlice')?.errors?.min"
+              jhiTranslate="entity.validation.min"
+              [translateValues]="{ min: 0 }"
+            >
+              This field should be at least 0.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('longMinAlice')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.longMaxAlice"
+            for="field_longMaxAlice"
+            >Long Max Alice</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="longMaxAlice"
+            id="field_longMaxAlice"
+            data-cy="longMaxAlice"
+            formControlName="longMaxAlice"
+          />
+          <div
+            *ngIf="editForm.get('longMaxAlice')!.invalid && (editForm.get('longMaxAlice')!.dirty || editForm.get('longMaxAlice')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('longMaxAlice')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be more than 100.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('longMaxAlice')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.floatAlice" for="field_floatAlice"
+            >Float Alice</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="floatAlice"
+            id="field_floatAlice"
+            data-cy="floatAlice"
+            formControlName="floatAlice"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.floatRequiredAlice"
+            for="field_floatRequiredAlice"
+            >Float Required Alice</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="floatRequiredAlice"
+            id="field_floatRequiredAlice"
+            data-cy="floatRequiredAlice"
+            formControlName="floatRequiredAlice"
+          />
+          <div
+            *ngIf="
+              editForm.get('floatRequiredAlice')!.invalid &&
+              (editForm.get('floatRequiredAlice')!.dirty || editForm.get('floatRequiredAlice')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('floatRequiredAlice')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('floatRequiredAlice')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.floatMinAlice"
+            for="field_floatMinAlice"
+            >Float Min Alice</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="floatMinAlice"
+            id="field_floatMinAlice"
+            data-cy="floatMinAlice"
+            formControlName="floatMinAlice"
+          />
+          <div
+            *ngIf="
+              editForm.get('floatMinAlice')!.invalid && (editForm.get('floatMinAlice')!.dirty || editForm.get('floatMinAlice')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('floatMinAlice')?.errors?.min"
+              jhiTranslate="entity.validation.min"
+              [translateValues]="{ min: 0 }"
+            >
+              This field should be at least 0.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('floatMinAlice')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.floatMaxAlice"
+            for="field_floatMaxAlice"
+            >Float Max Alice</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="floatMaxAlice"
+            id="field_floatMaxAlice"
+            data-cy="floatMaxAlice"
+            formControlName="floatMaxAlice"
+          />
+          <div
+            *ngIf="
+              editForm.get('floatMaxAlice')!.invalid && (editForm.get('floatMaxAlice')!.dirty || editForm.get('floatMaxAlice')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('floatMaxAlice')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be more than 100.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('floatMaxAlice')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.doubleRequiredAlice"
+            for="field_doubleRequiredAlice"
+            >Double Required Alice</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="doubleRequiredAlice"
+            id="field_doubleRequiredAlice"
+            data-cy="doubleRequiredAlice"
+            formControlName="doubleRequiredAlice"
+          />
+          <div
+            *ngIf="
+              editForm.get('doubleRequiredAlice')!.invalid &&
+              (editForm.get('doubleRequiredAlice')!.dirty || editForm.get('doubleRequiredAlice')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('doubleRequiredAlice')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('doubleRequiredAlice')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.doubleMinAlice"
+            for="field_doubleMinAlice"
+            >Double Min Alice</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="doubleMinAlice"
+            id="field_doubleMinAlice"
+            data-cy="doubleMinAlice"
+            formControlName="doubleMinAlice"
+          />
+          <div
+            *ngIf="
+              editForm.get('doubleMinAlice')!.invalid && (editForm.get('doubleMinAlice')!.dirty || editForm.get('doubleMinAlice')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('doubleMinAlice')?.errors?.min"
+              jhiTranslate="entity.validation.min"
+              [translateValues]="{ min: 0 }"
+            >
+              This field should be at least 0.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('doubleMinAlice')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.doubleMaxAlice"
+            for="field_doubleMaxAlice"
+            >Double Max Alice</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="doubleMaxAlice"
+            id="field_doubleMaxAlice"
+            data-cy="doubleMaxAlice"
+            formControlName="doubleMaxAlice"
+          />
+          <div
+            *ngIf="
+              editForm.get('doubleMaxAlice')!.invalid && (editForm.get('doubleMaxAlice')!.dirty || editForm.get('doubleMaxAlice')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('doubleMaxAlice')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be more than 100.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('doubleMaxAlice')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.bigDecimalRequiredAlice"
+            for="field_bigDecimalRequiredAlice"
+            >Big Decimal Required Alice</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bigDecimalRequiredAlice"
+            id="field_bigDecimalRequiredAlice"
+            data-cy="bigDecimalRequiredAlice"
+            formControlName="bigDecimalRequiredAlice"
+          />
+          <div
+            *ngIf="
+              editForm.get('bigDecimalRequiredAlice')!.invalid &&
+              (editForm.get('bigDecimalRequiredAlice')!.dirty || editForm.get('bigDecimalRequiredAlice')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('bigDecimalRequiredAlice')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('bigDecimalRequiredAlice')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.bigDecimalMinAlice"
+            for="field_bigDecimalMinAlice"
+            >Big Decimal Min Alice</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bigDecimalMinAlice"
+            id="field_bigDecimalMinAlice"
+            data-cy="bigDecimalMinAlice"
+            formControlName="bigDecimalMinAlice"
+          />
+          <div
+            *ngIf="
+              editForm.get('bigDecimalMinAlice')!.invalid &&
+              (editForm.get('bigDecimalMinAlice')!.dirty || editForm.get('bigDecimalMinAlice')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('bigDecimalMinAlice')?.errors?.min"
+              jhiTranslate="entity.validation.min"
+              [translateValues]="{ min: 0 }"
+            >
+              This field should be at least 0.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('bigDecimalMinAlice')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.bigDecimalMaxAlice"
+            for="field_bigDecimalMaxAlice"
+            >Big Decimal Max Alice</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bigDecimalMaxAlice"
+            id="field_bigDecimalMaxAlice"
+            data-cy="bigDecimalMaxAlice"
+            formControlName="bigDecimalMaxAlice"
+          />
+          <div
+            *ngIf="
+              editForm.get('bigDecimalMaxAlice')!.invalid &&
+              (editForm.get('bigDecimalMaxAlice')!.dirty || editForm.get('bigDecimalMaxAlice')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('bigDecimalMaxAlice')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be more than 100.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('bigDecimalMaxAlice')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.localDateAlice"
+            for="field_localDateAlice"
+            >Local Date Alice</label
+          >
+          <div class="input-group">
+            <input
+              id="field_localDateAlice"
+              data-cy="localDateAlice"
+              type="text"
+              class="form-control"
+              name="localDateAlice"
+              ngbDatepicker
+              #localDateAliceDp="ngbDatepicker"
+              formControlName="localDateAlice"
+            />
+            <button type="button" class="btn btn-secondary" (click)="localDateAliceDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.localDateRequiredAlice"
+            for="field_localDateRequiredAlice"
+            >Local Date Required Alice</label
+          >
+          <div class="input-group">
+            <input
+              id="field_localDateRequiredAlice"
+              data-cy="localDateRequiredAlice"
+              type="text"
+              class="form-control"
+              name="localDateRequiredAlice"
+              ngbDatepicker
+              #localDateRequiredAliceDp="ngbDatepicker"
+              formControlName="localDateRequiredAlice"
+            />
+            <button type="button" class="btn btn-secondary" (click)="localDateRequiredAliceDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+          <div
+            *ngIf="
+              editForm.get('localDateRequiredAlice')!.invalid &&
+              (editForm.get('localDateRequiredAlice')!.dirty || editForm.get('localDateRequiredAlice')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('localDateRequiredAlice')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.instantAlice"
+            for="field_instantAlice"
+            >Instant Alice</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_instantAlice"
+              data-cy="instantAlice"
+              type="datetime-local"
+              class="form-control"
+              name="instantAlice"
+              formControlName="instantAlice"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.instanteRequiredAlice"
+            for="field_instanteRequiredAlice"
+            >Instante Required Alice</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_instanteRequiredAlice"
+              data-cy="instanteRequiredAlice"
+              type="datetime-local"
+              class="form-control"
+              name="instanteRequiredAlice"
+              formControlName="instanteRequiredAlice"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          <div
+            *ngIf="
+              editForm.get('instanteRequiredAlice')!.invalid &&
+              (editForm.get('instanteRequiredAlice')!.dirty || editForm.get('instanteRequiredAlice')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('instanteRequiredAlice')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('instanteRequiredAlice')?.errors?.datetimelocal"
+              jhiTranslate="entity.validation.datetimelocal"
+            >
+              This field should be a date and time.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.zonedDateTimeAlice"
+            for="field_zonedDateTimeAlice"
+            >Zoned Date Time Alice</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_zonedDateTimeAlice"
+              data-cy="zonedDateTimeAlice"
+              type="datetime-local"
+              class="form-control"
+              name="zonedDateTimeAlice"
+              formControlName="zonedDateTimeAlice"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.zonedDateTimeRequiredAlice"
+            for="field_zonedDateTimeRequiredAlice"
+            >Zoned Date Time Required Alice</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_zonedDateTimeRequiredAlice"
+              data-cy="zonedDateTimeRequiredAlice"
+              type="datetime-local"
+              class="form-control"
+              name="zonedDateTimeRequiredAlice"
+              formControlName="zonedDateTimeRequiredAlice"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          <div
+            *ngIf="
+              editForm.get('zonedDateTimeRequiredAlice')!.invalid &&
+              (editForm.get('zonedDateTimeRequiredAlice')!.dirty || editForm.get('zonedDateTimeRequiredAlice')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('zonedDateTimeRequiredAlice')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('zonedDateTimeRequiredAlice')?.errors?.datetimelocal"
+              jhiTranslate="entity.validation.datetimelocal"
+            >
+              This field should be a date and time.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.durationAlice"
+            for="field_durationAlice"
+            >Duration Alice</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="durationAlice"
+            id="field_durationAlice"
+            data-cy="durationAlice"
+            formControlName="durationAlice"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.durationRequiredAlice"
+            for="field_durationRequiredAlice"
+            >Duration Required Alice</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="durationRequiredAlice"
+            id="field_durationRequiredAlice"
+            data-cy="durationRequiredAlice"
+            formControlName="durationRequiredAlice"
+          />
+          <div
+            *ngIf="
+              editForm.get('durationRequiredAlice')!.invalid &&
+              (editForm.get('durationRequiredAlice')!.dirty || editForm.get('durationRequiredAlice')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('durationRequiredAlice')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('durationRequiredAlice')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.booleanAlice"
+            for="field_booleanAlice"
+            >Boolean Alice</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="booleanAlice"
+            id="field_booleanAlice"
+            data-cy="booleanAlice"
+            formControlName="booleanAlice"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.booleanRequiredAlice"
+            for="field_booleanRequiredAlice"
+            >Boolean Required Alice</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="booleanRequiredAlice"
+            id="field_booleanRequiredAlice"
+            data-cy="booleanRequiredAlice"
+            formControlName="booleanRequiredAlice"
+          />
+          <div
+            *ngIf="
+              editForm.get('booleanRequiredAlice')!.invalid &&
+              (editForm.get('booleanRequiredAlice')!.dirty || editForm.get('booleanRequiredAlice')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('booleanRequiredAlice')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.enumAlice" for="field_enumAlice"
+            >Enum Alice</label
+          >
+          <select class="form-control" name="enumAlice" formControlName="enumAlice" id="field_enumAlice" data-cy="enumAlice">
+            <option [ngValue]="null">{{ 'sampleWebfluxMongodbOauth2App.EnumFieldClass.null' | translate }}</option>
+            <option *ngFor="let enumFieldClass of enumFieldClassValues" [value]="enumFieldClass">
+              {{ 'sampleWebfluxMongodbOauth2App.EnumFieldClass.' + enumFieldClass | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.enumRequiredAlice"
+            for="field_enumRequiredAlice"
+            >Enum Required Alice</label
+          >
+          <select
+            class="form-control"
+            name="enumRequiredAlice"
+            formControlName="enumRequiredAlice"
+            id="field_enumRequiredAlice"
+            data-cy="enumRequiredAlice"
+          >
+            <option [ngValue]="null">{{ 'sampleWebfluxMongodbOauth2App.EnumRequiredFieldClass.null' | translate }}</option>
+            <option *ngFor="let enumRequiredFieldClass of enumRequiredFieldClassValues" [value]="enumRequiredFieldClass">
+              {{ 'sampleWebfluxMongodbOauth2App.EnumRequiredFieldClass.' + enumRequiredFieldClass | translate }}
+            </option>
+          </select>
+          <div
+            *ngIf="
+              editForm.get('enumRequiredAlice')!.invalid &&
+              (editForm.get('enumRequiredAlice')!.dirty || editForm.get('enumRequiredAlice')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('enumRequiredAlice')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.uuidAlice" for="field_uuidAlice"
+            >Uuid Alice</label
+          >
+          <input type="text" class="form-control" name="uuidAlice" id="field_uuidAlice" data-cy="uuidAlice" formControlName="uuidAlice" />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.uuidRequiredAlice"
+            for="field_uuidRequiredAlice"
+            >Uuid Required Alice</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="uuidRequiredAlice"
+            id="field_uuidRequiredAlice"
+            data-cy="uuidRequiredAlice"
+            formControlName="uuidRequiredAlice"
+          />
+          <div
+            *ngIf="
+              editForm.get('uuidRequiredAlice')!.invalid &&
+              (editForm.get('uuidRequiredAlice')!.dirty || editForm.get('uuidRequiredAlice')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('uuidRequiredAlice')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.byteImageAlice"
+            for="field_byteImageAlice"
+            >Byte Image Alice</label
+          >
+          <div>
+            <img
+              [src]="'data:' + editForm.get('byteImageAliceContentType')!.value + ';base64,' + editForm.get('byteImageAlice')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('byteImageAlice')!.value"
+              alt="fieldTestPaginationEntity image"
+            />
+            <div *ngIf="editForm.get('byteImageAlice')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('byteImageAliceContentType')!.value }}, {{ byteSize(editForm.get('byteImageAlice')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('byteImageAlice', 'byteImageAliceContentType', 'file_byteImageAlice')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteImageAlice"
+              data-cy="byteImageAlice"
+              (change)="setFileData($event, 'byteImageAlice', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageAlice"
+            id="field_byteImageAlice"
+            data-cy="byteImageAlice"
+            formControlName="byteImageAlice"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageAliceContentType"
+            id="field_byteImageAliceContentType"
+            formControlName="byteImageAliceContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.byteImageRequiredAlice"
+            for="field_byteImageRequiredAlice"
+            >Byte Image Required Alice</label
+          >
+          <div>
+            <img
+              [src]="
+                'data:' +
+                editForm.get('byteImageRequiredAliceContentType')!.value +
+                ';base64,' +
+                editForm.get('byteImageRequiredAlice')!.value
+              "
+              style="max-height: 100px"
+              *ngIf="editForm.get('byteImageRequiredAlice')!.value"
+              alt="fieldTestPaginationEntity image"
+            />
+            <div *ngIf="editForm.get('byteImageRequiredAlice')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('byteImageRequiredAliceContentType')!.value }},
+                {{ byteSize(editForm.get('byteImageRequiredAlice')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('byteImageRequiredAlice', 'byteImageRequiredAliceContentType', 'file_byteImageRequiredAlice')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteImageRequiredAlice"
+              data-cy="byteImageRequiredAlice"
+              (change)="setFileData($event, 'byteImageRequiredAlice', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageRequiredAlice"
+            id="field_byteImageRequiredAlice"
+            data-cy="byteImageRequiredAlice"
+            formControlName="byteImageRequiredAlice"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageRequiredAliceContentType"
+            id="field_byteImageRequiredAliceContentType"
+            formControlName="byteImageRequiredAliceContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('byteImageRequiredAlice')!.invalid &&
+              (editForm.get('byteImageRequiredAlice')!.dirty || editForm.get('byteImageRequiredAlice')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('byteImageRequiredAlice')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.byteImageMinbytesAlice"
+            for="field_byteImageMinbytesAlice"
+            >Byte Image Minbytes Alice</label
+          >
+          <div>
+            <img
+              [src]="
+                'data:' +
+                editForm.get('byteImageMinbytesAliceContentType')!.value +
+                ';base64,' +
+                editForm.get('byteImageMinbytesAlice')!.value
+              "
+              style="max-height: 100px"
+              *ngIf="editForm.get('byteImageMinbytesAlice')!.value"
+              alt="fieldTestPaginationEntity image"
+            />
+            <div *ngIf="editForm.get('byteImageMinbytesAlice')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('byteImageMinbytesAliceContentType')!.value }},
+                {{ byteSize(editForm.get('byteImageMinbytesAlice')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('byteImageMinbytesAlice', 'byteImageMinbytesAliceContentType', 'file_byteImageMinbytesAlice')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteImageMinbytesAlice"
+              data-cy="byteImageMinbytesAlice"
+              (change)="setFileData($event, 'byteImageMinbytesAlice', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMinbytesAlice"
+            id="field_byteImageMinbytesAlice"
+            data-cy="byteImageMinbytesAlice"
+            formControlName="byteImageMinbytesAlice"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMinbytesAliceContentType"
+            id="field_byteImageMinbytesAliceContentType"
+            formControlName="byteImageMinbytesAliceContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('byteImageMinbytesAlice')!.invalid &&
+              (editForm.get('byteImageMinbytesAlice')!.dirty || editForm.get('byteImageMinbytesAlice')!.touched)
+            "
+          ></div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.byteImageMaxbytesAlice"
+            for="field_byteImageMaxbytesAlice"
+            >Byte Image Maxbytes Alice</label
+          >
+          <div>
+            <img
+              [src]="
+                'data:' +
+                editForm.get('byteImageMaxbytesAliceContentType')!.value +
+                ';base64,' +
+                editForm.get('byteImageMaxbytesAlice')!.value
+              "
+              style="max-height: 100px"
+              *ngIf="editForm.get('byteImageMaxbytesAlice')!.value"
+              alt="fieldTestPaginationEntity image"
+            />
+            <div *ngIf="editForm.get('byteImageMaxbytesAlice')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('byteImageMaxbytesAliceContentType')!.value }},
+                {{ byteSize(editForm.get('byteImageMaxbytesAlice')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('byteImageMaxbytesAlice', 'byteImageMaxbytesAliceContentType', 'file_byteImageMaxbytesAlice')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteImageMaxbytesAlice"
+              data-cy="byteImageMaxbytesAlice"
+              (change)="setFileData($event, 'byteImageMaxbytesAlice', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMaxbytesAlice"
+            id="field_byteImageMaxbytesAlice"
+            data-cy="byteImageMaxbytesAlice"
+            formControlName="byteImageMaxbytesAlice"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMaxbytesAliceContentType"
+            id="field_byteImageMaxbytesAliceContentType"
+            formControlName="byteImageMaxbytesAliceContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('byteImageMaxbytesAlice')!.invalid &&
+              (editForm.get('byteImageMaxbytesAlice')!.dirty || editForm.get('byteImageMaxbytesAlice')!.touched)
+            "
+          ></div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.byteAnyAlice"
+            for="field_byteAnyAlice"
+            >Byte Any Alice</label
+          >
+          <div>
+            <div *ngIf="editForm.get('byteAnyAlice')!.value" class="form-text text-danger clearfix">
+              <a
+                class="pull-start"
+                (click)="openFile(editForm.get('byteAnyAlice')!.value!, editForm.get('byteAnyAliceContentType')!.value!)"
+                jhiTranslate="entity.action.open"
+                >Open</a
+              ><br />
+              <span class="pull-start"
+                >{{ editForm.get('byteAnyAliceContentType')!.value }}, {{ byteSize(editForm.get('byteAnyAlice')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="editForm.patchValue({ byteAnyAlice: undefined, byteAnyAliceContentType: undefined })"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteAnyAlice"
+              data-cy="byteAnyAlice"
+              (change)="setFileData($event, 'byteAnyAlice', false)"
+              jhiTranslate="entity.action.addblob"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyAlice"
+            id="field_byteAnyAlice"
+            data-cy="byteAnyAlice"
+            formControlName="byteAnyAlice"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyAliceContentType"
+            id="field_byteAnyAliceContentType"
+            formControlName="byteAnyAliceContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.byteAnyRequiredAlice"
+            for="field_byteAnyRequiredAlice"
+            >Byte Any Required Alice</label
+          >
+          <div>
+            <div *ngIf="editForm.get('byteAnyRequiredAlice')!.value" class="form-text text-danger clearfix">
+              <a
+                class="pull-start"
+                (click)="openFile(editForm.get('byteAnyRequiredAlice')!.value!, editForm.get('byteAnyRequiredAliceContentType')!.value!)"
+                jhiTranslate="entity.action.open"
+                >Open</a
+              ><br />
+              <span class="pull-start"
+                >{{ editForm.get('byteAnyRequiredAliceContentType')!.value }},
+                {{ byteSize(editForm.get('byteAnyRequiredAlice')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="editForm.patchValue({ byteAnyRequiredAlice: undefined, byteAnyRequiredAliceContentType: undefined })"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteAnyRequiredAlice"
+              data-cy="byteAnyRequiredAlice"
+              (change)="setFileData($event, 'byteAnyRequiredAlice', false)"
+              jhiTranslate="entity.action.addblob"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyRequiredAlice"
+            id="field_byteAnyRequiredAlice"
+            data-cy="byteAnyRequiredAlice"
+            formControlName="byteAnyRequiredAlice"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyRequiredAliceContentType"
+            id="field_byteAnyRequiredAliceContentType"
+            formControlName="byteAnyRequiredAliceContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('byteAnyRequiredAlice')!.invalid &&
+              (editForm.get('byteAnyRequiredAlice')!.dirty || editForm.get('byteAnyRequiredAlice')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('byteAnyRequiredAlice')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.byteAnyMinbytesAlice"
+            for="field_byteAnyMinbytesAlice"
+            >Byte Any Minbytes Alice</label
+          >
+          <div>
+            <div *ngIf="editForm.get('byteAnyMinbytesAlice')!.value" class="form-text text-danger clearfix">
+              <a
+                class="pull-start"
+                (click)="openFile(editForm.get('byteAnyMinbytesAlice')!.value!, editForm.get('byteAnyMinbytesAliceContentType')!.value!)"
+                jhiTranslate="entity.action.open"
+                >Open</a
+              ><br />
+              <span class="pull-start"
+                >{{ editForm.get('byteAnyMinbytesAliceContentType')!.value }},
+                {{ byteSize(editForm.get('byteAnyMinbytesAlice')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="editForm.patchValue({ byteAnyMinbytesAlice: undefined, byteAnyMinbytesAliceContentType: undefined })"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteAnyMinbytesAlice"
+              data-cy="byteAnyMinbytesAlice"
+              (change)="setFileData($event, 'byteAnyMinbytesAlice', false)"
+              jhiTranslate="entity.action.addblob"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMinbytesAlice"
+            id="field_byteAnyMinbytesAlice"
+            data-cy="byteAnyMinbytesAlice"
+            formControlName="byteAnyMinbytesAlice"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMinbytesAliceContentType"
+            id="field_byteAnyMinbytesAliceContentType"
+            formControlName="byteAnyMinbytesAliceContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('byteAnyMinbytesAlice')!.invalid &&
+              (editForm.get('byteAnyMinbytesAlice')!.dirty || editForm.get('byteAnyMinbytesAlice')!.touched)
+            "
+          ></div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.byteAnyMaxbytesAlice"
+            for="field_byteAnyMaxbytesAlice"
+            >Byte Any Maxbytes Alice</label
+          >
+          <div>
+            <div *ngIf="editForm.get('byteAnyMaxbytesAlice')!.value" class="form-text text-danger clearfix">
+              <a
+                class="pull-start"
+                (click)="openFile(editForm.get('byteAnyMaxbytesAlice')!.value!, editForm.get('byteAnyMaxbytesAliceContentType')!.value!)"
+                jhiTranslate="entity.action.open"
+                >Open</a
+              ><br />
+              <span class="pull-start"
+                >{{ editForm.get('byteAnyMaxbytesAliceContentType')!.value }},
+                {{ byteSize(editForm.get('byteAnyMaxbytesAlice')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="editForm.patchValue({ byteAnyMaxbytesAlice: undefined, byteAnyMaxbytesAliceContentType: undefined })"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteAnyMaxbytesAlice"
+              data-cy="byteAnyMaxbytesAlice"
+              (change)="setFileData($event, 'byteAnyMaxbytesAlice', false)"
+              jhiTranslate="entity.action.addblob"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMaxbytesAlice"
+            id="field_byteAnyMaxbytesAlice"
+            data-cy="byteAnyMaxbytesAlice"
+            formControlName="byteAnyMaxbytesAlice"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMaxbytesAliceContentType"
+            id="field_byteAnyMaxbytesAliceContentType"
+            formControlName="byteAnyMaxbytesAliceContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('byteAnyMaxbytesAlice')!.invalid &&
+              (editForm.get('byteAnyMaxbytesAlice')!.dirty || editForm.get('byteAnyMaxbytesAlice')!.touched)
+            "
+          ></div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.byteTextAlice"
+            for="field_byteTextAlice"
+            >Byte Text Alice</label
+          >
+          <textarea
+            class="form-control"
+            name="byteTextAlice"
+            id="field_byteTextAlice"
+            data-cy="byteTextAlice"
+            formControlName="byteTextAlice"
+          ></textarea>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.byteTextRequiredAlice"
+            for="field_byteTextRequiredAlice"
+            >Byte Text Required Alice</label
+          >
+          <textarea
+            class="form-control"
+            name="byteTextRequiredAlice"
+            id="field_byteTextRequiredAlice"
+            data-cy="byteTextRequiredAlice"
+            formControlName="byteTextRequiredAlice"
+          ></textarea>
+          <div
+            *ngIf="
+              editForm.get('byteTextRequiredAlice')!.invalid &&
+              (editForm.get('byteTextRequiredAlice')!.dirty || editForm.get('byteTextRequiredAlice')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('byteTextRequiredAlice')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

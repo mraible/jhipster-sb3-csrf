@@ -1,0 +1,10 @@
+{
+  "sampleWebfluxMongodbOauth2App": {
+    "DivisionType": {
+      "null": "",
+      "SCHOOL": "SCHOOL",
+      "CLASS": "CLASS",
+      "SUBGROUP": "SUBGROUP"
+    }
+  }
+}

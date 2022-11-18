@@ -1,0 +1,414 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="fieldTestInfiniteScrollEntity">
+      <h2 data-cy="fieldTestInfiniteScrollEntityDetailsHeading">
+        <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.detail.title"
+          >Field Test Infinite Scroll Entity</span
+        >
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ fieldTestInfiniteScrollEntity.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.stringHugo">String Hugo</span></dt>
+        <dd>
+          <span>{{ fieldTestInfiniteScrollEntity.stringHugo }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.stringRequiredHugo">String Required Hugo</span>
+        </dt>
+        <dd>
+          <span>{{ fieldTestInfiniteScrollEntity.stringRequiredHugo }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.stringMinlengthHugo">String Minlength Hugo</span>
+        </dt>
+        <dd>
+          <span>{{ fieldTestInfiniteScrollEntity.stringMinlengthHugo }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.stringMaxlengthHugo">String Maxlength Hugo</span>
+        </dt>
+        <dd>
+          <span>{{ fieldTestInfiniteScrollEntity.stringMaxlengthHugo }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.stringPatternHugo">String Pattern Hugo</span>
+        </dt>
+        <dd>
+          <span>{{ fieldTestInfiniteScrollEntity.stringPatternHugo }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.integerHugo">Integer Hugo</span></dt>
+        <dd>
+          <span>{{ fieldTestInfiniteScrollEntity.integerHugo }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.integerRequiredHugo">Integer Required Hugo</span>
+        </dt>
+        <dd>
+          <span>{{ fieldTestInfiniteScrollEntity.integerRequiredHugo }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.integerMinHugo">Integer Min Hugo</span></dt>
+        <dd>
+          <span>{{ fieldTestInfiniteScrollEntity.integerMinHugo }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.integerMaxHugo">Integer Max Hugo</span></dt>
+        <dd>
+          <span>{{ fieldTestInfiniteScrollEntity.integerMaxHugo }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.longHugo">Long Hugo</span></dt>
+        <dd>
+          <span>{{ fieldTestInfiniteScrollEntity.longHugo }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.longRequiredHugo">Long Required Hugo</span></dt>
+        <dd>
+          <span>{{ fieldTestInfiniteScrollEntity.longRequiredHugo }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.longMinHugo">Long Min Hugo</span></dt>
+        <dd>
+          <span>{{ fieldTestInfiniteScrollEntity.longMinHugo }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.longMaxHugo">Long Max Hugo</span></dt>
+        <dd>
+          <span>{{ fieldTestInfiniteScrollEntity.longMaxHugo }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.floatHugo">Float Hugo</span></dt>
+        <dd>
+          <span>{{ fieldTestInfiniteScrollEntity.floatHugo }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.floatRequiredHugo">Float Required Hugo</span>
+        </dt>
+        <dd>
+          <span>{{ fieldTestInfiniteScrollEntity.floatRequiredHugo }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.floatMinHugo">Float Min Hugo</span></dt>
+        <dd>
+          <span>{{ fieldTestInfiniteScrollEntity.floatMinHugo }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.floatMaxHugo">Float Max Hugo</span></dt>
+        <dd>
+          <span>{{ fieldTestInfiniteScrollEntity.floatMaxHugo }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.doubleRequiredHugo">Double Required Hugo</span>
+        </dt>
+        <dd>
+          <span>{{ fieldTestInfiniteScrollEntity.doubleRequiredHugo }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.doubleMinHugo">Double Min Hugo</span></dt>
+        <dd>
+          <span>{{ fieldTestInfiniteScrollEntity.doubleMinHugo }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.doubleMaxHugo">Double Max Hugo</span></dt>
+        <dd>
+          <span>{{ fieldTestInfiniteScrollEntity.doubleMaxHugo }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.bigDecimalRequiredHugo"
+            >Big Decimal Required Hugo</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fieldTestInfiniteScrollEntity.bigDecimalRequiredHugo }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.bigDecimalMinHugo">Big Decimal Min Hugo</span>
+        </dt>
+        <dd>
+          <span>{{ fieldTestInfiniteScrollEntity.bigDecimalMinHugo }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.bigDecimalMaxHugo">Big Decimal Max Hugo</span>
+        </dt>
+        <dd>
+          <span>{{ fieldTestInfiniteScrollEntity.bigDecimalMaxHugo }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.localDateHugo">Local Date Hugo</span></dt>
+        <dd>
+          <span>{{ fieldTestInfiniteScrollEntity.localDateHugo | formatMediumDate }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.localDateRequiredHugo"
+            >Local Date Required Hugo</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fieldTestInfiniteScrollEntity.localDateRequiredHugo | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.instantHugo">Instant Hugo</span></dt>
+        <dd>
+          <span>{{ fieldTestInfiniteScrollEntity.instantHugo | formatMediumDatetime }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.instanteRequiredHugo"
+            >Instante Required Hugo</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fieldTestInfiniteScrollEntity.instanteRequiredHugo | formatMediumDatetime }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.zonedDateTimeHugo">Zoned Date Time Hugo</span>
+        </dt>
+        <dd>
+          <span>{{ fieldTestInfiniteScrollEntity.zonedDateTimeHugo | formatMediumDatetime }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.zonedDateTimeRequiredHugo"
+            >Zoned Date Time Required Hugo</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fieldTestInfiniteScrollEntity.zonedDateTimeRequiredHugo | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.durationHugo">Duration Hugo</span></dt>
+        <dd>
+          <span>{{ fieldTestInfiniteScrollEntity.durationHugo | duration }} ({{ fieldTestInfiniteScrollEntity.durationHugo }})</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.durationRequiredHugo"
+            >Duration Required Hugo</span
+          >
+        </dt>
+        <dd>
+          <span
+            >{{ fieldTestInfiniteScrollEntity.durationRequiredHugo | duration }} ({{
+              fieldTestInfiniteScrollEntity.durationRequiredHugo
+            }})</span
+          >
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.booleanHugo">Boolean Hugo</span></dt>
+        <dd>
+          <span>{{ fieldTestInfiniteScrollEntity.booleanHugo }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.booleanRequiredHugo">Boolean Required Hugo</span>
+        </dt>
+        <dd>
+          <span>{{ fieldTestInfiniteScrollEntity.booleanRequiredHugo }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.enumHugo">Enum Hugo</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'sampleWebfluxMongodbOauth2App.EnumFieldClass.' + fieldTestInfiniteScrollEntity.enumHugo }}">{{
+            fieldTestInfiniteScrollEntity.enumHugo
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.enumRequiredHugo">Enum Required Hugo</span></dt>
+        <dd>
+          <span
+            jhiTranslate="{{ 'sampleWebfluxMongodbOauth2App.EnumRequiredFieldClass.' + fieldTestInfiniteScrollEntity.enumRequiredHugo }}"
+            >{{ fieldTestInfiniteScrollEntity.enumRequiredHugo }}</span
+          >
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.uuidHugo">Uuid Hugo</span></dt>
+        <dd>
+          <span>{{ fieldTestInfiniteScrollEntity.uuidHugo }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.uuidRequiredHugo">Uuid Required Hugo</span></dt>
+        <dd>
+          <span>{{ fieldTestInfiniteScrollEntity.uuidRequiredHugo }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.byteImageHugo">Byte Image Hugo</span></dt>
+        <dd>
+          <div *ngIf="fieldTestInfiniteScrollEntity.byteImageHugo">
+            <a (click)="openFile(fieldTestInfiniteScrollEntity.byteImageHugo, fieldTestInfiniteScrollEntity.byteImageHugoContentType)">
+              <img
+                [src]="
+                  'data:' +
+                  fieldTestInfiniteScrollEntity.byteImageHugoContentType +
+                  ';base64,' +
+                  fieldTestInfiniteScrollEntity.byteImageHugo
+                "
+                style="max-width: 100%"
+                alt="fieldTestInfiniteScrollEntity image"
+              />
+            </a>
+            {{ fieldTestInfiniteScrollEntity.byteImageHugoContentType }}, {{ byteSize(fieldTestInfiniteScrollEntity.byteImageHugo) }}
+          </div>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.byteImageRequiredHugo"
+            >Byte Image Required Hugo</span
+          >
+        </dt>
+        <dd>
+          <div *ngIf="fieldTestInfiniteScrollEntity.byteImageRequiredHugo">
+            <a
+              (click)="
+                openFile(
+                  fieldTestInfiniteScrollEntity.byteImageRequiredHugo,
+                  fieldTestInfiniteScrollEntity.byteImageRequiredHugoContentType
+                )
+              "
+            >
+              <img
+                [src]="
+                  'data:' +
+                  fieldTestInfiniteScrollEntity.byteImageRequiredHugoContentType +
+                  ';base64,' +
+                  fieldTestInfiniteScrollEntity.byteImageRequiredHugo
+                "
+                style="max-width: 100%"
+                alt="fieldTestInfiniteScrollEntity image"
+              />
+            </a>
+            {{ fieldTestInfiniteScrollEntity.byteImageRequiredHugoContentType }},
+            {{ byteSize(fieldTestInfiniteScrollEntity.byteImageRequiredHugo) }}
+          </div>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.byteImageMinbytesHugo"
+            >Byte Image Minbytes Hugo</span
+          >
+        </dt>
+        <dd>
+          <div *ngIf="fieldTestInfiniteScrollEntity.byteImageMinbytesHugo">
+            <a
+              (click)="
+                openFile(
+                  fieldTestInfiniteScrollEntity.byteImageMinbytesHugo,
+                  fieldTestInfiniteScrollEntity.byteImageMinbytesHugoContentType
+                )
+              "
+            >
+              <img
+                [src]="
+                  'data:' +
+                  fieldTestInfiniteScrollEntity.byteImageMinbytesHugoContentType +
+                  ';base64,' +
+                  fieldTestInfiniteScrollEntity.byteImageMinbytesHugo
+                "
+                style="max-width: 100%"
+                alt="fieldTestInfiniteScrollEntity image"
+              />
+            </a>
+            {{ fieldTestInfiniteScrollEntity.byteImageMinbytesHugoContentType }},
+            {{ byteSize(fieldTestInfiniteScrollEntity.byteImageMinbytesHugo) }}
+          </div>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.byteImageMaxbytesHugo"
+            >Byte Image Maxbytes Hugo</span
+          >
+        </dt>
+        <dd>
+          <div *ngIf="fieldTestInfiniteScrollEntity.byteImageMaxbytesHugo">
+            <a
+              (click)="
+                openFile(
+                  fieldTestInfiniteScrollEntity.byteImageMaxbytesHugo,
+                  fieldTestInfiniteScrollEntity.byteImageMaxbytesHugoContentType
+                )
+              "
+            >
+              <img
+                [src]="
+                  'data:' +
+                  fieldTestInfiniteScrollEntity.byteImageMaxbytesHugoContentType +
+                  ';base64,' +
+                  fieldTestInfiniteScrollEntity.byteImageMaxbytesHugo
+                "
+                style="max-width: 100%"
+                alt="fieldTestInfiniteScrollEntity image"
+              />
+            </a>
+            {{ fieldTestInfiniteScrollEntity.byteImageMaxbytesHugoContentType }},
+            {{ byteSize(fieldTestInfiniteScrollEntity.byteImageMaxbytesHugo) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.byteAnyHugo">Byte Any Hugo</span></dt>
+        <dd>
+          <div *ngIf="fieldTestInfiniteScrollEntity.byteAnyHugo">
+            <a
+              (click)="openFile(fieldTestInfiniteScrollEntity.byteAnyHugo, fieldTestInfiniteScrollEntity.byteAnyHugoContentType)"
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            {{ fieldTestInfiniteScrollEntity.byteAnyHugoContentType }}, {{ byteSize(fieldTestInfiniteScrollEntity.byteAnyHugo) }}
+          </div>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.byteAnyRequiredHugo">Byte Any Required Hugo</span>
+        </dt>
+        <dd>
+          <div *ngIf="fieldTestInfiniteScrollEntity.byteAnyRequiredHugo">
+            <a
+              (click)="
+                openFile(fieldTestInfiniteScrollEntity.byteAnyRequiredHugo, fieldTestInfiniteScrollEntity.byteAnyRequiredHugoContentType)
+              "
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            {{ fieldTestInfiniteScrollEntity.byteAnyRequiredHugoContentType }},
+            {{ byteSize(fieldTestInfiniteScrollEntity.byteAnyRequiredHugo) }}
+          </div>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.byteAnyMinbytesHugo">Byte Any Minbytes Hugo</span>
+        </dt>
+        <dd>
+          <div *ngIf="fieldTestInfiniteScrollEntity.byteAnyMinbytesHugo">
+            <a
+              (click)="
+                openFile(fieldTestInfiniteScrollEntity.byteAnyMinbytesHugo, fieldTestInfiniteScrollEntity.byteAnyMinbytesHugoContentType)
+              "
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            {{ fieldTestInfiniteScrollEntity.byteAnyMinbytesHugoContentType }},
+            {{ byteSize(fieldTestInfiniteScrollEntity.byteAnyMinbytesHugo) }}
+          </div>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.byteAnyMaxbytesHugo">Byte Any Maxbytes Hugo</span>
+        </dt>
+        <dd>
+          <div *ngIf="fieldTestInfiniteScrollEntity.byteAnyMaxbytesHugo">
+            <a
+              (click)="
+                openFile(fieldTestInfiniteScrollEntity.byteAnyMaxbytesHugo, fieldTestInfiniteScrollEntity.byteAnyMaxbytesHugoContentType)
+              "
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            {{ fieldTestInfiniteScrollEntity.byteAnyMaxbytesHugoContentType }},
+            {{ byteSize(fieldTestInfiniteScrollEntity.byteAnyMaxbytesHugo) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.byteTextHugo">Byte Text Hugo</span></dt>
+        <dd>
+          <span>{{ fieldTestInfiniteScrollEntity.byteTextHugo }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.byteTextRequiredHugo"
+            >Byte Text Required Hugo</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fieldTestInfiniteScrollEntity.byteTextRequiredHugo }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button
+        type="button"
+        [routerLink]="['/field-test-infinite-scroll-entity', fieldTestInfiniteScrollEntity.id, 'edit']"
+        class="btn btn-primary"
+      >
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

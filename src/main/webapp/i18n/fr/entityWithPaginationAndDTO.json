@@ -1,0 +1,24 @@
+{
+  "sampleWebfluxMongodbOauth2App": {
+    "entityWithPaginationAndDTO": {
+      "home": {
+        "title": "EntityWithPaginationAndDTOS",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Entity With Pagination And DTO",
+        "createOrEditLabel": "Créer ou éditer un Entity With Pagination And DTO",
+        "notFound": "Aucun Entity With Pagination And DTO trouvé"
+      },
+      "created": "Un nouveau Entity With Pagination And DTO a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Entity With Pagination And DTO avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Entity With Pagination And DTO avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Entity With Pagination And DTO {{ id }} ?"
+      },
+      "detail": {
+        "title": "Entity With Pagination And DTO"
+      },
+      "id": "ID",
+      "lea": "Lea"
+    }
+  }
+}

@@ -1,0 +1,373 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="fieldTestServiceImplEntity">
+      <h2 data-cy="fieldTestServiceImplEntityDetailsHeading">
+        <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.detail.title">Field Test Service Impl Entity</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ fieldTestServiceImplEntity.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.stringMika">String Mika</span></dt>
+        <dd>
+          <span>{{ fieldTestServiceImplEntity.stringMika }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.stringRequiredMika">String Required Mika</span>
+        </dt>
+        <dd>
+          <span>{{ fieldTestServiceImplEntity.stringRequiredMika }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.stringMinlengthMika">String Minlength Mika</span>
+        </dt>
+        <dd>
+          <span>{{ fieldTestServiceImplEntity.stringMinlengthMika }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.stringMaxlengthMika">String Maxlength Mika</span>
+        </dt>
+        <dd>
+          <span>{{ fieldTestServiceImplEntity.stringMaxlengthMika }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.stringPatternMika">String Pattern Mika</span></dt>
+        <dd>
+          <span>{{ fieldTestServiceImplEntity.stringPatternMika }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.integerMika">Integer Mika</span></dt>
+        <dd>
+          <span>{{ fieldTestServiceImplEntity.integerMika }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.integerRequiredMika">Integer Required Mika</span>
+        </dt>
+        <dd>
+          <span>{{ fieldTestServiceImplEntity.integerRequiredMika }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.integerMinMika">Integer Min Mika</span></dt>
+        <dd>
+          <span>{{ fieldTestServiceImplEntity.integerMinMika }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.integerMaxMika">Integer Max Mika</span></dt>
+        <dd>
+          <span>{{ fieldTestServiceImplEntity.integerMaxMika }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.longMika">Long Mika</span></dt>
+        <dd>
+          <span>{{ fieldTestServiceImplEntity.longMika }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.longRequiredMika">Long Required Mika</span></dt>
+        <dd>
+          <span>{{ fieldTestServiceImplEntity.longRequiredMika }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.longMinMika">Long Min Mika</span></dt>
+        <dd>
+          <span>{{ fieldTestServiceImplEntity.longMinMika }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.longMaxMika">Long Max Mika</span></dt>
+        <dd>
+          <span>{{ fieldTestServiceImplEntity.longMaxMika }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.floatMika">Float Mika</span></dt>
+        <dd>
+          <span>{{ fieldTestServiceImplEntity.floatMika }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.floatRequiredMika">Float Required Mika</span></dt>
+        <dd>
+          <span>{{ fieldTestServiceImplEntity.floatRequiredMika }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.floatMinMika">Float Min Mika</span></dt>
+        <dd>
+          <span>{{ fieldTestServiceImplEntity.floatMinMika }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.floatMaxMika">Float Max Mika</span></dt>
+        <dd>
+          <span>{{ fieldTestServiceImplEntity.floatMaxMika }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.doubleRequiredMika">Double Required Mika</span>
+        </dt>
+        <dd>
+          <span>{{ fieldTestServiceImplEntity.doubleRequiredMika }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.doubleMinMika">Double Min Mika</span></dt>
+        <dd>
+          <span>{{ fieldTestServiceImplEntity.doubleMinMika }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.doubleMaxMika">Double Max Mika</span></dt>
+        <dd>
+          <span>{{ fieldTestServiceImplEntity.doubleMaxMika }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.bigDecimalRequiredMika"
+            >Big Decimal Required Mika</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fieldTestServiceImplEntity.bigDecimalRequiredMika }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.bigDecimalMinMika">Big Decimal Min Mika</span></dt>
+        <dd>
+          <span>{{ fieldTestServiceImplEntity.bigDecimalMinMika }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.bigDecimalMaxMika">Big Decimal Max Mika</span></dt>
+        <dd>
+          <span>{{ fieldTestServiceImplEntity.bigDecimalMaxMika }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.localDateMika">Local Date Mika</span></dt>
+        <dd>
+          <span>{{ fieldTestServiceImplEntity.localDateMika | formatMediumDate }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.localDateRequiredMika"
+            >Local Date Required Mika</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fieldTestServiceImplEntity.localDateRequiredMika | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.instantMika">Instant Mika</span></dt>
+        <dd>
+          <span>{{ fieldTestServiceImplEntity.instantMika | formatMediumDatetime }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.instanteRequiredMika">Instante Required Mika</span>
+        </dt>
+        <dd>
+          <span>{{ fieldTestServiceImplEntity.instanteRequiredMika | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.zonedDateTimeMika">Zoned Date Time Mika</span></dt>
+        <dd>
+          <span>{{ fieldTestServiceImplEntity.zonedDateTimeMika | formatMediumDatetime }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.zonedDateTimeRequiredMika"
+            >Zoned Date Time Required Mika</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fieldTestServiceImplEntity.zonedDateTimeRequiredMika | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.durationMika">Duration Mika</span></dt>
+        <dd>
+          <span>{{ fieldTestServiceImplEntity.durationMika | duration }} ({{ fieldTestServiceImplEntity.durationMika }})</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.durationRequiredMika">Duration Required Mika</span>
+        </dt>
+        <dd>
+          <span
+            >{{ fieldTestServiceImplEntity.durationRequiredMika | duration }} ({{ fieldTestServiceImplEntity.durationRequiredMika }})</span
+          >
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.booleanMika">Boolean Mika</span></dt>
+        <dd>
+          <span>{{ fieldTestServiceImplEntity.booleanMika }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.booleanRequiredMika">Boolean Required Mika</span>
+        </dt>
+        <dd>
+          <span>{{ fieldTestServiceImplEntity.booleanRequiredMika }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.enumMika">Enum Mika</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'sampleWebfluxMongodbOauth2App.EnumFieldClass.' + fieldTestServiceImplEntity.enumMika }}">{{
+            fieldTestServiceImplEntity.enumMika
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.enumRequiredMika">Enum Required Mika</span></dt>
+        <dd>
+          <span
+            jhiTranslate="{{ 'sampleWebfluxMongodbOauth2App.EnumRequiredFieldClass.' + fieldTestServiceImplEntity.enumRequiredMika }}"
+            >{{ fieldTestServiceImplEntity.enumRequiredMika }}</span
+          >
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.uuidMika">Uuid Mika</span></dt>
+        <dd>
+          <span>{{ fieldTestServiceImplEntity.uuidMika }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.uuidRequiredMika">Uuid Required Mika</span></dt>
+        <dd>
+          <span>{{ fieldTestServiceImplEntity.uuidRequiredMika }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.byteImageMika">Byte Image Mika</span></dt>
+        <dd>
+          <div *ngIf="fieldTestServiceImplEntity.byteImageMika">
+            <a (click)="openFile(fieldTestServiceImplEntity.byteImageMika, fieldTestServiceImplEntity.byteImageMikaContentType)">
+              <img
+                [src]="
+                  'data:' + fieldTestServiceImplEntity.byteImageMikaContentType + ';base64,' + fieldTestServiceImplEntity.byteImageMika
+                "
+                style="max-width: 100%"
+                alt="fieldTestServiceImplEntity image"
+              />
+            </a>
+            {{ fieldTestServiceImplEntity.byteImageMikaContentType }}, {{ byteSize(fieldTestServiceImplEntity.byteImageMika) }}
+          </div>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.byteImageRequiredMika"
+            >Byte Image Required Mika</span
+          >
+        </dt>
+        <dd>
+          <div *ngIf="fieldTestServiceImplEntity.byteImageRequiredMika">
+            <a
+              (click)="
+                openFile(fieldTestServiceImplEntity.byteImageRequiredMika, fieldTestServiceImplEntity.byteImageRequiredMikaContentType)
+              "
+            >
+              <img
+                [src]="
+                  'data:' +
+                  fieldTestServiceImplEntity.byteImageRequiredMikaContentType +
+                  ';base64,' +
+                  fieldTestServiceImplEntity.byteImageRequiredMika
+                "
+                style="max-width: 100%"
+                alt="fieldTestServiceImplEntity image"
+              />
+            </a>
+            {{ fieldTestServiceImplEntity.byteImageRequiredMikaContentType }},
+            {{ byteSize(fieldTestServiceImplEntity.byteImageRequiredMika) }}
+          </div>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.byteImageMinbytesMika"
+            >Byte Image Minbytes Mika</span
+          >
+        </dt>
+        <dd>
+          <div *ngIf="fieldTestServiceImplEntity.byteImageMinbytesMika">
+            <a
+              (click)="
+                openFile(fieldTestServiceImplEntity.byteImageMinbytesMika, fieldTestServiceImplEntity.byteImageMinbytesMikaContentType)
+              "
+            >
+              <img
+                [src]="
+                  'data:' +
+                  fieldTestServiceImplEntity.byteImageMinbytesMikaContentType +
+                  ';base64,' +
+                  fieldTestServiceImplEntity.byteImageMinbytesMika
+                "
+                style="max-width: 100%"
+                alt="fieldTestServiceImplEntity image"
+              />
+            </a>
+            {{ fieldTestServiceImplEntity.byteImageMinbytesMikaContentType }},
+            {{ byteSize(fieldTestServiceImplEntity.byteImageMinbytesMika) }}
+          </div>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.byteImageMaxbytesMika"
+            >Byte Image Maxbytes Mika</span
+          >
+        </dt>
+        <dd>
+          <div *ngIf="fieldTestServiceImplEntity.byteImageMaxbytesMika">
+            <a
+              (click)="
+                openFile(fieldTestServiceImplEntity.byteImageMaxbytesMika, fieldTestServiceImplEntity.byteImageMaxbytesMikaContentType)
+              "
+            >
+              <img
+                [src]="
+                  'data:' +
+                  fieldTestServiceImplEntity.byteImageMaxbytesMikaContentType +
+                  ';base64,' +
+                  fieldTestServiceImplEntity.byteImageMaxbytesMika
+                "
+                style="max-width: 100%"
+                alt="fieldTestServiceImplEntity image"
+              />
+            </a>
+            {{ fieldTestServiceImplEntity.byteImageMaxbytesMikaContentType }},
+            {{ byteSize(fieldTestServiceImplEntity.byteImageMaxbytesMika) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.byteAnyMika">Byte Any Mika</span></dt>
+        <dd>
+          <div *ngIf="fieldTestServiceImplEntity.byteAnyMika">
+            <a
+              (click)="openFile(fieldTestServiceImplEntity.byteAnyMika, fieldTestServiceImplEntity.byteAnyMikaContentType)"
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            {{ fieldTestServiceImplEntity.byteAnyMikaContentType }}, {{ byteSize(fieldTestServiceImplEntity.byteAnyMika) }}
+          </div>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.byteAnyRequiredMika">Byte Any Required Mika</span>
+        </dt>
+        <dd>
+          <div *ngIf="fieldTestServiceImplEntity.byteAnyRequiredMika">
+            <a
+              (click)="openFile(fieldTestServiceImplEntity.byteAnyRequiredMika, fieldTestServiceImplEntity.byteAnyRequiredMikaContentType)"
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            {{ fieldTestServiceImplEntity.byteAnyRequiredMikaContentType }}, {{ byteSize(fieldTestServiceImplEntity.byteAnyRequiredMika) }}
+          </div>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.byteAnyMinbytesMika">Byte Any Minbytes Mika</span>
+        </dt>
+        <dd>
+          <div *ngIf="fieldTestServiceImplEntity.byteAnyMinbytesMika">
+            <a
+              (click)="openFile(fieldTestServiceImplEntity.byteAnyMinbytesMika, fieldTestServiceImplEntity.byteAnyMinbytesMikaContentType)"
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            {{ fieldTestServiceImplEntity.byteAnyMinbytesMikaContentType }}, {{ byteSize(fieldTestServiceImplEntity.byteAnyMinbytesMika) }}
+          </div>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.byteAnyMaxbytesMika">Byte Any Maxbytes Mika</span>
+        </dt>
+        <dd>
+          <div *ngIf="fieldTestServiceImplEntity.byteAnyMaxbytesMika">
+            <a
+              (click)="openFile(fieldTestServiceImplEntity.byteAnyMaxbytesMika, fieldTestServiceImplEntity.byteAnyMaxbytesMikaContentType)"
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            {{ fieldTestServiceImplEntity.byteAnyMaxbytesMikaContentType }}, {{ byteSize(fieldTestServiceImplEntity.byteAnyMaxbytesMika) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.byteTextMika">Byte Text Mika</span></dt>
+        <dd>
+          <span>{{ fieldTestServiceImplEntity.byteTextMika }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.byteTextRequiredMika">Byte Text Required Mika</span>
+        </dt>
+        <dd>
+          <span>{{ fieldTestServiceImplEntity.byteTextRequiredMika }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button
+        type="button"
+        [routerLink]="['/field-test-service-impl-entity', fieldTestServiceImplEntity.id, 'edit']"
+        class="btn btn-primary"
+      >
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

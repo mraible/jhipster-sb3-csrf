@@ -1,0 +1,616 @@
+<div>
+  <h2 id="page-heading" data-cy="FieldTestInfiniteScrollEntityHeading">
+    <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.home.title">Field Test Infinite Scroll Entities</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-field-test-infinite-scroll-entity"
+        [routerLink]="['/field-test-infinite-scroll-entity/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.home.createLabel">
+          Create a new Field Test Infinite Scroll Entity
+        </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="fieldTestInfiniteScrollEntities?.length === 0">
+    <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.home.notFound"
+      >No Field Test Infinite Scroll Entities found</span
+    >
+  </div>
+
+  <div
+    class="table-responsive table-entities"
+    id="entities"
+    *ngIf="fieldTestInfiniteScrollEntities && fieldTestInfiniteScrollEntities.length > 0"
+  >
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="stringHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.stringHugo">String Hugo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="stringRequiredHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.stringRequiredHugo"
+                >String Required Hugo</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="stringMinlengthHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.stringMinlengthHugo"
+                >String Minlength Hugo</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="stringMaxlengthHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.stringMaxlengthHugo"
+                >String Maxlength Hugo</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="stringPatternHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.stringPatternHugo">String Pattern Hugo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="integerHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.integerHugo">Integer Hugo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="integerRequiredHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.integerRequiredHugo"
+                >Integer Required Hugo</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="integerMinHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.integerMinHugo">Integer Min Hugo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="integerMaxHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.integerMaxHugo">Integer Max Hugo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="longHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.longHugo">Long Hugo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="longRequiredHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.longRequiredHugo">Long Required Hugo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="longMinHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.longMinHugo">Long Min Hugo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="longMaxHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.longMaxHugo">Long Max Hugo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="floatHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.floatHugo">Float Hugo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="floatRequiredHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.floatRequiredHugo">Float Required Hugo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="floatMinHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.floatMinHugo">Float Min Hugo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="floatMaxHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.floatMaxHugo">Float Max Hugo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="doubleRequiredHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.doubleRequiredHugo"
+                >Double Required Hugo</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="doubleMinHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.doubleMinHugo">Double Min Hugo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="doubleMaxHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.doubleMaxHugo">Double Max Hugo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="bigDecimalRequiredHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.bigDecimalRequiredHugo"
+                >Big Decimal Required Hugo</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="bigDecimalMinHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.bigDecimalMinHugo">Big Decimal Min Hugo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="bigDecimalMaxHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.bigDecimalMaxHugo">Big Decimal Max Hugo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="localDateHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.localDateHugo">Local Date Hugo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="localDateRequiredHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.localDateRequiredHugo"
+                >Local Date Required Hugo</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="instantHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.instantHugo">Instant Hugo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="instanteRequiredHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.instanteRequiredHugo"
+                >Instante Required Hugo</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="zonedDateTimeHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.zonedDateTimeHugo">Zoned Date Time Hugo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="zonedDateTimeRequiredHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.zonedDateTimeRequiredHugo"
+                >Zoned Date Time Required Hugo</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="durationHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.durationHugo">Duration Hugo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="durationRequiredHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.durationRequiredHugo"
+                >Duration Required Hugo</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="booleanHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.booleanHugo">Boolean Hugo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="booleanRequiredHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.booleanRequiredHugo"
+                >Boolean Required Hugo</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="enumHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.enumHugo">Enum Hugo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="enumRequiredHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.enumRequiredHugo">Enum Required Hugo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="uuidHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.uuidHugo">Uuid Hugo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="uuidRequiredHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.uuidRequiredHugo">Uuid Required Hugo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteImageHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.byteImageHugo">Byte Image Hugo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteImageRequiredHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.byteImageRequiredHugo"
+                >Byte Image Required Hugo</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteImageMinbytesHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.byteImageMinbytesHugo"
+                >Byte Image Minbytes Hugo</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteImageMaxbytesHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.byteImageMaxbytesHugo"
+                >Byte Image Maxbytes Hugo</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteAnyHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.byteAnyHugo">Byte Any Hugo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteAnyRequiredHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.byteAnyRequiredHugo"
+                >Byte Any Required Hugo</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteAnyMinbytesHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.byteAnyMinbytesHugo"
+                >Byte Any Minbytes Hugo</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteAnyMaxbytesHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.byteAnyMaxbytesHugo"
+                >Byte Any Maxbytes Hugo</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteTextHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.byteTextHugo">Byte Text Hugo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteTextRequiredHugo">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.byteTextRequiredHugo"
+                >Byte Text Required Hugo</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody
+        infinite-scroll
+        (scrolled)="loadPage(page + 1)"
+        [infiniteScrollDisabled]="page - 1 >= links['last']"
+        [infiniteScrollDistance]="0"
+      >
+        <tr *ngFor="let fieldTestInfiniteScrollEntity of fieldTestInfiniteScrollEntities; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/field-test-infinite-scroll-entity', fieldTestInfiniteScrollEntity.id, 'view']">{{
+              fieldTestInfiniteScrollEntity.id
+            }}</a>
+          </td>
+          <td>{{ fieldTestInfiniteScrollEntity.stringHugo }}</td>
+          <td>{{ fieldTestInfiniteScrollEntity.stringRequiredHugo }}</td>
+          <td>{{ fieldTestInfiniteScrollEntity.stringMinlengthHugo }}</td>
+          <td>{{ fieldTestInfiniteScrollEntity.stringMaxlengthHugo }}</td>
+          <td>{{ fieldTestInfiniteScrollEntity.stringPatternHugo }}</td>
+          <td>{{ fieldTestInfiniteScrollEntity.integerHugo }}</td>
+          <td>{{ fieldTestInfiniteScrollEntity.integerRequiredHugo }}</td>
+          <td>{{ fieldTestInfiniteScrollEntity.integerMinHugo }}</td>
+          <td>{{ fieldTestInfiniteScrollEntity.integerMaxHugo }}</td>
+          <td>{{ fieldTestInfiniteScrollEntity.longHugo }}</td>
+          <td>{{ fieldTestInfiniteScrollEntity.longRequiredHugo }}</td>
+          <td>{{ fieldTestInfiniteScrollEntity.longMinHugo }}</td>
+          <td>{{ fieldTestInfiniteScrollEntity.longMaxHugo }}</td>
+          <td>{{ fieldTestInfiniteScrollEntity.floatHugo }}</td>
+          <td>{{ fieldTestInfiniteScrollEntity.floatRequiredHugo }}</td>
+          <td>{{ fieldTestInfiniteScrollEntity.floatMinHugo }}</td>
+          <td>{{ fieldTestInfiniteScrollEntity.floatMaxHugo }}</td>
+          <td>{{ fieldTestInfiniteScrollEntity.doubleRequiredHugo }}</td>
+          <td>{{ fieldTestInfiniteScrollEntity.doubleMinHugo }}</td>
+          <td>{{ fieldTestInfiniteScrollEntity.doubleMaxHugo }}</td>
+          <td>{{ fieldTestInfiniteScrollEntity.bigDecimalRequiredHugo }}</td>
+          <td>{{ fieldTestInfiniteScrollEntity.bigDecimalMinHugo }}</td>
+          <td>{{ fieldTestInfiniteScrollEntity.bigDecimalMaxHugo }}</td>
+          <td>{{ fieldTestInfiniteScrollEntity.localDateHugo | formatMediumDate }}</td>
+          <td>{{ fieldTestInfiniteScrollEntity.localDateRequiredHugo | formatMediumDate }}</td>
+          <td>{{ fieldTestInfiniteScrollEntity.instantHugo | formatMediumDatetime }}</td>
+          <td>{{ fieldTestInfiniteScrollEntity.instanteRequiredHugo | formatMediumDatetime }}</td>
+          <td>{{ fieldTestInfiniteScrollEntity.zonedDateTimeHugo | formatMediumDatetime }}</td>
+          <td>{{ fieldTestInfiniteScrollEntity.zonedDateTimeRequiredHugo | formatMediumDatetime }}</td>
+          <td title="{{ fieldTestInfiniteScrollEntity.durationHugo }}">{{ fieldTestInfiniteScrollEntity.durationHugo | duration }}</td>
+          <td title="{{ fieldTestInfiniteScrollEntity.durationRequiredHugo }}">
+            {{ fieldTestInfiniteScrollEntity.durationRequiredHugo | duration }}
+          </td>
+          <td>{{ fieldTestInfiniteScrollEntity.booleanHugo }}</td>
+          <td>{{ fieldTestInfiniteScrollEntity.booleanRequiredHugo }}</td>
+          <td jhiTranslate="{{ 'sampleWebfluxMongodbOauth2App.EnumFieldClass.' + fieldTestInfiniteScrollEntity.enumHugo }}">
+            {{ fieldTestInfiniteScrollEntity.enumHugo }}
+          </td>
+          <td jhiTranslate="{{ 'sampleWebfluxMongodbOauth2App.EnumRequiredFieldClass.' + fieldTestInfiniteScrollEntity.enumRequiredHugo }}">
+            {{ fieldTestInfiniteScrollEntity.enumRequiredHugo }}
+          </td>
+          <td>{{ fieldTestInfiniteScrollEntity.uuidHugo }}</td>
+          <td>{{ fieldTestInfiniteScrollEntity.uuidRequiredHugo }}</td>
+          <td>
+            <a
+              *ngIf="fieldTestInfiniteScrollEntity.byteImageHugo"
+              (click)="openFile(fieldTestInfiniteScrollEntity.byteImageHugo, fieldTestInfiniteScrollEntity.byteImageHugoContentType)"
+            >
+              <img
+                [src]="
+                  'data:' +
+                  fieldTestInfiniteScrollEntity.byteImageHugoContentType +
+                  ';base64,' +
+                  fieldTestInfiniteScrollEntity.byteImageHugo
+                "
+                style="max-height: 30px"
+                alt="fieldTestInfiniteScrollEntity image"
+              />
+            </a>
+            <span *ngIf="fieldTestInfiniteScrollEntity.byteImageHugo"
+              >{{ fieldTestInfiniteScrollEntity.byteImageHugoContentType }},
+              {{ byteSize(fieldTestInfiniteScrollEntity.byteImageHugo) }}</span
+            >
+          </td>
+          <td>
+            <a
+              *ngIf="fieldTestInfiniteScrollEntity.byteImageRequiredHugo"
+              (click)="
+                openFile(
+                  fieldTestInfiniteScrollEntity.byteImageRequiredHugo,
+                  fieldTestInfiniteScrollEntity.byteImageRequiredHugoContentType
+                )
+              "
+            >
+              <img
+                [src]="
+                  'data:' +
+                  fieldTestInfiniteScrollEntity.byteImageRequiredHugoContentType +
+                  ';base64,' +
+                  fieldTestInfiniteScrollEntity.byteImageRequiredHugo
+                "
+                style="max-height: 30px"
+                alt="fieldTestInfiniteScrollEntity image"
+              />
+            </a>
+            <span *ngIf="fieldTestInfiniteScrollEntity.byteImageRequiredHugo"
+              >{{ fieldTestInfiniteScrollEntity.byteImageRequiredHugoContentType }},
+              {{ byteSize(fieldTestInfiniteScrollEntity.byteImageRequiredHugo) }}</span
+            >
+          </td>
+          <td>
+            <a
+              *ngIf="fieldTestInfiniteScrollEntity.byteImageMinbytesHugo"
+              (click)="
+                openFile(
+                  fieldTestInfiniteScrollEntity.byteImageMinbytesHugo,
+                  fieldTestInfiniteScrollEntity.byteImageMinbytesHugoContentType
+                )
+              "
+            >
+              <img
+                [src]="
+                  'data:' +
+                  fieldTestInfiniteScrollEntity.byteImageMinbytesHugoContentType +
+                  ';base64,' +
+                  fieldTestInfiniteScrollEntity.byteImageMinbytesHugo
+                "
+                style="max-height: 30px"
+                alt="fieldTestInfiniteScrollEntity image"
+              />
+            </a>
+            <span *ngIf="fieldTestInfiniteScrollEntity.byteImageMinbytesHugo"
+              >{{ fieldTestInfiniteScrollEntity.byteImageMinbytesHugoContentType }},
+              {{ byteSize(fieldTestInfiniteScrollEntity.byteImageMinbytesHugo) }}</span
+            >
+          </td>
+          <td>
+            <a
+              *ngIf="fieldTestInfiniteScrollEntity.byteImageMaxbytesHugo"
+              (click)="
+                openFile(
+                  fieldTestInfiniteScrollEntity.byteImageMaxbytesHugo,
+                  fieldTestInfiniteScrollEntity.byteImageMaxbytesHugoContentType
+                )
+              "
+            >
+              <img
+                [src]="
+                  'data:' +
+                  fieldTestInfiniteScrollEntity.byteImageMaxbytesHugoContentType +
+                  ';base64,' +
+                  fieldTestInfiniteScrollEntity.byteImageMaxbytesHugo
+                "
+                style="max-height: 30px"
+                alt="fieldTestInfiniteScrollEntity image"
+              />
+            </a>
+            <span *ngIf="fieldTestInfiniteScrollEntity.byteImageMaxbytesHugo"
+              >{{ fieldTestInfiniteScrollEntity.byteImageMaxbytesHugoContentType }},
+              {{ byteSize(fieldTestInfiniteScrollEntity.byteImageMaxbytesHugo) }}</span
+            >
+          </td>
+          <td>
+            <a
+              *ngIf="fieldTestInfiniteScrollEntity.byteAnyHugo"
+              (click)="openFile(fieldTestInfiniteScrollEntity.byteAnyHugo, fieldTestInfiniteScrollEntity.byteAnyHugoContentType)"
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            <span *ngIf="fieldTestInfiniteScrollEntity.byteAnyHugo"
+              >{{ fieldTestInfiniteScrollEntity.byteAnyHugoContentType }}, {{ byteSize(fieldTestInfiniteScrollEntity.byteAnyHugo) }}</span
+            >
+          </td>
+          <td>
+            <a
+              *ngIf="fieldTestInfiniteScrollEntity.byteAnyRequiredHugo"
+              (click)="
+                openFile(fieldTestInfiniteScrollEntity.byteAnyRequiredHugo, fieldTestInfiniteScrollEntity.byteAnyRequiredHugoContentType)
+              "
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            <span *ngIf="fieldTestInfiniteScrollEntity.byteAnyRequiredHugo"
+              >{{ fieldTestInfiniteScrollEntity.byteAnyRequiredHugoContentType }},
+              {{ byteSize(fieldTestInfiniteScrollEntity.byteAnyRequiredHugo) }}</span
+            >
+          </td>
+          <td>
+            <a
+              *ngIf="fieldTestInfiniteScrollEntity.byteAnyMinbytesHugo"
+              (click)="
+                openFile(fieldTestInfiniteScrollEntity.byteAnyMinbytesHugo, fieldTestInfiniteScrollEntity.byteAnyMinbytesHugoContentType)
+              "
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            <span *ngIf="fieldTestInfiniteScrollEntity.byteAnyMinbytesHugo"
+              >{{ fieldTestInfiniteScrollEntity.byteAnyMinbytesHugoContentType }},
+              {{ byteSize(fieldTestInfiniteScrollEntity.byteAnyMinbytesHugo) }}</span
+            >
+          </td>
+          <td>
+            <a
+              *ngIf="fieldTestInfiniteScrollEntity.byteAnyMaxbytesHugo"
+              (click)="
+                openFile(fieldTestInfiniteScrollEntity.byteAnyMaxbytesHugo, fieldTestInfiniteScrollEntity.byteAnyMaxbytesHugoContentType)
+              "
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            <span *ngIf="fieldTestInfiniteScrollEntity.byteAnyMaxbytesHugo"
+              >{{ fieldTestInfiniteScrollEntity.byteAnyMaxbytesHugoContentType }},
+              {{ byteSize(fieldTestInfiniteScrollEntity.byteAnyMaxbytesHugo) }}</span
+            >
+          </td>
+          <td>{{ fieldTestInfiniteScrollEntity.byteTextHugo }}</td>
+          <td>{{ fieldTestInfiniteScrollEntity.byteTextRequiredHugo }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/field-test-infinite-scroll-entity', fieldTestInfiniteScrollEntity.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/field-test-infinite-scroll-entity', fieldTestInfiniteScrollEntity.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button
+                type="submit"
+                (click)="delete(fieldTestInfiniteScrollEntity)"
+                class="btn btn-danger btn-sm"
+                data-cy="entityDeleteButton"
+              >
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

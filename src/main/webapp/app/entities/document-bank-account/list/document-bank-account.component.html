@@ -1,0 +1,177 @@
+<div>
+  <h2 id="page-heading" data-cy="DocumentBankAccountHeading">
+    <span jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.home.title">Document Bank Accounts</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-document-bank-account"
+        [routerLink]="['/document-bank-account/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.home.createLabel"> Create a new Document Bank Account </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="documentBankAccounts?.length === 0">
+    <span jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.home.notFound">No Document Bank Accounts found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="documentBankAccounts && documentBankAccounts.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="name">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.name">Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="bankNumber">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.bankNumber">Bank Number</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="agencyNumber">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.agencyNumber">Agency Number</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastOperationDuration">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.lastOperationDuration">Last Operation Duration</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="meanOperationDuration">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.meanOperationDuration">Mean Operation Duration</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="balance">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.balance">Balance</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="openingDay">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.openingDay">Opening Day</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastOperationDate">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.lastOperationDate">Last Operation Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="active">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.active">Active</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="accountType">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.accountType">Account Type</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="attachment">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.attachment">Attachment</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="description">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.description">Description</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let documentBankAccount of documentBankAccounts; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/document-bank-account', documentBankAccount.id, 'view']">{{ documentBankAccount.id }}</a>
+          </td>
+          <td>{{ documentBankAccount.name }}</td>
+          <td>{{ documentBankAccount.bankNumber }}</td>
+          <td>{{ documentBankAccount.agencyNumber }}</td>
+          <td>{{ documentBankAccount.lastOperationDuration }}</td>
+          <td>{{ documentBankAccount.meanOperationDuration }}</td>
+          <td>{{ documentBankAccount.balance }}</td>
+          <td>{{ documentBankAccount.openingDay | formatMediumDate }}</td>
+          <td>{{ documentBankAccount.lastOperationDate | formatMediumDatetime }}</td>
+          <td>{{ documentBankAccount.active }}</td>
+          <td jhiTranslate="{{ 'sampleWebfluxMongodbOauth2App.BankAccountType.' + documentBankAccount.accountType }}">
+            {{ documentBankAccount.accountType }}
+          </td>
+          <td>
+            <a
+              *ngIf="documentBankAccount.attachment"
+              (click)="openFile(documentBankAccount.attachment, documentBankAccount.attachmentContentType)"
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            <span *ngIf="documentBankAccount.attachment"
+              >{{ documentBankAccount.attachmentContentType }}, {{ byteSize(documentBankAccount.attachment) }}</span
+            >
+          </td>
+          <td>{{ documentBankAccount.description }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/document-bank-account', documentBankAccount.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/document-bank-account', documentBankAccount.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(documentBankAccount)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

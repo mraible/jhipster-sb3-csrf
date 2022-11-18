@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="entityWithPaginationAndDTO">
+      <h2 data-cy="entityWithPaginationAndDTODetailsHeading">
+        <span jhiTranslate="sampleWebfluxMongodbOauth2App.entityWithPaginationAndDTO.detail.title">Entity With Pagination And DTO</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ entityWithPaginationAndDTO.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.entityWithPaginationAndDTO.lea">Lea</span></dt>
+        <dd>
+          <span>{{ entityWithPaginationAndDTO.lea }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button
+        type="button"
+        [routerLink]="['/entity-with-pagination-and-dto', entityWithPaginationAndDTO.id, 'edit']"
+        class="btn btn-primary"
+      >
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

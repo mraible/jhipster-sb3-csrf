@@ -1,0 +1,1664 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-field-test-mapstruct-and-service-class-entity-heading"
+        data-cy="FieldTestMapstructAndServiceClassEntityCreateUpdateHeading"
+        jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.home.createOrEditLabel"
+      >
+        Create or edit a Field Test Mapstruct And Service Class Entity
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.stringEva"
+            for="field_stringEva"
+            >String Eva</label
+          >
+          <input type="text" class="form-control" name="stringEva" id="field_stringEva" data-cy="stringEva" formControlName="stringEva" />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.stringRequiredEva"
+            for="field_stringRequiredEva"
+            >String Required Eva</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringRequiredEva"
+            id="field_stringRequiredEva"
+            data-cy="stringRequiredEva"
+            formControlName="stringRequiredEva"
+          />
+          <div
+            *ngIf="
+              editForm.get('stringRequiredEva')!.invalid &&
+              (editForm.get('stringRequiredEva')!.dirty || editForm.get('stringRequiredEva')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('stringRequiredEva')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.stringMinlengthEva"
+            for="field_stringMinlengthEva"
+            >String Minlength Eva</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringMinlengthEva"
+            id="field_stringMinlengthEva"
+            data-cy="stringMinlengthEva"
+            formControlName="stringMinlengthEva"
+          />
+          <div
+            *ngIf="
+              editForm.get('stringMinlengthEva')!.invalid &&
+              (editForm.get('stringMinlengthEva')!.dirty || editForm.get('stringMinlengthEva')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('stringMinlengthEva')?.errors?.minlength"
+              jhiTranslate="entity.validation.minlength"
+              [translateValues]="{ min: 0 }"
+            >
+              This field is required to be at least 0 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.stringMaxlengthEva"
+            for="field_stringMaxlengthEva"
+            >String Maxlength Eva</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringMaxlengthEva"
+            id="field_stringMaxlengthEva"
+            data-cy="stringMaxlengthEva"
+            formControlName="stringMaxlengthEva"
+          />
+          <div
+            *ngIf="
+              editForm.get('stringMaxlengthEva')!.invalid &&
+              (editForm.get('stringMaxlengthEva')!.dirty || editForm.get('stringMaxlengthEva')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('stringMaxlengthEva')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 20 }"
+            >
+              This field cannot be longer than 20 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.stringPatternEva"
+            for="field_stringPatternEva"
+            >String Pattern Eva</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringPatternEva"
+            id="field_stringPatternEva"
+            data-cy="stringPatternEva"
+            formControlName="stringPatternEva"
+          />
+          <div
+            *ngIf="
+              editForm.get('stringPatternEva')!.invalid &&
+              (editForm.get('stringPatternEva')!.dirty || editForm.get('stringPatternEva')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('stringPatternEva')?.errors?.pattern"
+              jhiTranslate="entity.validation.pattern"
+              [translateValues]="{ pattern: 'String Pattern Eva' }"
+            >
+              This field should follow pattern for String Pattern Eva.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.integerEva"
+            for="field_integerEva"
+            >Integer Eva</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerEva"
+            id="field_integerEva"
+            data-cy="integerEva"
+            formControlName="integerEva"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.integerRequiredEva"
+            for="field_integerRequiredEva"
+            >Integer Required Eva</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerRequiredEva"
+            id="field_integerRequiredEva"
+            data-cy="integerRequiredEva"
+            formControlName="integerRequiredEva"
+          />
+          <div
+            *ngIf="
+              editForm.get('integerRequiredEva')!.invalid &&
+              (editForm.get('integerRequiredEva')!.dirty || editForm.get('integerRequiredEva')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('integerRequiredEva')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('integerRequiredEva')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.integerMinEva"
+            for="field_integerMinEva"
+            >Integer Min Eva</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerMinEva"
+            id="field_integerMinEva"
+            data-cy="integerMinEva"
+            formControlName="integerMinEva"
+          />
+          <div
+            *ngIf="
+              editForm.get('integerMinEva')!.invalid && (editForm.get('integerMinEva')!.dirty || editForm.get('integerMinEva')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('integerMinEva')?.errors?.min"
+              jhiTranslate="entity.validation.min"
+              [translateValues]="{ min: 0 }"
+            >
+              This field should be at least 0.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('integerMinEva')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.integerMaxEva"
+            for="field_integerMaxEva"
+            >Integer Max Eva</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerMaxEva"
+            id="field_integerMaxEva"
+            data-cy="integerMaxEva"
+            formControlName="integerMaxEva"
+          />
+          <div
+            *ngIf="
+              editForm.get('integerMaxEva')!.invalid && (editForm.get('integerMaxEva')!.dirty || editForm.get('integerMaxEva')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('integerMaxEva')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be more than 100.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('integerMaxEva')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.longEva"
+            for="field_longEva"
+            >Long Eva</label
+          >
+          <input type="number" class="form-control" name="longEva" id="field_longEva" data-cy="longEva" formControlName="longEva" />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.longRequiredEva"
+            for="field_longRequiredEva"
+            >Long Required Eva</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="longRequiredEva"
+            id="field_longRequiredEva"
+            data-cy="longRequiredEva"
+            formControlName="longRequiredEva"
+          />
+          <div
+            *ngIf="
+              editForm.get('longRequiredEva')!.invalid &&
+              (editForm.get('longRequiredEva')!.dirty || editForm.get('longRequiredEva')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('longRequiredEva')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('longRequiredEva')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.longMinEva"
+            for="field_longMinEva"
+            >Long Min Eva</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="longMinEva"
+            id="field_longMinEva"
+            data-cy="longMinEva"
+            formControlName="longMinEva"
+          />
+          <div *ngIf="editForm.get('longMinEva')!.invalid && (editForm.get('longMinEva')!.dirty || editForm.get('longMinEva')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('longMinEva')?.errors?.min"
+              jhiTranslate="entity.validation.min"
+              [translateValues]="{ min: 0 }"
+            >
+              This field should be at least 0.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('longMinEva')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.longMaxEva"
+            for="field_longMaxEva"
+            >Long Max Eva</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="longMaxEva"
+            id="field_longMaxEva"
+            data-cy="longMaxEva"
+            formControlName="longMaxEva"
+          />
+          <div *ngIf="editForm.get('longMaxEva')!.invalid && (editForm.get('longMaxEva')!.dirty || editForm.get('longMaxEva')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('longMaxEva')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be more than 100.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('longMaxEva')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.floatEva"
+            for="field_floatEva"
+            >Float Eva</label
+          >
+          <input type="number" class="form-control" name="floatEva" id="field_floatEva" data-cy="floatEva" formControlName="floatEva" />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.floatRequiredEva"
+            for="field_floatRequiredEva"
+            >Float Required Eva</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="floatRequiredEva"
+            id="field_floatRequiredEva"
+            data-cy="floatRequiredEva"
+            formControlName="floatRequiredEva"
+          />
+          <div
+            *ngIf="
+              editForm.get('floatRequiredEva')!.invalid &&
+              (editForm.get('floatRequiredEva')!.dirty || editForm.get('floatRequiredEva')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('floatRequiredEva')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('floatRequiredEva')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.floatMinEva"
+            for="field_floatMinEva"
+            >Float Min Eva</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="floatMinEva"
+            id="field_floatMinEva"
+            data-cy="floatMinEva"
+            formControlName="floatMinEva"
+          />
+          <div *ngIf="editForm.get('floatMinEva')!.invalid && (editForm.get('floatMinEva')!.dirty || editForm.get('floatMinEva')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('floatMinEva')?.errors?.min"
+              jhiTranslate="entity.validation.min"
+              [translateValues]="{ min: 0 }"
+            >
+              This field should be at least 0.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('floatMinEva')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.floatMaxEva"
+            for="field_floatMaxEva"
+            >Float Max Eva</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="floatMaxEva"
+            id="field_floatMaxEva"
+            data-cy="floatMaxEva"
+            formControlName="floatMaxEva"
+          />
+          <div *ngIf="editForm.get('floatMaxEva')!.invalid && (editForm.get('floatMaxEva')!.dirty || editForm.get('floatMaxEva')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('floatMaxEva')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be more than 100.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('floatMaxEva')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.doubleRequiredEva"
+            for="field_doubleRequiredEva"
+            >Double Required Eva</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="doubleRequiredEva"
+            id="field_doubleRequiredEva"
+            data-cy="doubleRequiredEva"
+            formControlName="doubleRequiredEva"
+          />
+          <div
+            *ngIf="
+              editForm.get('doubleRequiredEva')!.invalid &&
+              (editForm.get('doubleRequiredEva')!.dirty || editForm.get('doubleRequiredEva')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('doubleRequiredEva')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('doubleRequiredEva')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.doubleMinEva"
+            for="field_doubleMinEva"
+            >Double Min Eva</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="doubleMinEva"
+            id="field_doubleMinEva"
+            data-cy="doubleMinEva"
+            formControlName="doubleMinEva"
+          />
+          <div
+            *ngIf="editForm.get('doubleMinEva')!.invalid && (editForm.get('doubleMinEva')!.dirty || editForm.get('doubleMinEva')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('doubleMinEva')?.errors?.min"
+              jhiTranslate="entity.validation.min"
+              [translateValues]="{ min: 0 }"
+            >
+              This field should be at least 0.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('doubleMinEva')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.doubleMaxEva"
+            for="field_doubleMaxEva"
+            >Double Max Eva</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="doubleMaxEva"
+            id="field_doubleMaxEva"
+            data-cy="doubleMaxEva"
+            formControlName="doubleMaxEva"
+          />
+          <div
+            *ngIf="editForm.get('doubleMaxEva')!.invalid && (editForm.get('doubleMaxEva')!.dirty || editForm.get('doubleMaxEva')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('doubleMaxEva')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be more than 100.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('doubleMaxEva')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.bigDecimalRequiredEva"
+            for="field_bigDecimalRequiredEva"
+            >Big Decimal Required Eva</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bigDecimalRequiredEva"
+            id="field_bigDecimalRequiredEva"
+            data-cy="bigDecimalRequiredEva"
+            formControlName="bigDecimalRequiredEva"
+          />
+          <div
+            *ngIf="
+              editForm.get('bigDecimalRequiredEva')!.invalid &&
+              (editForm.get('bigDecimalRequiredEva')!.dirty || editForm.get('bigDecimalRequiredEva')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('bigDecimalRequiredEva')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('bigDecimalRequiredEva')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.bigDecimalMinEva"
+            for="field_bigDecimalMinEva"
+            >Big Decimal Min Eva</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bigDecimalMinEva"
+            id="field_bigDecimalMinEva"
+            data-cy="bigDecimalMinEva"
+            formControlName="bigDecimalMinEva"
+          />
+          <div
+            *ngIf="
+              editForm.get('bigDecimalMinEva')!.invalid &&
+              (editForm.get('bigDecimalMinEva')!.dirty || editForm.get('bigDecimalMinEva')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('bigDecimalMinEva')?.errors?.min"
+              jhiTranslate="entity.validation.min"
+              [translateValues]="{ min: 0 }"
+            >
+              This field should be at least 0.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('bigDecimalMinEva')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.bigDecimalMaxEva"
+            for="field_bigDecimalMaxEva"
+            >Big Decimal Max Eva</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bigDecimalMaxEva"
+            id="field_bigDecimalMaxEva"
+            data-cy="bigDecimalMaxEva"
+            formControlName="bigDecimalMaxEva"
+          />
+          <div
+            *ngIf="
+              editForm.get('bigDecimalMaxEva')!.invalid &&
+              (editForm.get('bigDecimalMaxEva')!.dirty || editForm.get('bigDecimalMaxEva')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('bigDecimalMaxEva')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be more than 100.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('bigDecimalMaxEva')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.localDateEva"
+            for="field_localDateEva"
+            >Local Date Eva</label
+          >
+          <div class="input-group">
+            <input
+              id="field_localDateEva"
+              data-cy="localDateEva"
+              type="text"
+              class="form-control"
+              name="localDateEva"
+              ngbDatepicker
+              #localDateEvaDp="ngbDatepicker"
+              formControlName="localDateEva"
+            />
+            <button type="button" class="btn btn-secondary" (click)="localDateEvaDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.localDateRequiredEva"
+            for="field_localDateRequiredEva"
+            >Local Date Required Eva</label
+          >
+          <div class="input-group">
+            <input
+              id="field_localDateRequiredEva"
+              data-cy="localDateRequiredEva"
+              type="text"
+              class="form-control"
+              name="localDateRequiredEva"
+              ngbDatepicker
+              #localDateRequiredEvaDp="ngbDatepicker"
+              formControlName="localDateRequiredEva"
+            />
+            <button type="button" class="btn btn-secondary" (click)="localDateRequiredEvaDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+          <div
+            *ngIf="
+              editForm.get('localDateRequiredEva')!.invalid &&
+              (editForm.get('localDateRequiredEva')!.dirty || editForm.get('localDateRequiredEva')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('localDateRequiredEva')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.instantEva"
+            for="field_instantEva"
+            >Instant Eva</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_instantEva"
+              data-cy="instantEva"
+              type="datetime-local"
+              class="form-control"
+              name="instantEva"
+              formControlName="instantEva"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.instanteRequiredEva"
+            for="field_instanteRequiredEva"
+            >Instante Required Eva</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_instanteRequiredEva"
+              data-cy="instanteRequiredEva"
+              type="datetime-local"
+              class="form-control"
+              name="instanteRequiredEva"
+              formControlName="instanteRequiredEva"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          <div
+            *ngIf="
+              editForm.get('instanteRequiredEva')!.invalid &&
+              (editForm.get('instanteRequiredEva')!.dirty || editForm.get('instanteRequiredEva')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('instanteRequiredEva')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('instanteRequiredEva')?.errors?.datetimelocal"
+              jhiTranslate="entity.validation.datetimelocal"
+            >
+              This field should be a date and time.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.zonedDateTimeEva"
+            for="field_zonedDateTimeEva"
+            >Zoned Date Time Eva</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_zonedDateTimeEva"
+              data-cy="zonedDateTimeEva"
+              type="datetime-local"
+              class="form-control"
+              name="zonedDateTimeEva"
+              formControlName="zonedDateTimeEva"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.zonedDateTimeRequiredEva"
+            for="field_zonedDateTimeRequiredEva"
+            >Zoned Date Time Required Eva</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_zonedDateTimeRequiredEva"
+              data-cy="zonedDateTimeRequiredEva"
+              type="datetime-local"
+              class="form-control"
+              name="zonedDateTimeRequiredEva"
+              formControlName="zonedDateTimeRequiredEva"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          <div
+            *ngIf="
+              editForm.get('zonedDateTimeRequiredEva')!.invalid &&
+              (editForm.get('zonedDateTimeRequiredEva')!.dirty || editForm.get('zonedDateTimeRequiredEva')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('zonedDateTimeRequiredEva')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('zonedDateTimeRequiredEva')?.errors?.datetimelocal"
+              jhiTranslate="entity.validation.datetimelocal"
+            >
+              This field should be a date and time.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.durationEva"
+            for="field_durationEva"
+            >Duration Eva</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="durationEva"
+            id="field_durationEva"
+            data-cy="durationEva"
+            formControlName="durationEva"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.durationRequiredEva"
+            for="field_durationRequiredEva"
+            >Duration Required Eva</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="durationRequiredEva"
+            id="field_durationRequiredEva"
+            data-cy="durationRequiredEva"
+            formControlName="durationRequiredEva"
+          />
+          <div
+            *ngIf="
+              editForm.get('durationRequiredEva')!.invalid &&
+              (editForm.get('durationRequiredEva')!.dirty || editForm.get('durationRequiredEva')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('durationRequiredEva')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('durationRequiredEva')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.booleanEva"
+            for="field_booleanEva"
+            >Boolean Eva</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="booleanEva"
+            id="field_booleanEva"
+            data-cy="booleanEva"
+            formControlName="booleanEva"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.booleanRequiredEva"
+            for="field_booleanRequiredEva"
+            >Boolean Required Eva</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="booleanRequiredEva"
+            id="field_booleanRequiredEva"
+            data-cy="booleanRequiredEva"
+            formControlName="booleanRequiredEva"
+          />
+          <div
+            *ngIf="
+              editForm.get('booleanRequiredEva')!.invalid &&
+              (editForm.get('booleanRequiredEva')!.dirty || editForm.get('booleanRequiredEva')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('booleanRequiredEva')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.enumEva"
+            for="field_enumEva"
+            >Enum Eva</label
+          >
+          <select class="form-control" name="enumEva" formControlName="enumEva" id="field_enumEva" data-cy="enumEva">
+            <option [ngValue]="null">{{ 'sampleWebfluxMongodbOauth2App.EnumFieldClass.null' | translate }}</option>
+            <option *ngFor="let enumFieldClass of enumFieldClassValues" [value]="enumFieldClass">
+              {{ 'sampleWebfluxMongodbOauth2App.EnumFieldClass.' + enumFieldClass | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.enumRequiredEva"
+            for="field_enumRequiredEva"
+            >Enum Required Eva</label
+          >
+          <select
+            class="form-control"
+            name="enumRequiredEva"
+            formControlName="enumRequiredEva"
+            id="field_enumRequiredEva"
+            data-cy="enumRequiredEva"
+          >
+            <option [ngValue]="null">{{ 'sampleWebfluxMongodbOauth2App.EnumRequiredFieldClass.null' | translate }}</option>
+            <option *ngFor="let enumRequiredFieldClass of enumRequiredFieldClassValues" [value]="enumRequiredFieldClass">
+              {{ 'sampleWebfluxMongodbOauth2App.EnumRequiredFieldClass.' + enumRequiredFieldClass | translate }}
+            </option>
+          </select>
+          <div
+            *ngIf="
+              editForm.get('enumRequiredEva')!.invalid &&
+              (editForm.get('enumRequiredEva')!.dirty || editForm.get('enumRequiredEva')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('enumRequiredEva')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.uuidEva"
+            for="field_uuidEva"
+            >Uuid Eva</label
+          >
+          <input type="text" class="form-control" name="uuidEva" id="field_uuidEva" data-cy="uuidEva" formControlName="uuidEva" />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.uuidRequiredEva"
+            for="field_uuidRequiredEva"
+            >Uuid Required Eva</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="uuidRequiredEva"
+            id="field_uuidRequiredEva"
+            data-cy="uuidRequiredEva"
+            formControlName="uuidRequiredEva"
+          />
+          <div
+            *ngIf="
+              editForm.get('uuidRequiredEva')!.invalid &&
+              (editForm.get('uuidRequiredEva')!.dirty || editForm.get('uuidRequiredEva')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('uuidRequiredEva')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.byteImageEva"
+            for="field_byteImageEva"
+            >Byte Image Eva</label
+          >
+          <div>
+            <img
+              [src]="'data:' + editForm.get('byteImageEvaContentType')!.value + ';base64,' + editForm.get('byteImageEva')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('byteImageEva')!.value"
+              alt="fieldTestMapstructAndServiceClassEntity image"
+            />
+            <div *ngIf="editForm.get('byteImageEva')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('byteImageEvaContentType')!.value }}, {{ byteSize(editForm.get('byteImageEva')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('byteImageEva', 'byteImageEvaContentType', 'file_byteImageEva')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteImageEva"
+              data-cy="byteImageEva"
+              (change)="setFileData($event, 'byteImageEva', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageEva"
+            id="field_byteImageEva"
+            data-cy="byteImageEva"
+            formControlName="byteImageEva"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageEvaContentType"
+            id="field_byteImageEvaContentType"
+            formControlName="byteImageEvaContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.byteImageRequiredEva"
+            for="field_byteImageRequiredEva"
+            >Byte Image Required Eva</label
+          >
+          <div>
+            <img
+              [src]="
+                'data:' + editForm.get('byteImageRequiredEvaContentType')!.value + ';base64,' + editForm.get('byteImageRequiredEva')!.value
+              "
+              style="max-height: 100px"
+              *ngIf="editForm.get('byteImageRequiredEva')!.value"
+              alt="fieldTestMapstructAndServiceClassEntity image"
+            />
+            <div *ngIf="editForm.get('byteImageRequiredEva')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('byteImageRequiredEvaContentType')!.value }},
+                {{ byteSize(editForm.get('byteImageRequiredEva')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('byteImageRequiredEva', 'byteImageRequiredEvaContentType', 'file_byteImageRequiredEva')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteImageRequiredEva"
+              data-cy="byteImageRequiredEva"
+              (change)="setFileData($event, 'byteImageRequiredEva', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageRequiredEva"
+            id="field_byteImageRequiredEva"
+            data-cy="byteImageRequiredEva"
+            formControlName="byteImageRequiredEva"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageRequiredEvaContentType"
+            id="field_byteImageRequiredEvaContentType"
+            formControlName="byteImageRequiredEvaContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('byteImageRequiredEva')!.invalid &&
+              (editForm.get('byteImageRequiredEva')!.dirty || editForm.get('byteImageRequiredEva')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('byteImageRequiredEva')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.byteImageMinbytesEva"
+            for="field_byteImageMinbytesEva"
+            >Byte Image Minbytes Eva</label
+          >
+          <div>
+            <img
+              [src]="
+                'data:' + editForm.get('byteImageMinbytesEvaContentType')!.value + ';base64,' + editForm.get('byteImageMinbytesEva')!.value
+              "
+              style="max-height: 100px"
+              *ngIf="editForm.get('byteImageMinbytesEva')!.value"
+              alt="fieldTestMapstructAndServiceClassEntity image"
+            />
+            <div *ngIf="editForm.get('byteImageMinbytesEva')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('byteImageMinbytesEvaContentType')!.value }},
+                {{ byteSize(editForm.get('byteImageMinbytesEva')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('byteImageMinbytesEva', 'byteImageMinbytesEvaContentType', 'file_byteImageMinbytesEva')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteImageMinbytesEva"
+              data-cy="byteImageMinbytesEva"
+              (change)="setFileData($event, 'byteImageMinbytesEva', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMinbytesEva"
+            id="field_byteImageMinbytesEva"
+            data-cy="byteImageMinbytesEva"
+            formControlName="byteImageMinbytesEva"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMinbytesEvaContentType"
+            id="field_byteImageMinbytesEvaContentType"
+            formControlName="byteImageMinbytesEvaContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('byteImageMinbytesEva')!.invalid &&
+              (editForm.get('byteImageMinbytesEva')!.dirty || editForm.get('byteImageMinbytesEva')!.touched)
+            "
+          ></div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.byteImageMaxbytesEva"
+            for="field_byteImageMaxbytesEva"
+            >Byte Image Maxbytes Eva</label
+          >
+          <div>
+            <img
+              [src]="
+                'data:' + editForm.get('byteImageMaxbytesEvaContentType')!.value + ';base64,' + editForm.get('byteImageMaxbytesEva')!.value
+              "
+              style="max-height: 100px"
+              *ngIf="editForm.get('byteImageMaxbytesEva')!.value"
+              alt="fieldTestMapstructAndServiceClassEntity image"
+            />
+            <div *ngIf="editForm.get('byteImageMaxbytesEva')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('byteImageMaxbytesEvaContentType')!.value }},
+                {{ byteSize(editForm.get('byteImageMaxbytesEva')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('byteImageMaxbytesEva', 'byteImageMaxbytesEvaContentType', 'file_byteImageMaxbytesEva')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteImageMaxbytesEva"
+              data-cy="byteImageMaxbytesEva"
+              (change)="setFileData($event, 'byteImageMaxbytesEva', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMaxbytesEva"
+            id="field_byteImageMaxbytesEva"
+            data-cy="byteImageMaxbytesEva"
+            formControlName="byteImageMaxbytesEva"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMaxbytesEvaContentType"
+            id="field_byteImageMaxbytesEvaContentType"
+            formControlName="byteImageMaxbytesEvaContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('byteImageMaxbytesEva')!.invalid &&
+              (editForm.get('byteImageMaxbytesEva')!.dirty || editForm.get('byteImageMaxbytesEva')!.touched)
+            "
+          ></div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.byteAnyEva"
+            for="field_byteAnyEva"
+            >Byte Any Eva</label
+          >
+          <div>
+            <div *ngIf="editForm.get('byteAnyEva')!.value" class="form-text text-danger clearfix">
+              <a
+                class="pull-start"
+                (click)="openFile(editForm.get('byteAnyEva')!.value!, editForm.get('byteAnyEvaContentType')!.value!)"
+                jhiTranslate="entity.action.open"
+                >Open</a
+              ><br />
+              <span class="pull-start"
+                >{{ editForm.get('byteAnyEvaContentType')!.value }}, {{ byteSize(editForm.get('byteAnyEva')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="editForm.patchValue({ byteAnyEva: undefined, byteAnyEvaContentType: undefined })"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteAnyEva"
+              data-cy="byteAnyEva"
+              (change)="setFileData($event, 'byteAnyEva', false)"
+              jhiTranslate="entity.action.addblob"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyEva"
+            id="field_byteAnyEva"
+            data-cy="byteAnyEva"
+            formControlName="byteAnyEva"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyEvaContentType"
+            id="field_byteAnyEvaContentType"
+            formControlName="byteAnyEvaContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.byteAnyRequiredEva"
+            for="field_byteAnyRequiredEva"
+            >Byte Any Required Eva</label
+          >
+          <div>
+            <div *ngIf="editForm.get('byteAnyRequiredEva')!.value" class="form-text text-danger clearfix">
+              <a
+                class="pull-start"
+                (click)="openFile(editForm.get('byteAnyRequiredEva')!.value!, editForm.get('byteAnyRequiredEvaContentType')!.value!)"
+                jhiTranslate="entity.action.open"
+                >Open</a
+              ><br />
+              <span class="pull-start"
+                >{{ editForm.get('byteAnyRequiredEvaContentType')!.value }},
+                {{ byteSize(editForm.get('byteAnyRequiredEva')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="editForm.patchValue({ byteAnyRequiredEva: undefined, byteAnyRequiredEvaContentType: undefined })"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteAnyRequiredEva"
+              data-cy="byteAnyRequiredEva"
+              (change)="setFileData($event, 'byteAnyRequiredEva', false)"
+              jhiTranslate="entity.action.addblob"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyRequiredEva"
+            id="field_byteAnyRequiredEva"
+            data-cy="byteAnyRequiredEva"
+            formControlName="byteAnyRequiredEva"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyRequiredEvaContentType"
+            id="field_byteAnyRequiredEvaContentType"
+            formControlName="byteAnyRequiredEvaContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('byteAnyRequiredEva')!.invalid &&
+              (editForm.get('byteAnyRequiredEva')!.dirty || editForm.get('byteAnyRequiredEva')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('byteAnyRequiredEva')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.byteAnyMinbytesEva"
+            for="field_byteAnyMinbytesEva"
+            >Byte Any Minbytes Eva</label
+          >
+          <div>
+            <div *ngIf="editForm.get('byteAnyMinbytesEva')!.value" class="form-text text-danger clearfix">
+              <a
+                class="pull-start"
+                (click)="openFile(editForm.get('byteAnyMinbytesEva')!.value!, editForm.get('byteAnyMinbytesEvaContentType')!.value!)"
+                jhiTranslate="entity.action.open"
+                >Open</a
+              ><br />
+              <span class="pull-start"
+                >{{ editForm.get('byteAnyMinbytesEvaContentType')!.value }},
+                {{ byteSize(editForm.get('byteAnyMinbytesEva')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="editForm.patchValue({ byteAnyMinbytesEva: undefined, byteAnyMinbytesEvaContentType: undefined })"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteAnyMinbytesEva"
+              data-cy="byteAnyMinbytesEva"
+              (change)="setFileData($event, 'byteAnyMinbytesEva', false)"
+              jhiTranslate="entity.action.addblob"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMinbytesEva"
+            id="field_byteAnyMinbytesEva"
+            data-cy="byteAnyMinbytesEva"
+            formControlName="byteAnyMinbytesEva"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMinbytesEvaContentType"
+            id="field_byteAnyMinbytesEvaContentType"
+            formControlName="byteAnyMinbytesEvaContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('byteAnyMinbytesEva')!.invalid &&
+              (editForm.get('byteAnyMinbytesEva')!.dirty || editForm.get('byteAnyMinbytesEva')!.touched)
+            "
+          ></div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.byteAnyMaxbytesEva"
+            for="field_byteAnyMaxbytesEva"
+            >Byte Any Maxbytes Eva</label
+          >
+          <div>
+            <div *ngIf="editForm.get('byteAnyMaxbytesEva')!.value" class="form-text text-danger clearfix">
+              <a
+                class="pull-start"
+                (click)="openFile(editForm.get('byteAnyMaxbytesEva')!.value!, editForm.get('byteAnyMaxbytesEvaContentType')!.value!)"
+                jhiTranslate="entity.action.open"
+                >Open</a
+              ><br />
+              <span class="pull-start"
+                >{{ editForm.get('byteAnyMaxbytesEvaContentType')!.value }},
+                {{ byteSize(editForm.get('byteAnyMaxbytesEva')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="editForm.patchValue({ byteAnyMaxbytesEva: undefined, byteAnyMaxbytesEvaContentType: undefined })"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteAnyMaxbytesEva"
+              data-cy="byteAnyMaxbytesEva"
+              (change)="setFileData($event, 'byteAnyMaxbytesEva', false)"
+              jhiTranslate="entity.action.addblob"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMaxbytesEva"
+            id="field_byteAnyMaxbytesEva"
+            data-cy="byteAnyMaxbytesEva"
+            formControlName="byteAnyMaxbytesEva"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMaxbytesEvaContentType"
+            id="field_byteAnyMaxbytesEvaContentType"
+            formControlName="byteAnyMaxbytesEvaContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('byteAnyMaxbytesEva')!.invalid &&
+              (editForm.get('byteAnyMaxbytesEva')!.dirty || editForm.get('byteAnyMaxbytesEva')!.touched)
+            "
+          ></div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.byteTextEva"
+            for="field_byteTextEva"
+            >Byte Text Eva</label
+          >
+          <textarea
+            class="form-control"
+            name="byteTextEva"
+            id="field_byteTextEva"
+            data-cy="byteTextEva"
+            formControlName="byteTextEva"
+          ></textarea>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.byteTextRequiredEva"
+            for="field_byteTextRequiredEva"
+            >Byte Text Required Eva</label
+          >
+          <textarea
+            class="form-control"
+            name="byteTextRequiredEva"
+            id="field_byteTextRequiredEva"
+            data-cy="byteTextRequiredEva"
+            formControlName="byteTextRequiredEva"
+          ></textarea>
+          <div
+            *ngIf="
+              editForm.get('byteTextRequiredEva')!.invalid &&
+              (editForm.get('byteTextRequiredEva')!.dirty || editForm.get('byteTextRequiredEva')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('byteTextRequiredEva')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

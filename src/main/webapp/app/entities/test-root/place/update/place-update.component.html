@@ -1,0 +1,135 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-place-heading"
+        data-cy="PlaceCreateUpdateHeading"
+        jhiTranslate="sampleWebfluxMongodbOauth2App.testRootPlace.home.createOrEditLabel"
+      >
+        Create or edit a Place
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.testRootPlace.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+          <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('name')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.testRootPlace.numberOfSeats" for="field_numberOfSeats"
+            >Number Of Seats</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="numberOfSeats"
+            id="field_numberOfSeats"
+            data-cy="numberOfSeats"
+            formControlName="numberOfSeats"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.testRootPlace.shortName" for="field_shortName"
+            >Short Name</label
+          >
+          <input type="text" class="form-control" name="shortName" id="field_shortName" data-cy="shortName" formControlName="shortName" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.testRootPlace.colorBackground" for="field_colorBackground"
+            >Color Background</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="colorBackground"
+            id="field_colorBackground"
+            data-cy="colorBackground"
+            formControlName="colorBackground"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.testRootPlace.colorText" for="field_colorText"
+            >Color Text</label
+          >
+          <input type="text" class="form-control" name="colorText" id="field_colorText" data-cy="colorText" formControlName="colorText" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.testRootPlace.description" for="field_description"
+            >Description</label
+          >
+          <textarea
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          ></textarea>
+        </div>
+
+        <div class="row mb-3">
+          <label jhiTranslate="sampleWebfluxMongodbOauth2App.testRootPlace.preferredDivision" for="field_preferredDivisions"
+            >Preferred Division</label
+          >
+          <select
+            class="form-control"
+            id="field_preferredDivisions"
+            data-cy="preferredDivision"
+            multiple
+            name="preferredDivisions"
+            formControlName="preferredDivisions"
+            [compareWith]="compareDivision"
+          >
+            <option [ngValue]="divisionOption" *ngFor="let divisionOption of divisionsSharedCollection">{{ divisionOption.name }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.testRootPlace.owner" for="field_owner">Owner</label>
+          <select
+            class="form-control"
+            id="field_owner"
+            data-cy="owner"
+            name="owner"
+            formControlName="owner"
+            [compareWith]="compareDivision"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="divisionOption" *ngFor="let divisionOption of divisionsSharedCollection">{{ divisionOption.name }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

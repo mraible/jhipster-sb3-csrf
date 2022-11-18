@@ -1,0 +1,1663 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-field-test-entity-heading"
+        data-cy="FieldTestEntityCreateUpdateHeading"
+        jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.home.createOrEditLabel"
+      >
+        Create or edit a Field Test Entity
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.stringTom" for="field_stringTom"
+            >String Tom</label
+          >
+          <input type="text" class="form-control" name="stringTom" id="field_stringTom" data-cy="stringTom" formControlName="stringTom" />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.stringRequiredTom"
+            for="field_stringRequiredTom"
+            >String Required Tom</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringRequiredTom"
+            id="field_stringRequiredTom"
+            data-cy="stringRequiredTom"
+            formControlName="stringRequiredTom"
+          />
+          <div
+            *ngIf="
+              editForm.get('stringRequiredTom')!.invalid &&
+              (editForm.get('stringRequiredTom')!.dirty || editForm.get('stringRequiredTom')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('stringRequiredTom')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.stringMinlengthTom"
+            for="field_stringMinlengthTom"
+            >String Minlength Tom</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringMinlengthTom"
+            id="field_stringMinlengthTom"
+            data-cy="stringMinlengthTom"
+            formControlName="stringMinlengthTom"
+          />
+          <div
+            *ngIf="
+              editForm.get('stringMinlengthTom')!.invalid &&
+              (editForm.get('stringMinlengthTom')!.dirty || editForm.get('stringMinlengthTom')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('stringMinlengthTom')?.errors?.minlength"
+              jhiTranslate="entity.validation.minlength"
+              [translateValues]="{ min: 0 }"
+            >
+              This field is required to be at least 0 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.stringMaxlengthTom"
+            for="field_stringMaxlengthTom"
+            >String Maxlength Tom</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringMaxlengthTom"
+            id="field_stringMaxlengthTom"
+            data-cy="stringMaxlengthTom"
+            formControlName="stringMaxlengthTom"
+          />
+          <div
+            *ngIf="
+              editForm.get('stringMaxlengthTom')!.invalid &&
+              (editForm.get('stringMaxlengthTom')!.dirty || editForm.get('stringMaxlengthTom')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('stringMaxlengthTom')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 20 }"
+            >
+              This field cannot be longer than 20 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.stringPatternTom"
+            for="field_stringPatternTom"
+            >String Pattern Tom</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringPatternTom"
+            id="field_stringPatternTom"
+            data-cy="stringPatternTom"
+            formControlName="stringPatternTom"
+          />
+          <div
+            *ngIf="
+              editForm.get('stringPatternTom')!.invalid &&
+              (editForm.get('stringPatternTom')!.dirty || editForm.get('stringPatternTom')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('stringPatternTom')?.errors?.pattern"
+              jhiTranslate="entity.validation.pattern"
+              [translateValues]="{ pattern: 'String Pattern Tom' }"
+            >
+              This field should follow pattern for String Pattern Tom.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.numberPatternTom"
+            for="field_numberPatternTom"
+            >Number Pattern Tom</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="numberPatternTom"
+            id="field_numberPatternTom"
+            data-cy="numberPatternTom"
+            formControlName="numberPatternTom"
+          />
+          <div
+            *ngIf="
+              editForm.get('numberPatternTom')!.invalid &&
+              (editForm.get('numberPatternTom')!.dirty || editForm.get('numberPatternTom')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('numberPatternTom')?.errors?.pattern"
+              jhiTranslate="entity.validation.pattern"
+              [translateValues]="{ pattern: 'Number Pattern Tom' }"
+            >
+              This field should follow pattern for Number Pattern Tom.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.numberPatternRequiredTom"
+            for="field_numberPatternRequiredTom"
+            >Number Pattern Required Tom</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="numberPatternRequiredTom"
+            id="field_numberPatternRequiredTom"
+            data-cy="numberPatternRequiredTom"
+            formControlName="numberPatternRequiredTom"
+          />
+          <div
+            *ngIf="
+              editForm.get('numberPatternRequiredTom')!.invalid &&
+              (editForm.get('numberPatternRequiredTom')!.dirty || editForm.get('numberPatternRequiredTom')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('numberPatternRequiredTom')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('numberPatternRequiredTom')?.errors?.pattern"
+              jhiTranslate="entity.validation.pattern"
+              [translateValues]="{ pattern: 'Number Pattern Required Tom' }"
+            >
+              This field should follow pattern for Number Pattern Required Tom.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.integerTom" for="field_integerTom"
+            >Integer Tom</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerTom"
+            id="field_integerTom"
+            data-cy="integerTom"
+            formControlName="integerTom"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.integerRequiredTom"
+            for="field_integerRequiredTom"
+            >Integer Required Tom</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerRequiredTom"
+            id="field_integerRequiredTom"
+            data-cy="integerRequiredTom"
+            formControlName="integerRequiredTom"
+          />
+          <div
+            *ngIf="
+              editForm.get('integerRequiredTom')!.invalid &&
+              (editForm.get('integerRequiredTom')!.dirty || editForm.get('integerRequiredTom')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('integerRequiredTom')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('integerRequiredTom')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.integerMinTom" for="field_integerMinTom"
+            >Integer Min Tom</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerMinTom"
+            id="field_integerMinTom"
+            data-cy="integerMinTom"
+            formControlName="integerMinTom"
+          />
+          <div
+            *ngIf="
+              editForm.get('integerMinTom')!.invalid && (editForm.get('integerMinTom')!.dirty || editForm.get('integerMinTom')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('integerMinTom')?.errors?.min"
+              jhiTranslate="entity.validation.min"
+              [translateValues]="{ min: 0 }"
+            >
+              This field should be at least 0.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('integerMinTom')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.integerMaxTom" for="field_integerMaxTom"
+            >Integer Max Tom</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerMaxTom"
+            id="field_integerMaxTom"
+            data-cy="integerMaxTom"
+            formControlName="integerMaxTom"
+          />
+          <div
+            *ngIf="
+              editForm.get('integerMaxTom')!.invalid && (editForm.get('integerMaxTom')!.dirty || editForm.get('integerMaxTom')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('integerMaxTom')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be more than 100.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('integerMaxTom')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.longTom" for="field_longTom"
+            >Long Tom</label
+          >
+          <input type="number" class="form-control" name="longTom" id="field_longTom" data-cy="longTom" formControlName="longTom" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.longRequiredTom" for="field_longRequiredTom"
+            >Long Required Tom</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="longRequiredTom"
+            id="field_longRequiredTom"
+            data-cy="longRequiredTom"
+            formControlName="longRequiredTom"
+          />
+          <div
+            *ngIf="
+              editForm.get('longRequiredTom')!.invalid &&
+              (editForm.get('longRequiredTom')!.dirty || editForm.get('longRequiredTom')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('longRequiredTom')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('longRequiredTom')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.longMinTom" for="field_longMinTom"
+            >Long Min Tom</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="longMinTom"
+            id="field_longMinTom"
+            data-cy="longMinTom"
+            formControlName="longMinTom"
+          />
+          <div *ngIf="editForm.get('longMinTom')!.invalid && (editForm.get('longMinTom')!.dirty || editForm.get('longMinTom')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('longMinTom')?.errors?.min"
+              jhiTranslate="entity.validation.min"
+              [translateValues]="{ min: 0 }"
+            >
+              This field should be at least 0.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('longMinTom')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.longMaxTom" for="field_longMaxTom"
+            >Long Max Tom</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="longMaxTom"
+            id="field_longMaxTom"
+            data-cy="longMaxTom"
+            formControlName="longMaxTom"
+          />
+          <div *ngIf="editForm.get('longMaxTom')!.invalid && (editForm.get('longMaxTom')!.dirty || editForm.get('longMaxTom')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('longMaxTom')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be more than 100.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('longMaxTom')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.floatTom" for="field_floatTom"
+            >Float Tom</label
+          >
+          <input type="number" class="form-control" name="floatTom" id="field_floatTom" data-cy="floatTom" formControlName="floatTom" />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.floatRequiredTom"
+            for="field_floatRequiredTom"
+            >Float Required Tom</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="floatRequiredTom"
+            id="field_floatRequiredTom"
+            data-cy="floatRequiredTom"
+            formControlName="floatRequiredTom"
+          />
+          <div
+            *ngIf="
+              editForm.get('floatRequiredTom')!.invalid &&
+              (editForm.get('floatRequiredTom')!.dirty || editForm.get('floatRequiredTom')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('floatRequiredTom')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('floatRequiredTom')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.floatMinTom" for="field_floatMinTom"
+            >Float Min Tom</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="floatMinTom"
+            id="field_floatMinTom"
+            data-cy="floatMinTom"
+            formControlName="floatMinTom"
+          />
+          <div *ngIf="editForm.get('floatMinTom')!.invalid && (editForm.get('floatMinTom')!.dirty || editForm.get('floatMinTom')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('floatMinTom')?.errors?.min"
+              jhiTranslate="entity.validation.min"
+              [translateValues]="{ min: 0 }"
+            >
+              This field should be at least 0.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('floatMinTom')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.floatMaxTom" for="field_floatMaxTom"
+            >Float Max Tom</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="floatMaxTom"
+            id="field_floatMaxTom"
+            data-cy="floatMaxTom"
+            formControlName="floatMaxTom"
+          />
+          <div *ngIf="editForm.get('floatMaxTom')!.invalid && (editForm.get('floatMaxTom')!.dirty || editForm.get('floatMaxTom')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('floatMaxTom')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be more than 100.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('floatMaxTom')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.doubleRequiredTom"
+            for="field_doubleRequiredTom"
+            >Double Required Tom</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="doubleRequiredTom"
+            id="field_doubleRequiredTom"
+            data-cy="doubleRequiredTom"
+            formControlName="doubleRequiredTom"
+          />
+          <div
+            *ngIf="
+              editForm.get('doubleRequiredTom')!.invalid &&
+              (editForm.get('doubleRequiredTom')!.dirty || editForm.get('doubleRequiredTom')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('doubleRequiredTom')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('doubleRequiredTom')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.doubleMinTom" for="field_doubleMinTom"
+            >Double Min Tom</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="doubleMinTom"
+            id="field_doubleMinTom"
+            data-cy="doubleMinTom"
+            formControlName="doubleMinTom"
+          />
+          <div
+            *ngIf="editForm.get('doubleMinTom')!.invalid && (editForm.get('doubleMinTom')!.dirty || editForm.get('doubleMinTom')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('doubleMinTom')?.errors?.min"
+              jhiTranslate="entity.validation.min"
+              [translateValues]="{ min: 0 }"
+            >
+              This field should be at least 0.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('doubleMinTom')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.doubleMaxTom" for="field_doubleMaxTom"
+            >Double Max Tom</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="doubleMaxTom"
+            id="field_doubleMaxTom"
+            data-cy="doubleMaxTom"
+            formControlName="doubleMaxTom"
+          />
+          <div
+            *ngIf="editForm.get('doubleMaxTom')!.invalid && (editForm.get('doubleMaxTom')!.dirty || editForm.get('doubleMaxTom')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('doubleMaxTom')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be more than 100.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('doubleMaxTom')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.bigDecimalRequiredTom"
+            for="field_bigDecimalRequiredTom"
+            >Big Decimal Required Tom</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bigDecimalRequiredTom"
+            id="field_bigDecimalRequiredTom"
+            data-cy="bigDecimalRequiredTom"
+            formControlName="bigDecimalRequiredTom"
+          />
+          <div
+            *ngIf="
+              editForm.get('bigDecimalRequiredTom')!.invalid &&
+              (editForm.get('bigDecimalRequiredTom')!.dirty || editForm.get('bigDecimalRequiredTom')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('bigDecimalRequiredTom')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('bigDecimalRequiredTom')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.bigDecimalMinTom"
+            for="field_bigDecimalMinTom"
+            >Big Decimal Min Tom</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bigDecimalMinTom"
+            id="field_bigDecimalMinTom"
+            data-cy="bigDecimalMinTom"
+            formControlName="bigDecimalMinTom"
+          />
+          <div
+            *ngIf="
+              editForm.get('bigDecimalMinTom')!.invalid &&
+              (editForm.get('bigDecimalMinTom')!.dirty || editForm.get('bigDecimalMinTom')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('bigDecimalMinTom')?.errors?.min"
+              jhiTranslate="entity.validation.min"
+              [translateValues]="{ min: 0 }"
+            >
+              This field should be at least 0.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('bigDecimalMinTom')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.bigDecimalMaxTom"
+            for="field_bigDecimalMaxTom"
+            >Big Decimal Max Tom</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bigDecimalMaxTom"
+            id="field_bigDecimalMaxTom"
+            data-cy="bigDecimalMaxTom"
+            formControlName="bigDecimalMaxTom"
+          />
+          <div
+            *ngIf="
+              editForm.get('bigDecimalMaxTom')!.invalid &&
+              (editForm.get('bigDecimalMaxTom')!.dirty || editForm.get('bigDecimalMaxTom')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('bigDecimalMaxTom')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be more than 100.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('bigDecimalMaxTom')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.localDateTom" for="field_localDateTom"
+            >Local Date Tom</label
+          >
+          <div class="input-group">
+            <input
+              id="field_localDateTom"
+              data-cy="localDateTom"
+              type="text"
+              class="form-control"
+              name="localDateTom"
+              ngbDatepicker
+              #localDateTomDp="ngbDatepicker"
+              formControlName="localDateTom"
+            />
+            <button type="button" class="btn btn-secondary" (click)="localDateTomDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.localDateRequiredTom"
+            for="field_localDateRequiredTom"
+            >Local Date Required Tom</label
+          >
+          <div class="input-group">
+            <input
+              id="field_localDateRequiredTom"
+              data-cy="localDateRequiredTom"
+              type="text"
+              class="form-control"
+              name="localDateRequiredTom"
+              ngbDatepicker
+              #localDateRequiredTomDp="ngbDatepicker"
+              formControlName="localDateRequiredTom"
+            />
+            <button type="button" class="btn btn-secondary" (click)="localDateRequiredTomDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+          <div
+            *ngIf="
+              editForm.get('localDateRequiredTom')!.invalid &&
+              (editForm.get('localDateRequiredTom')!.dirty || editForm.get('localDateRequiredTom')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('localDateRequiredTom')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.instantTom" for="field_instantTom"
+            >Instant Tom</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_instantTom"
+              data-cy="instantTom"
+              type="datetime-local"
+              class="form-control"
+              name="instantTom"
+              formControlName="instantTom"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.instantRequiredTom"
+            for="field_instantRequiredTom"
+            >Instant Required Tom</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_instantRequiredTom"
+              data-cy="instantRequiredTom"
+              type="datetime-local"
+              class="form-control"
+              name="instantRequiredTom"
+              formControlName="instantRequiredTom"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          <div
+            *ngIf="
+              editForm.get('instantRequiredTom')!.invalid &&
+              (editForm.get('instantRequiredTom')!.dirty || editForm.get('instantRequiredTom')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('instantRequiredTom')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('instantRequiredTom')?.errors?.datetimelocal"
+              jhiTranslate="entity.validation.datetimelocal"
+            >
+              This field should be a date and time.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.zonedDateTimeTom"
+            for="field_zonedDateTimeTom"
+            >Zoned Date Time Tom</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_zonedDateTimeTom"
+              data-cy="zonedDateTimeTom"
+              type="datetime-local"
+              class="form-control"
+              name="zonedDateTimeTom"
+              formControlName="zonedDateTimeTom"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.zonedDateTimeRequiredTom"
+            for="field_zonedDateTimeRequiredTom"
+            >Zoned Date Time Required Tom</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_zonedDateTimeRequiredTom"
+              data-cy="zonedDateTimeRequiredTom"
+              type="datetime-local"
+              class="form-control"
+              name="zonedDateTimeRequiredTom"
+              formControlName="zonedDateTimeRequiredTom"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          <div
+            *ngIf="
+              editForm.get('zonedDateTimeRequiredTom')!.invalid &&
+              (editForm.get('zonedDateTimeRequiredTom')!.dirty || editForm.get('zonedDateTimeRequiredTom')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('zonedDateTimeRequiredTom')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('zonedDateTimeRequiredTom')?.errors?.datetimelocal"
+              jhiTranslate="entity.validation.datetimelocal"
+            >
+              This field should be a date and time.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.durationTom" for="field_durationTom"
+            >Duration Tom</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="durationTom"
+            id="field_durationTom"
+            data-cy="durationTom"
+            formControlName="durationTom"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.durationRequiredTom"
+            for="field_durationRequiredTom"
+            >Duration Required Tom</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="durationRequiredTom"
+            id="field_durationRequiredTom"
+            data-cy="durationRequiredTom"
+            formControlName="durationRequiredTom"
+          />
+          <div
+            *ngIf="
+              editForm.get('durationRequiredTom')!.invalid &&
+              (editForm.get('durationRequiredTom')!.dirty || editForm.get('durationRequiredTom')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('durationRequiredTom')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('durationRequiredTom')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.booleanTom" for="field_booleanTom"
+            >Boolean Tom</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="booleanTom"
+            id="field_booleanTom"
+            data-cy="booleanTom"
+            formControlName="booleanTom"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.booleanRequiredTom"
+            for="field_booleanRequiredTom"
+            >Boolean Required Tom</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="booleanRequiredTom"
+            id="field_booleanRequiredTom"
+            data-cy="booleanRequiredTom"
+            formControlName="booleanRequiredTom"
+          />
+          <div
+            *ngIf="
+              editForm.get('booleanRequiredTom')!.invalid &&
+              (editForm.get('booleanRequiredTom')!.dirty || editForm.get('booleanRequiredTom')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('booleanRequiredTom')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.enumTom" for="field_enumTom"
+            >Enum Tom</label
+          >
+          <select class="form-control" name="enumTom" formControlName="enumTom" id="field_enumTom" data-cy="enumTom">
+            <option [ngValue]="null">{{ 'sampleWebfluxMongodbOauth2App.EnumFieldClass.null' | translate }}</option>
+            <option *ngFor="let enumFieldClass of enumFieldClassValues" [value]="enumFieldClass">
+              {{ 'sampleWebfluxMongodbOauth2App.EnumFieldClass.' + enumFieldClass | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.enumRequiredTom" for="field_enumRequiredTom"
+            >Enum Required Tom</label
+          >
+          <select
+            class="form-control"
+            name="enumRequiredTom"
+            formControlName="enumRequiredTom"
+            id="field_enumRequiredTom"
+            data-cy="enumRequiredTom"
+          >
+            <option [ngValue]="null">{{ 'sampleWebfluxMongodbOauth2App.EnumRequiredFieldClass.null' | translate }}</option>
+            <option *ngFor="let enumRequiredFieldClass of enumRequiredFieldClassValues" [value]="enumRequiredFieldClass">
+              {{ 'sampleWebfluxMongodbOauth2App.EnumRequiredFieldClass.' + enumRequiredFieldClass | translate }}
+            </option>
+          </select>
+          <div
+            *ngIf="
+              editForm.get('enumRequiredTom')!.invalid &&
+              (editForm.get('enumRequiredTom')!.dirty || editForm.get('enumRequiredTom')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('enumRequiredTom')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.uuidTom" for="field_uuidTom"
+            >Uuid Tom</label
+          >
+          <input type="text" class="form-control" name="uuidTom" id="field_uuidTom" data-cy="uuidTom" formControlName="uuidTom" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.uuidRequiredTom" for="field_uuidRequiredTom"
+            >Uuid Required Tom</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="uuidRequiredTom"
+            id="field_uuidRequiredTom"
+            data-cy="uuidRequiredTom"
+            formControlName="uuidRequiredTom"
+          />
+          <div
+            *ngIf="
+              editForm.get('uuidRequiredTom')!.invalid &&
+              (editForm.get('uuidRequiredTom')!.dirty || editForm.get('uuidRequiredTom')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('uuidRequiredTom')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.byteImageTom" for="field_byteImageTom"
+            >Byte Image Tom</label
+          >
+          <div>
+            <img
+              [src]="'data:' + editForm.get('byteImageTomContentType')!.value + ';base64,' + editForm.get('byteImageTom')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('byteImageTom')!.value"
+              alt="fieldTestEntity image"
+            />
+            <div *ngIf="editForm.get('byteImageTom')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('byteImageTomContentType')!.value }}, {{ byteSize(editForm.get('byteImageTom')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('byteImageTom', 'byteImageTomContentType', 'file_byteImageTom')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteImageTom"
+              data-cy="byteImageTom"
+              (change)="setFileData($event, 'byteImageTom', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageTom"
+            id="field_byteImageTom"
+            data-cy="byteImageTom"
+            formControlName="byteImageTom"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageTomContentType"
+            id="field_byteImageTomContentType"
+            formControlName="byteImageTomContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.byteImageRequiredTom"
+            for="field_byteImageRequiredTom"
+            >Byte Image Required Tom</label
+          >
+          <div>
+            <img
+              [src]="
+                'data:' + editForm.get('byteImageRequiredTomContentType')!.value + ';base64,' + editForm.get('byteImageRequiredTom')!.value
+              "
+              style="max-height: 100px"
+              *ngIf="editForm.get('byteImageRequiredTom')!.value"
+              alt="fieldTestEntity image"
+            />
+            <div *ngIf="editForm.get('byteImageRequiredTom')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('byteImageRequiredTomContentType')!.value }},
+                {{ byteSize(editForm.get('byteImageRequiredTom')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('byteImageRequiredTom', 'byteImageRequiredTomContentType', 'file_byteImageRequiredTom')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteImageRequiredTom"
+              data-cy="byteImageRequiredTom"
+              (change)="setFileData($event, 'byteImageRequiredTom', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageRequiredTom"
+            id="field_byteImageRequiredTom"
+            data-cy="byteImageRequiredTom"
+            formControlName="byteImageRequiredTom"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageRequiredTomContentType"
+            id="field_byteImageRequiredTomContentType"
+            formControlName="byteImageRequiredTomContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('byteImageRequiredTom')!.invalid &&
+              (editForm.get('byteImageRequiredTom')!.dirty || editForm.get('byteImageRequiredTom')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('byteImageRequiredTom')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.byteImageMinbytesTom"
+            for="field_byteImageMinbytesTom"
+            >Byte Image Minbytes Tom</label
+          >
+          <div>
+            <img
+              [src]="
+                'data:' + editForm.get('byteImageMinbytesTomContentType')!.value + ';base64,' + editForm.get('byteImageMinbytesTom')!.value
+              "
+              style="max-height: 100px"
+              *ngIf="editForm.get('byteImageMinbytesTom')!.value"
+              alt="fieldTestEntity image"
+            />
+            <div *ngIf="editForm.get('byteImageMinbytesTom')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('byteImageMinbytesTomContentType')!.value }},
+                {{ byteSize(editForm.get('byteImageMinbytesTom')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('byteImageMinbytesTom', 'byteImageMinbytesTomContentType', 'file_byteImageMinbytesTom')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteImageMinbytesTom"
+              data-cy="byteImageMinbytesTom"
+              (change)="setFileData($event, 'byteImageMinbytesTom', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMinbytesTom"
+            id="field_byteImageMinbytesTom"
+            data-cy="byteImageMinbytesTom"
+            formControlName="byteImageMinbytesTom"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMinbytesTomContentType"
+            id="field_byteImageMinbytesTomContentType"
+            formControlName="byteImageMinbytesTomContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('byteImageMinbytesTom')!.invalid &&
+              (editForm.get('byteImageMinbytesTom')!.dirty || editForm.get('byteImageMinbytesTom')!.touched)
+            "
+          ></div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.byteImageMaxbytesTom"
+            for="field_byteImageMaxbytesTom"
+            >Byte Image Maxbytes Tom</label
+          >
+          <div>
+            <img
+              [src]="
+                'data:' + editForm.get('byteImageMaxbytesTomContentType')!.value + ';base64,' + editForm.get('byteImageMaxbytesTom')!.value
+              "
+              style="max-height: 100px"
+              *ngIf="editForm.get('byteImageMaxbytesTom')!.value"
+              alt="fieldTestEntity image"
+            />
+            <div *ngIf="editForm.get('byteImageMaxbytesTom')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('byteImageMaxbytesTomContentType')!.value }},
+                {{ byteSize(editForm.get('byteImageMaxbytesTom')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('byteImageMaxbytesTom', 'byteImageMaxbytesTomContentType', 'file_byteImageMaxbytesTom')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteImageMaxbytesTom"
+              data-cy="byteImageMaxbytesTom"
+              (change)="setFileData($event, 'byteImageMaxbytesTom', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMaxbytesTom"
+            id="field_byteImageMaxbytesTom"
+            data-cy="byteImageMaxbytesTom"
+            formControlName="byteImageMaxbytesTom"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMaxbytesTomContentType"
+            id="field_byteImageMaxbytesTomContentType"
+            formControlName="byteImageMaxbytesTomContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('byteImageMaxbytesTom')!.invalid &&
+              (editForm.get('byteImageMaxbytesTom')!.dirty || editForm.get('byteImageMaxbytesTom')!.touched)
+            "
+          ></div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.byteAnyTom" for="field_byteAnyTom"
+            >Byte Any Tom</label
+          >
+          <div>
+            <div *ngIf="editForm.get('byteAnyTom')!.value" class="form-text text-danger clearfix">
+              <a
+                class="pull-start"
+                (click)="openFile(editForm.get('byteAnyTom')!.value!, editForm.get('byteAnyTomContentType')!.value!)"
+                jhiTranslate="entity.action.open"
+                >Open</a
+              ><br />
+              <span class="pull-start"
+                >{{ editForm.get('byteAnyTomContentType')!.value }}, {{ byteSize(editForm.get('byteAnyTom')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="editForm.patchValue({ byteAnyTom: undefined, byteAnyTomContentType: undefined })"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteAnyTom"
+              data-cy="byteAnyTom"
+              (change)="setFileData($event, 'byteAnyTom', false)"
+              jhiTranslate="entity.action.addblob"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyTom"
+            id="field_byteAnyTom"
+            data-cy="byteAnyTom"
+            formControlName="byteAnyTom"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyTomContentType"
+            id="field_byteAnyTomContentType"
+            formControlName="byteAnyTomContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.byteAnyRequiredTom"
+            for="field_byteAnyRequiredTom"
+            >Byte Any Required Tom</label
+          >
+          <div>
+            <div *ngIf="editForm.get('byteAnyRequiredTom')!.value" class="form-text text-danger clearfix">
+              <a
+                class="pull-start"
+                (click)="openFile(editForm.get('byteAnyRequiredTom')!.value!, editForm.get('byteAnyRequiredTomContentType')!.value!)"
+                jhiTranslate="entity.action.open"
+                >Open</a
+              ><br />
+              <span class="pull-start"
+                >{{ editForm.get('byteAnyRequiredTomContentType')!.value }},
+                {{ byteSize(editForm.get('byteAnyRequiredTom')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="editForm.patchValue({ byteAnyRequiredTom: undefined, byteAnyRequiredTomContentType: undefined })"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteAnyRequiredTom"
+              data-cy="byteAnyRequiredTom"
+              (change)="setFileData($event, 'byteAnyRequiredTom', false)"
+              jhiTranslate="entity.action.addblob"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyRequiredTom"
+            id="field_byteAnyRequiredTom"
+            data-cy="byteAnyRequiredTom"
+            formControlName="byteAnyRequiredTom"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyRequiredTomContentType"
+            id="field_byteAnyRequiredTomContentType"
+            formControlName="byteAnyRequiredTomContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('byteAnyRequiredTom')!.invalid &&
+              (editForm.get('byteAnyRequiredTom')!.dirty || editForm.get('byteAnyRequiredTom')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('byteAnyRequiredTom')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.byteAnyMinbytesTom"
+            for="field_byteAnyMinbytesTom"
+            >Byte Any Minbytes Tom</label
+          >
+          <div>
+            <div *ngIf="editForm.get('byteAnyMinbytesTom')!.value" class="form-text text-danger clearfix">
+              <a
+                class="pull-start"
+                (click)="openFile(editForm.get('byteAnyMinbytesTom')!.value!, editForm.get('byteAnyMinbytesTomContentType')!.value!)"
+                jhiTranslate="entity.action.open"
+                >Open</a
+              ><br />
+              <span class="pull-start"
+                >{{ editForm.get('byteAnyMinbytesTomContentType')!.value }},
+                {{ byteSize(editForm.get('byteAnyMinbytesTom')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="editForm.patchValue({ byteAnyMinbytesTom: undefined, byteAnyMinbytesTomContentType: undefined })"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteAnyMinbytesTom"
+              data-cy="byteAnyMinbytesTom"
+              (change)="setFileData($event, 'byteAnyMinbytesTom', false)"
+              jhiTranslate="entity.action.addblob"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMinbytesTom"
+            id="field_byteAnyMinbytesTom"
+            data-cy="byteAnyMinbytesTom"
+            formControlName="byteAnyMinbytesTom"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMinbytesTomContentType"
+            id="field_byteAnyMinbytesTomContentType"
+            formControlName="byteAnyMinbytesTomContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('byteAnyMinbytesTom')!.invalid &&
+              (editForm.get('byteAnyMinbytesTom')!.dirty || editForm.get('byteAnyMinbytesTom')!.touched)
+            "
+          ></div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.byteAnyMaxbytesTom"
+            for="field_byteAnyMaxbytesTom"
+            >Byte Any Maxbytes Tom</label
+          >
+          <div>
+            <div *ngIf="editForm.get('byteAnyMaxbytesTom')!.value" class="form-text text-danger clearfix">
+              <a
+                class="pull-start"
+                (click)="openFile(editForm.get('byteAnyMaxbytesTom')!.value!, editForm.get('byteAnyMaxbytesTomContentType')!.value!)"
+                jhiTranslate="entity.action.open"
+                >Open</a
+              ><br />
+              <span class="pull-start"
+                >{{ editForm.get('byteAnyMaxbytesTomContentType')!.value }},
+                {{ byteSize(editForm.get('byteAnyMaxbytesTom')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="editForm.patchValue({ byteAnyMaxbytesTom: undefined, byteAnyMaxbytesTomContentType: undefined })"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteAnyMaxbytesTom"
+              data-cy="byteAnyMaxbytesTom"
+              (change)="setFileData($event, 'byteAnyMaxbytesTom', false)"
+              jhiTranslate="entity.action.addblob"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMaxbytesTom"
+            id="field_byteAnyMaxbytesTom"
+            data-cy="byteAnyMaxbytesTom"
+            formControlName="byteAnyMaxbytesTom"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMaxbytesTomContentType"
+            id="field_byteAnyMaxbytesTomContentType"
+            formControlName="byteAnyMaxbytesTomContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('byteAnyMaxbytesTom')!.invalid &&
+              (editForm.get('byteAnyMaxbytesTom')!.dirty || editForm.get('byteAnyMaxbytesTom')!.touched)
+            "
+          ></div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.byteTextTom" for="field_byteTextTom"
+            >Byte Text Tom</label
+          >
+          <textarea
+            class="form-control"
+            name="byteTextTom"
+            id="field_byteTextTom"
+            data-cy="byteTextTom"
+            formControlName="byteTextTom"
+          ></textarea>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.byteTextRequiredTom"
+            for="field_byteTextRequiredTom"
+            >Byte Text Required Tom</label
+          >
+          <textarea
+            class="form-control"
+            name="byteTextRequiredTom"
+            id="field_byteTextRequiredTom"
+            data-cy="byteTextRequiredTom"
+            formControlName="byteTextRequiredTom"
+          ></textarea>
+          <div
+            *ngIf="
+              editForm.get('byteTextRequiredTom')!.invalid &&
+              (editForm.get('byteTextRequiredTom')!.dirty || editForm.get('byteTextRequiredTom')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('byteTextRequiredTom')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

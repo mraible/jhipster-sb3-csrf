@@ -1,0 +1,492 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="fieldTestMapstructAndServiceClassEntity">
+      <h2 data-cy="fieldTestMapstructAndServiceClassEntityDetailsHeading">
+        <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.detail.title"
+          >Field Test Mapstruct And Service Class Entity</span
+        >
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ fieldTestMapstructAndServiceClassEntity.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.stringEva">String Eva</span></dt>
+        <dd>
+          <span>{{ fieldTestMapstructAndServiceClassEntity.stringEva }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.stringRequiredEva"
+            >String Required Eva</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fieldTestMapstructAndServiceClassEntity.stringRequiredEva }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.stringMinlengthEva"
+            >String Minlength Eva</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fieldTestMapstructAndServiceClassEntity.stringMinlengthEva }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.stringMaxlengthEva"
+            >String Maxlength Eva</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fieldTestMapstructAndServiceClassEntity.stringMaxlengthEva }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.stringPatternEva"
+            >String Pattern Eva</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fieldTestMapstructAndServiceClassEntity.stringPatternEva }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.integerEva">Integer Eva</span></dt>
+        <dd>
+          <span>{{ fieldTestMapstructAndServiceClassEntity.integerEva }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.integerRequiredEva"
+            >Integer Required Eva</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fieldTestMapstructAndServiceClassEntity.integerRequiredEva }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.integerMinEva">Integer Min Eva</span>
+        </dt>
+        <dd>
+          <span>{{ fieldTestMapstructAndServiceClassEntity.integerMinEva }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.integerMaxEva">Integer Max Eva</span>
+        </dt>
+        <dd>
+          <span>{{ fieldTestMapstructAndServiceClassEntity.integerMaxEva }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.longEva">Long Eva</span></dt>
+        <dd>
+          <span>{{ fieldTestMapstructAndServiceClassEntity.longEva }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.longRequiredEva"
+            >Long Required Eva</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fieldTestMapstructAndServiceClassEntity.longRequiredEva }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.longMinEva">Long Min Eva</span></dt>
+        <dd>
+          <span>{{ fieldTestMapstructAndServiceClassEntity.longMinEva }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.longMaxEva">Long Max Eva</span></dt>
+        <dd>
+          <span>{{ fieldTestMapstructAndServiceClassEntity.longMaxEva }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.floatEva">Float Eva</span></dt>
+        <dd>
+          <span>{{ fieldTestMapstructAndServiceClassEntity.floatEva }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.floatRequiredEva"
+            >Float Required Eva</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fieldTestMapstructAndServiceClassEntity.floatRequiredEva }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.floatMinEva">Float Min Eva</span></dt>
+        <dd>
+          <span>{{ fieldTestMapstructAndServiceClassEntity.floatMinEva }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.floatMaxEva">Float Max Eva</span></dt>
+        <dd>
+          <span>{{ fieldTestMapstructAndServiceClassEntity.floatMaxEva }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.doubleRequiredEva"
+            >Double Required Eva</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fieldTestMapstructAndServiceClassEntity.doubleRequiredEva }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.doubleMinEva">Double Min Eva</span>
+        </dt>
+        <dd>
+          <span>{{ fieldTestMapstructAndServiceClassEntity.doubleMinEva }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.doubleMaxEva">Double Max Eva</span>
+        </dt>
+        <dd>
+          <span>{{ fieldTestMapstructAndServiceClassEntity.doubleMaxEva }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.bigDecimalRequiredEva"
+            >Big Decimal Required Eva</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fieldTestMapstructAndServiceClassEntity.bigDecimalRequiredEva }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.bigDecimalMinEva"
+            >Big Decimal Min Eva</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fieldTestMapstructAndServiceClassEntity.bigDecimalMinEva }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.bigDecimalMaxEva"
+            >Big Decimal Max Eva</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fieldTestMapstructAndServiceClassEntity.bigDecimalMaxEva }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.localDateEva">Local Date Eva</span>
+        </dt>
+        <dd>
+          <span>{{ fieldTestMapstructAndServiceClassEntity.localDateEva | formatMediumDate }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.localDateRequiredEva"
+            >Local Date Required Eva</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fieldTestMapstructAndServiceClassEntity.localDateRequiredEva | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.instantEva">Instant Eva</span></dt>
+        <dd>
+          <span>{{ fieldTestMapstructAndServiceClassEntity.instantEva | formatMediumDatetime }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.instanteRequiredEva"
+            >Instante Required Eva</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fieldTestMapstructAndServiceClassEntity.instanteRequiredEva | formatMediumDatetime }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.zonedDateTimeEva"
+            >Zoned Date Time Eva</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fieldTestMapstructAndServiceClassEntity.zonedDateTimeEva | formatMediumDatetime }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.zonedDateTimeRequiredEva"
+            >Zoned Date Time Required Eva</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fieldTestMapstructAndServiceClassEntity.zonedDateTimeRequiredEva | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.durationEva">Duration Eva</span></dt>
+        <dd>
+          <span
+            >{{ fieldTestMapstructAndServiceClassEntity.durationEva | duration }} ({{
+              fieldTestMapstructAndServiceClassEntity.durationEva
+            }})</span
+          >
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.durationRequiredEva"
+            >Duration Required Eva</span
+          >
+        </dt>
+        <dd>
+          <span
+            >{{ fieldTestMapstructAndServiceClassEntity.durationRequiredEva | duration }} ({{
+              fieldTestMapstructAndServiceClassEntity.durationRequiredEva
+            }})</span
+          >
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.booleanEva">Boolean Eva</span></dt>
+        <dd>
+          <span>{{ fieldTestMapstructAndServiceClassEntity.booleanEva }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.booleanRequiredEva"
+            >Boolean Required Eva</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fieldTestMapstructAndServiceClassEntity.booleanRequiredEva }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.enumEva">Enum Eva</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'sampleWebfluxMongodbOauth2App.EnumFieldClass.' + fieldTestMapstructAndServiceClassEntity.enumEva }}">{{
+            fieldTestMapstructAndServiceClassEntity.enumEva
+          }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.enumRequiredEva"
+            >Enum Required Eva</span
+          >
+        </dt>
+        <dd>
+          <span
+            jhiTranslate="{{
+              'sampleWebfluxMongodbOauth2App.EnumRequiredFieldClass.' + fieldTestMapstructAndServiceClassEntity.enumRequiredEva
+            }}"
+            >{{ fieldTestMapstructAndServiceClassEntity.enumRequiredEva }}</span
+          >
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.uuidEva">Uuid Eva</span></dt>
+        <dd>
+          <span>{{ fieldTestMapstructAndServiceClassEntity.uuidEva }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.uuidRequiredEva"
+            >Uuid Required Eva</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fieldTestMapstructAndServiceClassEntity.uuidRequiredEva }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.byteImageEva">Byte Image Eva</span>
+        </dt>
+        <dd>
+          <div *ngIf="fieldTestMapstructAndServiceClassEntity.byteImageEva">
+            <a
+              (click)="
+                openFile(
+                  fieldTestMapstructAndServiceClassEntity.byteImageEva,
+                  fieldTestMapstructAndServiceClassEntity.byteImageEvaContentType
+                )
+              "
+            >
+              <img
+                [src]="
+                  'data:' +
+                  fieldTestMapstructAndServiceClassEntity.byteImageEvaContentType +
+                  ';base64,' +
+                  fieldTestMapstructAndServiceClassEntity.byteImageEva
+                "
+                style="max-width: 100%"
+                alt="fieldTestMapstructAndServiceClassEntity image"
+              />
+            </a>
+            {{ fieldTestMapstructAndServiceClassEntity.byteImageEvaContentType }},
+            {{ byteSize(fieldTestMapstructAndServiceClassEntity.byteImageEva) }}
+          </div>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.byteImageRequiredEva"
+            >Byte Image Required Eva</span
+          >
+        </dt>
+        <dd>
+          <div *ngIf="fieldTestMapstructAndServiceClassEntity.byteImageRequiredEva">
+            <a
+              (click)="
+                openFile(
+                  fieldTestMapstructAndServiceClassEntity.byteImageRequiredEva,
+                  fieldTestMapstructAndServiceClassEntity.byteImageRequiredEvaContentType
+                )
+              "
+            >
+              <img
+                [src]="
+                  'data:' +
+                  fieldTestMapstructAndServiceClassEntity.byteImageRequiredEvaContentType +
+                  ';base64,' +
+                  fieldTestMapstructAndServiceClassEntity.byteImageRequiredEva
+                "
+                style="max-width: 100%"
+                alt="fieldTestMapstructAndServiceClassEntity image"
+              />
+            </a>
+            {{ fieldTestMapstructAndServiceClassEntity.byteImageRequiredEvaContentType }},
+            {{ byteSize(fieldTestMapstructAndServiceClassEntity.byteImageRequiredEva) }}
+          </div>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.byteImageMinbytesEva"
+            >Byte Image Minbytes Eva</span
+          >
+        </dt>
+        <dd>
+          <div *ngIf="fieldTestMapstructAndServiceClassEntity.byteImageMinbytesEva">
+            <a
+              (click)="
+                openFile(
+                  fieldTestMapstructAndServiceClassEntity.byteImageMinbytesEva,
+                  fieldTestMapstructAndServiceClassEntity.byteImageMinbytesEvaContentType
+                )
+              "
+            >
+              <img
+                [src]="
+                  'data:' +
+                  fieldTestMapstructAndServiceClassEntity.byteImageMinbytesEvaContentType +
+                  ';base64,' +
+                  fieldTestMapstructAndServiceClassEntity.byteImageMinbytesEva
+                "
+                style="max-width: 100%"
+                alt="fieldTestMapstructAndServiceClassEntity image"
+              />
+            </a>
+            {{ fieldTestMapstructAndServiceClassEntity.byteImageMinbytesEvaContentType }},
+            {{ byteSize(fieldTestMapstructAndServiceClassEntity.byteImageMinbytesEva) }}
+          </div>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.byteImageMaxbytesEva"
+            >Byte Image Maxbytes Eva</span
+          >
+        </dt>
+        <dd>
+          <div *ngIf="fieldTestMapstructAndServiceClassEntity.byteImageMaxbytesEva">
+            <a
+              (click)="
+                openFile(
+                  fieldTestMapstructAndServiceClassEntity.byteImageMaxbytesEva,
+                  fieldTestMapstructAndServiceClassEntity.byteImageMaxbytesEvaContentType
+                )
+              "
+            >
+              <img
+                [src]="
+                  'data:' +
+                  fieldTestMapstructAndServiceClassEntity.byteImageMaxbytesEvaContentType +
+                  ';base64,' +
+                  fieldTestMapstructAndServiceClassEntity.byteImageMaxbytesEva
+                "
+                style="max-width: 100%"
+                alt="fieldTestMapstructAndServiceClassEntity image"
+              />
+            </a>
+            {{ fieldTestMapstructAndServiceClassEntity.byteImageMaxbytesEvaContentType }},
+            {{ byteSize(fieldTestMapstructAndServiceClassEntity.byteImageMaxbytesEva) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.byteAnyEva">Byte Any Eva</span></dt>
+        <dd>
+          <div *ngIf="fieldTestMapstructAndServiceClassEntity.byteAnyEva">
+            <a
+              (click)="
+                openFile(fieldTestMapstructAndServiceClassEntity.byteAnyEva, fieldTestMapstructAndServiceClassEntity.byteAnyEvaContentType)
+              "
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            {{ fieldTestMapstructAndServiceClassEntity.byteAnyEvaContentType }},
+            {{ byteSize(fieldTestMapstructAndServiceClassEntity.byteAnyEva) }}
+          </div>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.byteAnyRequiredEva"
+            >Byte Any Required Eva</span
+          >
+        </dt>
+        <dd>
+          <div *ngIf="fieldTestMapstructAndServiceClassEntity.byteAnyRequiredEva">
+            <a
+              (click)="
+                openFile(
+                  fieldTestMapstructAndServiceClassEntity.byteAnyRequiredEva,
+                  fieldTestMapstructAndServiceClassEntity.byteAnyRequiredEvaContentType
+                )
+              "
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            {{ fieldTestMapstructAndServiceClassEntity.byteAnyRequiredEvaContentType }},
+            {{ byteSize(fieldTestMapstructAndServiceClassEntity.byteAnyRequiredEva) }}
+          </div>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.byteAnyMinbytesEva"
+            >Byte Any Minbytes Eva</span
+          >
+        </dt>
+        <dd>
+          <div *ngIf="fieldTestMapstructAndServiceClassEntity.byteAnyMinbytesEva">
+            <a
+              (click)="
+                openFile(
+                  fieldTestMapstructAndServiceClassEntity.byteAnyMinbytesEva,
+                  fieldTestMapstructAndServiceClassEntity.byteAnyMinbytesEvaContentType
+                )
+              "
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            {{ fieldTestMapstructAndServiceClassEntity.byteAnyMinbytesEvaContentType }},
+            {{ byteSize(fieldTestMapstructAndServiceClassEntity.byteAnyMinbytesEva) }}
+          </div>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.byteAnyMaxbytesEva"
+            >Byte Any Maxbytes Eva</span
+          >
+        </dt>
+        <dd>
+          <div *ngIf="fieldTestMapstructAndServiceClassEntity.byteAnyMaxbytesEva">
+            <a
+              (click)="
+                openFile(
+                  fieldTestMapstructAndServiceClassEntity.byteAnyMaxbytesEva,
+                  fieldTestMapstructAndServiceClassEntity.byteAnyMaxbytesEvaContentType
+                )
+              "
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            {{ fieldTestMapstructAndServiceClassEntity.byteAnyMaxbytesEvaContentType }},
+            {{ byteSize(fieldTestMapstructAndServiceClassEntity.byteAnyMaxbytesEva) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.byteTextEva">Byte Text Eva</span></dt>
+        <dd>
+          <span>{{ fieldTestMapstructAndServiceClassEntity.byteTextEva }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestMapstructAndServiceClassEntity.byteTextRequiredEva"
+            >Byte Text Required Eva</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fieldTestMapstructAndServiceClassEntity.byteTextRequiredEva }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button
+        type="button"
+        [routerLink]="['/field-test-mapstruct-and-service-class-entity', fieldTestMapstructAndServiceClassEntity.id, 'edit']"
+        class="btn btn-primary"
+      >
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

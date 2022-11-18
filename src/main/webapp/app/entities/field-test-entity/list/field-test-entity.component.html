@@ -1,0 +1,526 @@
+<div>
+  <h2 id="page-heading" data-cy="FieldTestEntityHeading">
+    <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.home.title">Field Test Entities</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-field-test-entity"
+        [routerLink]="['/field-test-entity/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.home.createLabel"> Create a new Field Test Entity </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="fieldTestEntities?.length === 0">
+    <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.home.notFound">No Field Test Entities found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="fieldTestEntities && fieldTestEntities.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="stringTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.stringTom">String Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="stringRequiredTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.stringRequiredTom">String Required Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="stringMinlengthTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.stringMinlengthTom">String Minlength Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="stringMaxlengthTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.stringMaxlengthTom">String Maxlength Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="stringPatternTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.stringPatternTom">String Pattern Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="numberPatternTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.numberPatternTom">Number Pattern Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="numberPatternRequiredTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.numberPatternRequiredTom">Number Pattern Required Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="integerTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.integerTom">Integer Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="integerRequiredTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.integerRequiredTom">Integer Required Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="integerMinTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.integerMinTom">Integer Min Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="integerMaxTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.integerMaxTom">Integer Max Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="longTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.longTom">Long Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="longRequiredTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.longRequiredTom">Long Required Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="longMinTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.longMinTom">Long Min Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="longMaxTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.longMaxTom">Long Max Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="floatTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.floatTom">Float Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="floatRequiredTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.floatRequiredTom">Float Required Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="floatMinTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.floatMinTom">Float Min Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="floatMaxTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.floatMaxTom">Float Max Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="doubleRequiredTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.doubleRequiredTom">Double Required Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="doubleMinTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.doubleMinTom">Double Min Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="doubleMaxTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.doubleMaxTom">Double Max Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="bigDecimalRequiredTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.bigDecimalRequiredTom">Big Decimal Required Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="bigDecimalMinTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.bigDecimalMinTom">Big Decimal Min Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="bigDecimalMaxTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.bigDecimalMaxTom">Big Decimal Max Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="localDateTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.localDateTom">Local Date Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="localDateRequiredTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.localDateRequiredTom">Local Date Required Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="instantTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.instantTom">Instant Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="instantRequiredTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.instantRequiredTom">Instant Required Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="zonedDateTimeTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.zonedDateTimeTom">Zoned Date Time Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="zonedDateTimeRequiredTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.zonedDateTimeRequiredTom"
+                >Zoned Date Time Required Tom</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="durationTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.durationTom">Duration Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="durationRequiredTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.durationRequiredTom">Duration Required Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="booleanTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.booleanTom">Boolean Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="booleanRequiredTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.booleanRequiredTom">Boolean Required Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="enumTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.enumTom">Enum Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="enumRequiredTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.enumRequiredTom">Enum Required Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="uuidTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.uuidTom">Uuid Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="uuidRequiredTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.uuidRequiredTom">Uuid Required Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteImageTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.byteImageTom">Byte Image Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteImageRequiredTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.byteImageRequiredTom">Byte Image Required Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteImageMinbytesTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.byteImageMinbytesTom">Byte Image Minbytes Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteImageMaxbytesTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.byteImageMaxbytesTom">Byte Image Maxbytes Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteAnyTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.byteAnyTom">Byte Any Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteAnyRequiredTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.byteAnyRequiredTom">Byte Any Required Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteAnyMinbytesTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.byteAnyMinbytesTom">Byte Any Minbytes Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteAnyMaxbytesTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.byteAnyMaxbytesTom">Byte Any Maxbytes Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteTextTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.byteTextTom">Byte Text Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteTextRequiredTom">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.byteTextRequiredTom">Byte Text Required Tom</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let fieldTestEntity of fieldTestEntities; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/field-test-entity', fieldTestEntity.id, 'view']">{{ fieldTestEntity.id }}</a>
+          </td>
+          <td>{{ fieldTestEntity.stringTom }}</td>
+          <td>{{ fieldTestEntity.stringRequiredTom }}</td>
+          <td>{{ fieldTestEntity.stringMinlengthTom }}</td>
+          <td>{{ fieldTestEntity.stringMaxlengthTom }}</td>
+          <td>{{ fieldTestEntity.stringPatternTom }}</td>
+          <td>{{ fieldTestEntity.numberPatternTom }}</td>
+          <td>{{ fieldTestEntity.numberPatternRequiredTom }}</td>
+          <td>{{ fieldTestEntity.integerTom }}</td>
+          <td>{{ fieldTestEntity.integerRequiredTom }}</td>
+          <td>{{ fieldTestEntity.integerMinTom }}</td>
+          <td>{{ fieldTestEntity.integerMaxTom }}</td>
+          <td>{{ fieldTestEntity.longTom }}</td>
+          <td>{{ fieldTestEntity.longRequiredTom }}</td>
+          <td>{{ fieldTestEntity.longMinTom }}</td>
+          <td>{{ fieldTestEntity.longMaxTom }}</td>
+          <td>{{ fieldTestEntity.floatTom }}</td>
+          <td>{{ fieldTestEntity.floatRequiredTom }}</td>
+          <td>{{ fieldTestEntity.floatMinTom }}</td>
+          <td>{{ fieldTestEntity.floatMaxTom }}</td>
+          <td>{{ fieldTestEntity.doubleRequiredTom }}</td>
+          <td>{{ fieldTestEntity.doubleMinTom }}</td>
+          <td>{{ fieldTestEntity.doubleMaxTom }}</td>
+          <td>{{ fieldTestEntity.bigDecimalRequiredTom }}</td>
+          <td>{{ fieldTestEntity.bigDecimalMinTom }}</td>
+          <td>{{ fieldTestEntity.bigDecimalMaxTom }}</td>
+          <td>{{ fieldTestEntity.localDateTom | formatMediumDate }}</td>
+          <td>{{ fieldTestEntity.localDateRequiredTom | formatMediumDate }}</td>
+          <td>{{ fieldTestEntity.instantTom | formatMediumDatetime }}</td>
+          <td>{{ fieldTestEntity.instantRequiredTom | formatMediumDatetime }}</td>
+          <td>{{ fieldTestEntity.zonedDateTimeTom | formatMediumDatetime }}</td>
+          <td>{{ fieldTestEntity.zonedDateTimeRequiredTom | formatMediumDatetime }}</td>
+          <td title="{{ fieldTestEntity.durationTom }}">{{ fieldTestEntity.durationTom | duration }}</td>
+          <td title="{{ fieldTestEntity.durationRequiredTom }}">{{ fieldTestEntity.durationRequiredTom | duration }}</td>
+          <td>{{ fieldTestEntity.booleanTom }}</td>
+          <td>{{ fieldTestEntity.booleanRequiredTom }}</td>
+          <td jhiTranslate="{{ 'sampleWebfluxMongodbOauth2App.EnumFieldClass.' + fieldTestEntity.enumTom }}">
+            {{ fieldTestEntity.enumTom }}
+          </td>
+          <td jhiTranslate="{{ 'sampleWebfluxMongodbOauth2App.EnumRequiredFieldClass.' + fieldTestEntity.enumRequiredTom }}">
+            {{ fieldTestEntity.enumRequiredTom }}
+          </td>
+          <td>{{ fieldTestEntity.uuidTom }}</td>
+          <td>{{ fieldTestEntity.uuidRequiredTom }}</td>
+          <td>
+            <a
+              *ngIf="fieldTestEntity.byteImageTom"
+              (click)="openFile(fieldTestEntity.byteImageTom, fieldTestEntity.byteImageTomContentType)"
+            >
+              <img
+                [src]="'data:' + fieldTestEntity.byteImageTomContentType + ';base64,' + fieldTestEntity.byteImageTom"
+                style="max-height: 30px"
+                alt="fieldTestEntity image"
+              />
+            </a>
+            <span *ngIf="fieldTestEntity.byteImageTom"
+              >{{ fieldTestEntity.byteImageTomContentType }}, {{ byteSize(fieldTestEntity.byteImageTom) }}</span
+            >
+          </td>
+          <td>
+            <a
+              *ngIf="fieldTestEntity.byteImageRequiredTom"
+              (click)="openFile(fieldTestEntity.byteImageRequiredTom, fieldTestEntity.byteImageRequiredTomContentType)"
+            >
+              <img
+                [src]="'data:' + fieldTestEntity.byteImageRequiredTomContentType + ';base64,' + fieldTestEntity.byteImageRequiredTom"
+                style="max-height: 30px"
+                alt="fieldTestEntity image"
+              />
+            </a>
+            <span *ngIf="fieldTestEntity.byteImageRequiredTom"
+              >{{ fieldTestEntity.byteImageRequiredTomContentType }}, {{ byteSize(fieldTestEntity.byteImageRequiredTom) }}</span
+            >
+          </td>
+          <td>
+            <a
+              *ngIf="fieldTestEntity.byteImageMinbytesTom"
+              (click)="openFile(fieldTestEntity.byteImageMinbytesTom, fieldTestEntity.byteImageMinbytesTomContentType)"
+            >
+              <img
+                [src]="'data:' + fieldTestEntity.byteImageMinbytesTomContentType + ';base64,' + fieldTestEntity.byteImageMinbytesTom"
+                style="max-height: 30px"
+                alt="fieldTestEntity image"
+              />
+            </a>
+            <span *ngIf="fieldTestEntity.byteImageMinbytesTom"
+              >{{ fieldTestEntity.byteImageMinbytesTomContentType }}, {{ byteSize(fieldTestEntity.byteImageMinbytesTom) }}</span
+            >
+          </td>
+          <td>
+            <a
+              *ngIf="fieldTestEntity.byteImageMaxbytesTom"
+              (click)="openFile(fieldTestEntity.byteImageMaxbytesTom, fieldTestEntity.byteImageMaxbytesTomContentType)"
+            >
+              <img
+                [src]="'data:' + fieldTestEntity.byteImageMaxbytesTomContentType + ';base64,' + fieldTestEntity.byteImageMaxbytesTom"
+                style="max-height: 30px"
+                alt="fieldTestEntity image"
+              />
+            </a>
+            <span *ngIf="fieldTestEntity.byteImageMaxbytesTom"
+              >{{ fieldTestEntity.byteImageMaxbytesTomContentType }}, {{ byteSize(fieldTestEntity.byteImageMaxbytesTom) }}</span
+            >
+          </td>
+          <td>
+            <a
+              *ngIf="fieldTestEntity.byteAnyTom"
+              (click)="openFile(fieldTestEntity.byteAnyTom, fieldTestEntity.byteAnyTomContentType)"
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            <span *ngIf="fieldTestEntity.byteAnyTom"
+              >{{ fieldTestEntity.byteAnyTomContentType }}, {{ byteSize(fieldTestEntity.byteAnyTom) }}</span
+            >
+          </td>
+          <td>
+            <a
+              *ngIf="fieldTestEntity.byteAnyRequiredTom"
+              (click)="openFile(fieldTestEntity.byteAnyRequiredTom, fieldTestEntity.byteAnyRequiredTomContentType)"
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            <span *ngIf="fieldTestEntity.byteAnyRequiredTom"
+              >{{ fieldTestEntity.byteAnyRequiredTomContentType }}, {{ byteSize(fieldTestEntity.byteAnyRequiredTom) }}</span
+            >
+          </td>
+          <td>
+            <a
+              *ngIf="fieldTestEntity.byteAnyMinbytesTom"
+              (click)="openFile(fieldTestEntity.byteAnyMinbytesTom, fieldTestEntity.byteAnyMinbytesTomContentType)"
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            <span *ngIf="fieldTestEntity.byteAnyMinbytesTom"
+              >{{ fieldTestEntity.byteAnyMinbytesTomContentType }}, {{ byteSize(fieldTestEntity.byteAnyMinbytesTom) }}</span
+            >
+          </td>
+          <td>
+            <a
+              *ngIf="fieldTestEntity.byteAnyMaxbytesTom"
+              (click)="openFile(fieldTestEntity.byteAnyMaxbytesTom, fieldTestEntity.byteAnyMaxbytesTomContentType)"
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            <span *ngIf="fieldTestEntity.byteAnyMaxbytesTom"
+              >{{ fieldTestEntity.byteAnyMaxbytesTomContentType }}, {{ byteSize(fieldTestEntity.byteAnyMaxbytesTom) }}</span
+            >
+          </td>
+          <td>{{ fieldTestEntity.byteTextTom }}</td>
+          <td>{{ fieldTestEntity.byteTextRequiredTom }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/field-test-entity', fieldTestEntity.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/field-test-entity', fieldTestEntity.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(fieldTestEntity)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

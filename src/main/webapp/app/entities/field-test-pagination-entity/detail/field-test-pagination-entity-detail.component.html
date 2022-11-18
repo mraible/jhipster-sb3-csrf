@@ -1,0 +1,375 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="fieldTestPaginationEntity">
+      <h2 data-cy="fieldTestPaginationEntityDetailsHeading">
+        <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.detail.title">Field Test Pagination Entity</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ fieldTestPaginationEntity.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.stringAlice">String Alice</span></dt>
+        <dd>
+          <span>{{ fieldTestPaginationEntity.stringAlice }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.stringRequiredAlice">String Required Alice</span>
+        </dt>
+        <dd>
+          <span>{{ fieldTestPaginationEntity.stringRequiredAlice }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.stringMinlengthAlice">String Minlength Alice</span>
+        </dt>
+        <dd>
+          <span>{{ fieldTestPaginationEntity.stringMinlengthAlice }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.stringMaxlengthAlice">String Maxlength Alice</span>
+        </dt>
+        <dd>
+          <span>{{ fieldTestPaginationEntity.stringMaxlengthAlice }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.stringPatternAlice">String Pattern Alice</span></dt>
+        <dd>
+          <span>{{ fieldTestPaginationEntity.stringPatternAlice }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.integerAlice">Integer Alice</span></dt>
+        <dd>
+          <span>{{ fieldTestPaginationEntity.integerAlice }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.integerRequiredAlice">Integer Required Alice</span>
+        </dt>
+        <dd>
+          <span>{{ fieldTestPaginationEntity.integerRequiredAlice }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.integerMinAlice">Integer Min Alice</span></dt>
+        <dd>
+          <span>{{ fieldTestPaginationEntity.integerMinAlice }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.integerMaxAlice">Integer Max Alice</span></dt>
+        <dd>
+          <span>{{ fieldTestPaginationEntity.integerMaxAlice }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.longAlice">Long Alice</span></dt>
+        <dd>
+          <span>{{ fieldTestPaginationEntity.longAlice }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.longRequiredAlice">Long Required Alice</span></dt>
+        <dd>
+          <span>{{ fieldTestPaginationEntity.longRequiredAlice }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.longMinAlice">Long Min Alice</span></dt>
+        <dd>
+          <span>{{ fieldTestPaginationEntity.longMinAlice }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.longMaxAlice">Long Max Alice</span></dt>
+        <dd>
+          <span>{{ fieldTestPaginationEntity.longMaxAlice }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.floatAlice">Float Alice</span></dt>
+        <dd>
+          <span>{{ fieldTestPaginationEntity.floatAlice }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.floatRequiredAlice">Float Required Alice</span></dt>
+        <dd>
+          <span>{{ fieldTestPaginationEntity.floatRequiredAlice }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.floatMinAlice">Float Min Alice</span></dt>
+        <dd>
+          <span>{{ fieldTestPaginationEntity.floatMinAlice }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.floatMaxAlice">Float Max Alice</span></dt>
+        <dd>
+          <span>{{ fieldTestPaginationEntity.floatMaxAlice }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.doubleRequiredAlice">Double Required Alice</span>
+        </dt>
+        <dd>
+          <span>{{ fieldTestPaginationEntity.doubleRequiredAlice }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.doubleMinAlice">Double Min Alice</span></dt>
+        <dd>
+          <span>{{ fieldTestPaginationEntity.doubleMinAlice }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.doubleMaxAlice">Double Max Alice</span></dt>
+        <dd>
+          <span>{{ fieldTestPaginationEntity.doubleMaxAlice }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.bigDecimalRequiredAlice"
+            >Big Decimal Required Alice</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fieldTestPaginationEntity.bigDecimalRequiredAlice }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.bigDecimalMinAlice">Big Decimal Min Alice</span>
+        </dt>
+        <dd>
+          <span>{{ fieldTestPaginationEntity.bigDecimalMinAlice }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.bigDecimalMaxAlice">Big Decimal Max Alice</span>
+        </dt>
+        <dd>
+          <span>{{ fieldTestPaginationEntity.bigDecimalMaxAlice }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.localDateAlice">Local Date Alice</span></dt>
+        <dd>
+          <span>{{ fieldTestPaginationEntity.localDateAlice | formatMediumDate }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.localDateRequiredAlice"
+            >Local Date Required Alice</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fieldTestPaginationEntity.localDateRequiredAlice | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.instantAlice">Instant Alice</span></dt>
+        <dd>
+          <span>{{ fieldTestPaginationEntity.instantAlice | formatMediumDatetime }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.instanteRequiredAlice">Instante Required Alice</span>
+        </dt>
+        <dd>
+          <span>{{ fieldTestPaginationEntity.instanteRequiredAlice | formatMediumDatetime }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.zonedDateTimeAlice">Zoned Date Time Alice</span>
+        </dt>
+        <dd>
+          <span>{{ fieldTestPaginationEntity.zonedDateTimeAlice | formatMediumDatetime }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.zonedDateTimeRequiredAlice"
+            >Zoned Date Time Required Alice</span
+          >
+        </dt>
+        <dd>
+          <span>{{ fieldTestPaginationEntity.zonedDateTimeRequiredAlice | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.durationAlice">Duration Alice</span></dt>
+        <dd>
+          <span>{{ fieldTestPaginationEntity.durationAlice | duration }} ({{ fieldTestPaginationEntity.durationAlice }})</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.durationRequiredAlice">Duration Required Alice</span>
+        </dt>
+        <dd>
+          <span
+            >{{ fieldTestPaginationEntity.durationRequiredAlice | duration }} ({{ fieldTestPaginationEntity.durationRequiredAlice }})</span
+          >
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.booleanAlice">Boolean Alice</span></dt>
+        <dd>
+          <span>{{ fieldTestPaginationEntity.booleanAlice }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.booleanRequiredAlice">Boolean Required Alice</span>
+        </dt>
+        <dd>
+          <span>{{ fieldTestPaginationEntity.booleanRequiredAlice }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.enumAlice">Enum Alice</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'sampleWebfluxMongodbOauth2App.EnumFieldClass.' + fieldTestPaginationEntity.enumAlice }}">{{
+            fieldTestPaginationEntity.enumAlice
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.enumRequiredAlice">Enum Required Alice</span></dt>
+        <dd>
+          <span
+            jhiTranslate="{{ 'sampleWebfluxMongodbOauth2App.EnumRequiredFieldClass.' + fieldTestPaginationEntity.enumRequiredAlice }}"
+            >{{ fieldTestPaginationEntity.enumRequiredAlice }}</span
+          >
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.uuidAlice">Uuid Alice</span></dt>
+        <dd>
+          <span>{{ fieldTestPaginationEntity.uuidAlice }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.uuidRequiredAlice">Uuid Required Alice</span></dt>
+        <dd>
+          <span>{{ fieldTestPaginationEntity.uuidRequiredAlice }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.byteImageAlice">Byte Image Alice</span></dt>
+        <dd>
+          <div *ngIf="fieldTestPaginationEntity.byteImageAlice">
+            <a (click)="openFile(fieldTestPaginationEntity.byteImageAlice, fieldTestPaginationEntity.byteImageAliceContentType)">
+              <img
+                [src]="
+                  'data:' + fieldTestPaginationEntity.byteImageAliceContentType + ';base64,' + fieldTestPaginationEntity.byteImageAlice
+                "
+                style="max-width: 100%"
+                alt="fieldTestPaginationEntity image"
+              />
+            </a>
+            {{ fieldTestPaginationEntity.byteImageAliceContentType }}, {{ byteSize(fieldTestPaginationEntity.byteImageAlice) }}
+          </div>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.byteImageRequiredAlice"
+            >Byte Image Required Alice</span
+          >
+        </dt>
+        <dd>
+          <div *ngIf="fieldTestPaginationEntity.byteImageRequiredAlice">
+            <a
+              (click)="
+                openFile(fieldTestPaginationEntity.byteImageRequiredAlice, fieldTestPaginationEntity.byteImageRequiredAliceContentType)
+              "
+            >
+              <img
+                [src]="
+                  'data:' +
+                  fieldTestPaginationEntity.byteImageRequiredAliceContentType +
+                  ';base64,' +
+                  fieldTestPaginationEntity.byteImageRequiredAlice
+                "
+                style="max-width: 100%"
+                alt="fieldTestPaginationEntity image"
+              />
+            </a>
+            {{ fieldTestPaginationEntity.byteImageRequiredAliceContentType }},
+            {{ byteSize(fieldTestPaginationEntity.byteImageRequiredAlice) }}
+          </div>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.byteImageMinbytesAlice"
+            >Byte Image Minbytes Alice</span
+          >
+        </dt>
+        <dd>
+          <div *ngIf="fieldTestPaginationEntity.byteImageMinbytesAlice">
+            <a
+              (click)="
+                openFile(fieldTestPaginationEntity.byteImageMinbytesAlice, fieldTestPaginationEntity.byteImageMinbytesAliceContentType)
+              "
+            >
+              <img
+                [src]="
+                  'data:' +
+                  fieldTestPaginationEntity.byteImageMinbytesAliceContentType +
+                  ';base64,' +
+                  fieldTestPaginationEntity.byteImageMinbytesAlice
+                "
+                style="max-width: 100%"
+                alt="fieldTestPaginationEntity image"
+              />
+            </a>
+            {{ fieldTestPaginationEntity.byteImageMinbytesAliceContentType }},
+            {{ byteSize(fieldTestPaginationEntity.byteImageMinbytesAlice) }}
+          </div>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.byteImageMaxbytesAlice"
+            >Byte Image Maxbytes Alice</span
+          >
+        </dt>
+        <dd>
+          <div *ngIf="fieldTestPaginationEntity.byteImageMaxbytesAlice">
+            <a
+              (click)="
+                openFile(fieldTestPaginationEntity.byteImageMaxbytesAlice, fieldTestPaginationEntity.byteImageMaxbytesAliceContentType)
+              "
+            >
+              <img
+                [src]="
+                  'data:' +
+                  fieldTestPaginationEntity.byteImageMaxbytesAliceContentType +
+                  ';base64,' +
+                  fieldTestPaginationEntity.byteImageMaxbytesAlice
+                "
+                style="max-width: 100%"
+                alt="fieldTestPaginationEntity image"
+              />
+            </a>
+            {{ fieldTestPaginationEntity.byteImageMaxbytesAliceContentType }},
+            {{ byteSize(fieldTestPaginationEntity.byteImageMaxbytesAlice) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.byteAnyAlice">Byte Any Alice</span></dt>
+        <dd>
+          <div *ngIf="fieldTestPaginationEntity.byteAnyAlice">
+            <a
+              (click)="openFile(fieldTestPaginationEntity.byteAnyAlice, fieldTestPaginationEntity.byteAnyAliceContentType)"
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            {{ fieldTestPaginationEntity.byteAnyAliceContentType }}, {{ byteSize(fieldTestPaginationEntity.byteAnyAlice) }}
+          </div>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.byteAnyRequiredAlice">Byte Any Required Alice</span>
+        </dt>
+        <dd>
+          <div *ngIf="fieldTestPaginationEntity.byteAnyRequiredAlice">
+            <a
+              (click)="openFile(fieldTestPaginationEntity.byteAnyRequiredAlice, fieldTestPaginationEntity.byteAnyRequiredAliceContentType)"
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            {{ fieldTestPaginationEntity.byteAnyRequiredAliceContentType }}, {{ byteSize(fieldTestPaginationEntity.byteAnyRequiredAlice) }}
+          </div>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.byteAnyMinbytesAlice">Byte Any Minbytes Alice</span>
+        </dt>
+        <dd>
+          <div *ngIf="fieldTestPaginationEntity.byteAnyMinbytesAlice">
+            <a
+              (click)="openFile(fieldTestPaginationEntity.byteAnyMinbytesAlice, fieldTestPaginationEntity.byteAnyMinbytesAliceContentType)"
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            {{ fieldTestPaginationEntity.byteAnyMinbytesAliceContentType }}, {{ byteSize(fieldTestPaginationEntity.byteAnyMinbytesAlice) }}
+          </div>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.byteAnyMaxbytesAlice">Byte Any Maxbytes Alice</span>
+        </dt>
+        <dd>
+          <div *ngIf="fieldTestPaginationEntity.byteAnyMaxbytesAlice">
+            <a
+              (click)="openFile(fieldTestPaginationEntity.byteAnyMaxbytesAlice, fieldTestPaginationEntity.byteAnyMaxbytesAliceContentType)"
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            {{ fieldTestPaginationEntity.byteAnyMaxbytesAliceContentType }}, {{ byteSize(fieldTestPaginationEntity.byteAnyMaxbytesAlice) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.byteTextAlice">Byte Text Alice</span></dt>
+        <dd>
+          <span>{{ fieldTestPaginationEntity.byteTextAlice }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestPaginationEntity.byteTextRequiredAlice">Byte Text Required Alice</span>
+        </dt>
+        <dd>
+          <span>{{ fieldTestPaginationEntity.byteTextRequiredAlice }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/field-test-pagination-entity', fieldTestPaginationEntity.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

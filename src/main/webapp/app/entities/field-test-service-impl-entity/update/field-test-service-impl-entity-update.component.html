@@ -1,0 +1,1676 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-field-test-service-impl-entity-heading"
+        data-cy="FieldTestServiceImplEntityCreateUpdateHeading"
+        jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.home.createOrEditLabel"
+      >
+        Create or edit a Field Test Service Impl Entity
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.stringMika"
+            for="field_stringMika"
+            >String Mika</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringMika"
+            id="field_stringMika"
+            data-cy="stringMika"
+            formControlName="stringMika"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.stringRequiredMika"
+            for="field_stringRequiredMika"
+            >String Required Mika</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringRequiredMika"
+            id="field_stringRequiredMika"
+            data-cy="stringRequiredMika"
+            formControlName="stringRequiredMika"
+          />
+          <div
+            *ngIf="
+              editForm.get('stringRequiredMika')!.invalid &&
+              (editForm.get('stringRequiredMika')!.dirty || editForm.get('stringRequiredMika')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('stringRequiredMika')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.stringMinlengthMika"
+            for="field_stringMinlengthMika"
+            >String Minlength Mika</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringMinlengthMika"
+            id="field_stringMinlengthMika"
+            data-cy="stringMinlengthMika"
+            formControlName="stringMinlengthMika"
+          />
+          <div
+            *ngIf="
+              editForm.get('stringMinlengthMika')!.invalid &&
+              (editForm.get('stringMinlengthMika')!.dirty || editForm.get('stringMinlengthMika')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('stringMinlengthMika')?.errors?.minlength"
+              jhiTranslate="entity.validation.minlength"
+              [translateValues]="{ min: 0 }"
+            >
+              This field is required to be at least 0 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.stringMaxlengthMika"
+            for="field_stringMaxlengthMika"
+            >String Maxlength Mika</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringMaxlengthMika"
+            id="field_stringMaxlengthMika"
+            data-cy="stringMaxlengthMika"
+            formControlName="stringMaxlengthMika"
+          />
+          <div
+            *ngIf="
+              editForm.get('stringMaxlengthMika')!.invalid &&
+              (editForm.get('stringMaxlengthMika')!.dirty || editForm.get('stringMaxlengthMika')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('stringMaxlengthMika')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 20 }"
+            >
+              This field cannot be longer than 20 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.stringPatternMika"
+            for="field_stringPatternMika"
+            >String Pattern Mika</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringPatternMika"
+            id="field_stringPatternMika"
+            data-cy="stringPatternMika"
+            formControlName="stringPatternMika"
+          />
+          <div
+            *ngIf="
+              editForm.get('stringPatternMika')!.invalid &&
+              (editForm.get('stringPatternMika')!.dirty || editForm.get('stringPatternMika')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('stringPatternMika')?.errors?.pattern"
+              jhiTranslate="entity.validation.pattern"
+              [translateValues]="{ pattern: 'String Pattern Mika' }"
+            >
+              This field should follow pattern for String Pattern Mika.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.integerMika"
+            for="field_integerMika"
+            >Integer Mika</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerMika"
+            id="field_integerMika"
+            data-cy="integerMika"
+            formControlName="integerMika"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.integerRequiredMika"
+            for="field_integerRequiredMika"
+            >Integer Required Mika</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerRequiredMika"
+            id="field_integerRequiredMika"
+            data-cy="integerRequiredMika"
+            formControlName="integerRequiredMika"
+          />
+          <div
+            *ngIf="
+              editForm.get('integerRequiredMika')!.invalid &&
+              (editForm.get('integerRequiredMika')!.dirty || editForm.get('integerRequiredMika')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('integerRequiredMika')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('integerRequiredMika')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.integerMinMika"
+            for="field_integerMinMika"
+            >Integer Min Mika</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerMinMika"
+            id="field_integerMinMika"
+            data-cy="integerMinMika"
+            formControlName="integerMinMika"
+          />
+          <div
+            *ngIf="
+              editForm.get('integerMinMika')!.invalid && (editForm.get('integerMinMika')!.dirty || editForm.get('integerMinMika')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('integerMinMika')?.errors?.min"
+              jhiTranslate="entity.validation.min"
+              [translateValues]="{ min: 0 }"
+            >
+              This field should be at least 0.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('integerMinMika')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.integerMaxMika"
+            for="field_integerMaxMika"
+            >Integer Max Mika</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerMaxMika"
+            id="field_integerMaxMika"
+            data-cy="integerMaxMika"
+            formControlName="integerMaxMika"
+          />
+          <div
+            *ngIf="
+              editForm.get('integerMaxMika')!.invalid && (editForm.get('integerMaxMika')!.dirty || editForm.get('integerMaxMika')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('integerMaxMika')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be more than 100.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('integerMaxMika')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.longMika" for="field_longMika"
+            >Long Mika</label
+          >
+          <input type="number" class="form-control" name="longMika" id="field_longMika" data-cy="longMika" formControlName="longMika" />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.longRequiredMika"
+            for="field_longRequiredMika"
+            >Long Required Mika</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="longRequiredMika"
+            id="field_longRequiredMika"
+            data-cy="longRequiredMika"
+            formControlName="longRequiredMika"
+          />
+          <div
+            *ngIf="
+              editForm.get('longRequiredMika')!.invalid &&
+              (editForm.get('longRequiredMika')!.dirty || editForm.get('longRequiredMika')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('longRequiredMika')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('longRequiredMika')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.longMinMika"
+            for="field_longMinMika"
+            >Long Min Mika</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="longMinMika"
+            id="field_longMinMika"
+            data-cy="longMinMika"
+            formControlName="longMinMika"
+          />
+          <div *ngIf="editForm.get('longMinMika')!.invalid && (editForm.get('longMinMika')!.dirty || editForm.get('longMinMika')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('longMinMika')?.errors?.min"
+              jhiTranslate="entity.validation.min"
+              [translateValues]="{ min: 0 }"
+            >
+              This field should be at least 0.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('longMinMika')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.longMaxMika"
+            for="field_longMaxMika"
+            >Long Max Mika</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="longMaxMika"
+            id="field_longMaxMika"
+            data-cy="longMaxMika"
+            formControlName="longMaxMika"
+          />
+          <div *ngIf="editForm.get('longMaxMika')!.invalid && (editForm.get('longMaxMika')!.dirty || editForm.get('longMaxMika')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('longMaxMika')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be more than 100.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('longMaxMika')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.floatMika" for="field_floatMika"
+            >Float Mika</label
+          >
+          <input type="number" class="form-control" name="floatMika" id="field_floatMika" data-cy="floatMika" formControlName="floatMika" />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.floatRequiredMika"
+            for="field_floatRequiredMika"
+            >Float Required Mika</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="floatRequiredMika"
+            id="field_floatRequiredMika"
+            data-cy="floatRequiredMika"
+            formControlName="floatRequiredMika"
+          />
+          <div
+            *ngIf="
+              editForm.get('floatRequiredMika')!.invalid &&
+              (editForm.get('floatRequiredMika')!.dirty || editForm.get('floatRequiredMika')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('floatRequiredMika')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('floatRequiredMika')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.floatMinMika"
+            for="field_floatMinMika"
+            >Float Min Mika</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="floatMinMika"
+            id="field_floatMinMika"
+            data-cy="floatMinMika"
+            formControlName="floatMinMika"
+          />
+          <div
+            *ngIf="editForm.get('floatMinMika')!.invalid && (editForm.get('floatMinMika')!.dirty || editForm.get('floatMinMika')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('floatMinMika')?.errors?.min"
+              jhiTranslate="entity.validation.min"
+              [translateValues]="{ min: 0 }"
+            >
+              This field should be at least 0.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('floatMinMika')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.floatMaxMika"
+            for="field_floatMaxMika"
+            >Float Max Mika</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="floatMaxMika"
+            id="field_floatMaxMika"
+            data-cy="floatMaxMika"
+            formControlName="floatMaxMika"
+          />
+          <div
+            *ngIf="editForm.get('floatMaxMika')!.invalid && (editForm.get('floatMaxMika')!.dirty || editForm.get('floatMaxMika')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('floatMaxMika')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be more than 100.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('floatMaxMika')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.doubleRequiredMika"
+            for="field_doubleRequiredMika"
+            >Double Required Mika</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="doubleRequiredMika"
+            id="field_doubleRequiredMika"
+            data-cy="doubleRequiredMika"
+            formControlName="doubleRequiredMika"
+          />
+          <div
+            *ngIf="
+              editForm.get('doubleRequiredMika')!.invalid &&
+              (editForm.get('doubleRequiredMika')!.dirty || editForm.get('doubleRequiredMika')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('doubleRequiredMika')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('doubleRequiredMika')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.doubleMinMika"
+            for="field_doubleMinMika"
+            >Double Min Mika</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="doubleMinMika"
+            id="field_doubleMinMika"
+            data-cy="doubleMinMika"
+            formControlName="doubleMinMika"
+          />
+          <div
+            *ngIf="
+              editForm.get('doubleMinMika')!.invalid && (editForm.get('doubleMinMika')!.dirty || editForm.get('doubleMinMika')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('doubleMinMika')?.errors?.min"
+              jhiTranslate="entity.validation.min"
+              [translateValues]="{ min: 0 }"
+            >
+              This field should be at least 0.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('doubleMinMika')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.doubleMaxMika"
+            for="field_doubleMaxMika"
+            >Double Max Mika</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="doubleMaxMika"
+            id="field_doubleMaxMika"
+            data-cy="doubleMaxMika"
+            formControlName="doubleMaxMika"
+          />
+          <div
+            *ngIf="
+              editForm.get('doubleMaxMika')!.invalid && (editForm.get('doubleMaxMika')!.dirty || editForm.get('doubleMaxMika')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('doubleMaxMika')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be more than 100.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('doubleMaxMika')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.bigDecimalRequiredMika"
+            for="field_bigDecimalRequiredMika"
+            >Big Decimal Required Mika</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bigDecimalRequiredMika"
+            id="field_bigDecimalRequiredMika"
+            data-cy="bigDecimalRequiredMika"
+            formControlName="bigDecimalRequiredMika"
+          />
+          <div
+            *ngIf="
+              editForm.get('bigDecimalRequiredMika')!.invalid &&
+              (editForm.get('bigDecimalRequiredMika')!.dirty || editForm.get('bigDecimalRequiredMika')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('bigDecimalRequiredMika')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('bigDecimalRequiredMika')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.bigDecimalMinMika"
+            for="field_bigDecimalMinMika"
+            >Big Decimal Min Mika</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bigDecimalMinMika"
+            id="field_bigDecimalMinMika"
+            data-cy="bigDecimalMinMika"
+            formControlName="bigDecimalMinMika"
+          />
+          <div
+            *ngIf="
+              editForm.get('bigDecimalMinMika')!.invalid &&
+              (editForm.get('bigDecimalMinMika')!.dirty || editForm.get('bigDecimalMinMika')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('bigDecimalMinMika')?.errors?.min"
+              jhiTranslate="entity.validation.min"
+              [translateValues]="{ min: 0 }"
+            >
+              This field should be at least 0.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('bigDecimalMinMika')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.bigDecimalMaxMika"
+            for="field_bigDecimalMaxMika"
+            >Big Decimal Max Mika</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bigDecimalMaxMika"
+            id="field_bigDecimalMaxMika"
+            data-cy="bigDecimalMaxMika"
+            formControlName="bigDecimalMaxMika"
+          />
+          <div
+            *ngIf="
+              editForm.get('bigDecimalMaxMika')!.invalid &&
+              (editForm.get('bigDecimalMaxMika')!.dirty || editForm.get('bigDecimalMaxMika')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('bigDecimalMaxMika')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be more than 100.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('bigDecimalMaxMika')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.localDateMika"
+            for="field_localDateMika"
+            >Local Date Mika</label
+          >
+          <div class="input-group">
+            <input
+              id="field_localDateMika"
+              data-cy="localDateMika"
+              type="text"
+              class="form-control"
+              name="localDateMika"
+              ngbDatepicker
+              #localDateMikaDp="ngbDatepicker"
+              formControlName="localDateMika"
+            />
+            <button type="button" class="btn btn-secondary" (click)="localDateMikaDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.localDateRequiredMika"
+            for="field_localDateRequiredMika"
+            >Local Date Required Mika</label
+          >
+          <div class="input-group">
+            <input
+              id="field_localDateRequiredMika"
+              data-cy="localDateRequiredMika"
+              type="text"
+              class="form-control"
+              name="localDateRequiredMika"
+              ngbDatepicker
+              #localDateRequiredMikaDp="ngbDatepicker"
+              formControlName="localDateRequiredMika"
+            />
+            <button type="button" class="btn btn-secondary" (click)="localDateRequiredMikaDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+          <div
+            *ngIf="
+              editForm.get('localDateRequiredMika')!.invalid &&
+              (editForm.get('localDateRequiredMika')!.dirty || editForm.get('localDateRequiredMika')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('localDateRequiredMika')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.instantMika"
+            for="field_instantMika"
+            >Instant Mika</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_instantMika"
+              data-cy="instantMika"
+              type="datetime-local"
+              class="form-control"
+              name="instantMika"
+              formControlName="instantMika"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.instanteRequiredMika"
+            for="field_instanteRequiredMika"
+            >Instante Required Mika</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_instanteRequiredMika"
+              data-cy="instanteRequiredMika"
+              type="datetime-local"
+              class="form-control"
+              name="instanteRequiredMika"
+              formControlName="instanteRequiredMika"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          <div
+            *ngIf="
+              editForm.get('instanteRequiredMika')!.invalid &&
+              (editForm.get('instanteRequiredMika')!.dirty || editForm.get('instanteRequiredMika')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('instanteRequiredMika')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('instanteRequiredMika')?.errors?.datetimelocal"
+              jhiTranslate="entity.validation.datetimelocal"
+            >
+              This field should be a date and time.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.zonedDateTimeMika"
+            for="field_zonedDateTimeMika"
+            >Zoned Date Time Mika</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_zonedDateTimeMika"
+              data-cy="zonedDateTimeMika"
+              type="datetime-local"
+              class="form-control"
+              name="zonedDateTimeMika"
+              formControlName="zonedDateTimeMika"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.zonedDateTimeRequiredMika"
+            for="field_zonedDateTimeRequiredMika"
+            >Zoned Date Time Required Mika</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_zonedDateTimeRequiredMika"
+              data-cy="zonedDateTimeRequiredMika"
+              type="datetime-local"
+              class="form-control"
+              name="zonedDateTimeRequiredMika"
+              formControlName="zonedDateTimeRequiredMika"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          <div
+            *ngIf="
+              editForm.get('zonedDateTimeRequiredMika')!.invalid &&
+              (editForm.get('zonedDateTimeRequiredMika')!.dirty || editForm.get('zonedDateTimeRequiredMika')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('zonedDateTimeRequiredMika')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('zonedDateTimeRequiredMika')?.errors?.datetimelocal"
+              jhiTranslate="entity.validation.datetimelocal"
+            >
+              This field should be a date and time.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.durationMika"
+            for="field_durationMika"
+            >Duration Mika</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="durationMika"
+            id="field_durationMika"
+            data-cy="durationMika"
+            formControlName="durationMika"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.durationRequiredMika"
+            for="field_durationRequiredMika"
+            >Duration Required Mika</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="durationRequiredMika"
+            id="field_durationRequiredMika"
+            data-cy="durationRequiredMika"
+            formControlName="durationRequiredMika"
+          />
+          <div
+            *ngIf="
+              editForm.get('durationRequiredMika')!.invalid &&
+              (editForm.get('durationRequiredMika')!.dirty || editForm.get('durationRequiredMika')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('durationRequiredMika')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('durationRequiredMika')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.booleanMika"
+            for="field_booleanMika"
+            >Boolean Mika</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="booleanMika"
+            id="field_booleanMika"
+            data-cy="booleanMika"
+            formControlName="booleanMika"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.booleanRequiredMika"
+            for="field_booleanRequiredMika"
+            >Boolean Required Mika</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="booleanRequiredMika"
+            id="field_booleanRequiredMika"
+            data-cy="booleanRequiredMika"
+            formControlName="booleanRequiredMika"
+          />
+          <div
+            *ngIf="
+              editForm.get('booleanRequiredMika')!.invalid &&
+              (editForm.get('booleanRequiredMika')!.dirty || editForm.get('booleanRequiredMika')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('booleanRequiredMika')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.enumMika" for="field_enumMika"
+            >Enum Mika</label
+          >
+          <select class="form-control" name="enumMika" formControlName="enumMika" id="field_enumMika" data-cy="enumMika">
+            <option [ngValue]="null">{{ 'sampleWebfluxMongodbOauth2App.EnumFieldClass.null' | translate }}</option>
+            <option *ngFor="let enumFieldClass of enumFieldClassValues" [value]="enumFieldClass">
+              {{ 'sampleWebfluxMongodbOauth2App.EnumFieldClass.' + enumFieldClass | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.enumRequiredMika"
+            for="field_enumRequiredMika"
+            >Enum Required Mika</label
+          >
+          <select
+            class="form-control"
+            name="enumRequiredMika"
+            formControlName="enumRequiredMika"
+            id="field_enumRequiredMika"
+            data-cy="enumRequiredMika"
+          >
+            <option [ngValue]="null">{{ 'sampleWebfluxMongodbOauth2App.EnumRequiredFieldClass.null' | translate }}</option>
+            <option *ngFor="let enumRequiredFieldClass of enumRequiredFieldClassValues" [value]="enumRequiredFieldClass">
+              {{ 'sampleWebfluxMongodbOauth2App.EnumRequiredFieldClass.' + enumRequiredFieldClass | translate }}
+            </option>
+          </select>
+          <div
+            *ngIf="
+              editForm.get('enumRequiredMika')!.invalid &&
+              (editForm.get('enumRequiredMika')!.dirty || editForm.get('enumRequiredMika')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('enumRequiredMika')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.uuidMika" for="field_uuidMika"
+            >Uuid Mika</label
+          >
+          <input type="text" class="form-control" name="uuidMika" id="field_uuidMika" data-cy="uuidMika" formControlName="uuidMika" />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.uuidRequiredMika"
+            for="field_uuidRequiredMika"
+            >Uuid Required Mika</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="uuidRequiredMika"
+            id="field_uuidRequiredMika"
+            data-cy="uuidRequiredMika"
+            formControlName="uuidRequiredMika"
+          />
+          <div
+            *ngIf="
+              editForm.get('uuidRequiredMika')!.invalid &&
+              (editForm.get('uuidRequiredMika')!.dirty || editForm.get('uuidRequiredMika')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('uuidRequiredMika')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.byteImageMika"
+            for="field_byteImageMika"
+            >Byte Image Mika</label
+          >
+          <div>
+            <img
+              [src]="'data:' + editForm.get('byteImageMikaContentType')!.value + ';base64,' + editForm.get('byteImageMika')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('byteImageMika')!.value"
+              alt="fieldTestServiceImplEntity image"
+            />
+            <div *ngIf="editForm.get('byteImageMika')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('byteImageMikaContentType')!.value }}, {{ byteSize(editForm.get('byteImageMika')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('byteImageMika', 'byteImageMikaContentType', 'file_byteImageMika')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteImageMika"
+              data-cy="byteImageMika"
+              (change)="setFileData($event, 'byteImageMika', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMika"
+            id="field_byteImageMika"
+            data-cy="byteImageMika"
+            formControlName="byteImageMika"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMikaContentType"
+            id="field_byteImageMikaContentType"
+            formControlName="byteImageMikaContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.byteImageRequiredMika"
+            for="field_byteImageRequiredMika"
+            >Byte Image Required Mika</label
+          >
+          <div>
+            <img
+              [src]="
+                'data:' +
+                editForm.get('byteImageRequiredMikaContentType')!.value +
+                ';base64,' +
+                editForm.get('byteImageRequiredMika')!.value
+              "
+              style="max-height: 100px"
+              *ngIf="editForm.get('byteImageRequiredMika')!.value"
+              alt="fieldTestServiceImplEntity image"
+            />
+            <div *ngIf="editForm.get('byteImageRequiredMika')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('byteImageRequiredMikaContentType')!.value }},
+                {{ byteSize(editForm.get('byteImageRequiredMika')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('byteImageRequiredMika', 'byteImageRequiredMikaContentType', 'file_byteImageRequiredMika')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteImageRequiredMika"
+              data-cy="byteImageRequiredMika"
+              (change)="setFileData($event, 'byteImageRequiredMika', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageRequiredMika"
+            id="field_byteImageRequiredMika"
+            data-cy="byteImageRequiredMika"
+            formControlName="byteImageRequiredMika"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageRequiredMikaContentType"
+            id="field_byteImageRequiredMikaContentType"
+            formControlName="byteImageRequiredMikaContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('byteImageRequiredMika')!.invalid &&
+              (editForm.get('byteImageRequiredMika')!.dirty || editForm.get('byteImageRequiredMika')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('byteImageRequiredMika')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.byteImageMinbytesMika"
+            for="field_byteImageMinbytesMika"
+            >Byte Image Minbytes Mika</label
+          >
+          <div>
+            <img
+              [src]="
+                'data:' +
+                editForm.get('byteImageMinbytesMikaContentType')!.value +
+                ';base64,' +
+                editForm.get('byteImageMinbytesMika')!.value
+              "
+              style="max-height: 100px"
+              *ngIf="editForm.get('byteImageMinbytesMika')!.value"
+              alt="fieldTestServiceImplEntity image"
+            />
+            <div *ngIf="editForm.get('byteImageMinbytesMika')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('byteImageMinbytesMikaContentType')!.value }},
+                {{ byteSize(editForm.get('byteImageMinbytesMika')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('byteImageMinbytesMika', 'byteImageMinbytesMikaContentType', 'file_byteImageMinbytesMika')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteImageMinbytesMika"
+              data-cy="byteImageMinbytesMika"
+              (change)="setFileData($event, 'byteImageMinbytesMika', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMinbytesMika"
+            id="field_byteImageMinbytesMika"
+            data-cy="byteImageMinbytesMika"
+            formControlName="byteImageMinbytesMika"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMinbytesMikaContentType"
+            id="field_byteImageMinbytesMikaContentType"
+            formControlName="byteImageMinbytesMikaContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('byteImageMinbytesMika')!.invalid &&
+              (editForm.get('byteImageMinbytesMika')!.dirty || editForm.get('byteImageMinbytesMika')!.touched)
+            "
+          ></div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.byteImageMaxbytesMika"
+            for="field_byteImageMaxbytesMika"
+            >Byte Image Maxbytes Mika</label
+          >
+          <div>
+            <img
+              [src]="
+                'data:' +
+                editForm.get('byteImageMaxbytesMikaContentType')!.value +
+                ';base64,' +
+                editForm.get('byteImageMaxbytesMika')!.value
+              "
+              style="max-height: 100px"
+              *ngIf="editForm.get('byteImageMaxbytesMika')!.value"
+              alt="fieldTestServiceImplEntity image"
+            />
+            <div *ngIf="editForm.get('byteImageMaxbytesMika')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('byteImageMaxbytesMikaContentType')!.value }},
+                {{ byteSize(editForm.get('byteImageMaxbytesMika')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('byteImageMaxbytesMika', 'byteImageMaxbytesMikaContentType', 'file_byteImageMaxbytesMika')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteImageMaxbytesMika"
+              data-cy="byteImageMaxbytesMika"
+              (change)="setFileData($event, 'byteImageMaxbytesMika', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMaxbytesMika"
+            id="field_byteImageMaxbytesMika"
+            data-cy="byteImageMaxbytesMika"
+            formControlName="byteImageMaxbytesMika"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMaxbytesMikaContentType"
+            id="field_byteImageMaxbytesMikaContentType"
+            formControlName="byteImageMaxbytesMikaContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('byteImageMaxbytesMika')!.invalid &&
+              (editForm.get('byteImageMaxbytesMika')!.dirty || editForm.get('byteImageMaxbytesMika')!.touched)
+            "
+          ></div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.byteAnyMika"
+            for="field_byteAnyMika"
+            >Byte Any Mika</label
+          >
+          <div>
+            <div *ngIf="editForm.get('byteAnyMika')!.value" class="form-text text-danger clearfix">
+              <a
+                class="pull-start"
+                (click)="openFile(editForm.get('byteAnyMika')!.value!, editForm.get('byteAnyMikaContentType')!.value!)"
+                jhiTranslate="entity.action.open"
+                >Open</a
+              ><br />
+              <span class="pull-start"
+                >{{ editForm.get('byteAnyMikaContentType')!.value }}, {{ byteSize(editForm.get('byteAnyMika')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="editForm.patchValue({ byteAnyMika: undefined, byteAnyMikaContentType: undefined })"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteAnyMika"
+              data-cy="byteAnyMika"
+              (change)="setFileData($event, 'byteAnyMika', false)"
+              jhiTranslate="entity.action.addblob"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMika"
+            id="field_byteAnyMika"
+            data-cy="byteAnyMika"
+            formControlName="byteAnyMika"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMikaContentType"
+            id="field_byteAnyMikaContentType"
+            formControlName="byteAnyMikaContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.byteAnyRequiredMika"
+            for="field_byteAnyRequiredMika"
+            >Byte Any Required Mika</label
+          >
+          <div>
+            <div *ngIf="editForm.get('byteAnyRequiredMika')!.value" class="form-text text-danger clearfix">
+              <a
+                class="pull-start"
+                (click)="openFile(editForm.get('byteAnyRequiredMika')!.value!, editForm.get('byteAnyRequiredMikaContentType')!.value!)"
+                jhiTranslate="entity.action.open"
+                >Open</a
+              ><br />
+              <span class="pull-start"
+                >{{ editForm.get('byteAnyRequiredMikaContentType')!.value }},
+                {{ byteSize(editForm.get('byteAnyRequiredMika')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="editForm.patchValue({ byteAnyRequiredMika: undefined, byteAnyRequiredMikaContentType: undefined })"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteAnyRequiredMika"
+              data-cy="byteAnyRequiredMika"
+              (change)="setFileData($event, 'byteAnyRequiredMika', false)"
+              jhiTranslate="entity.action.addblob"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyRequiredMika"
+            id="field_byteAnyRequiredMika"
+            data-cy="byteAnyRequiredMika"
+            formControlName="byteAnyRequiredMika"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyRequiredMikaContentType"
+            id="field_byteAnyRequiredMikaContentType"
+            formControlName="byteAnyRequiredMikaContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('byteAnyRequiredMika')!.invalid &&
+              (editForm.get('byteAnyRequiredMika')!.dirty || editForm.get('byteAnyRequiredMika')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('byteAnyRequiredMika')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.byteAnyMinbytesMika"
+            for="field_byteAnyMinbytesMika"
+            >Byte Any Minbytes Mika</label
+          >
+          <div>
+            <div *ngIf="editForm.get('byteAnyMinbytesMika')!.value" class="form-text text-danger clearfix">
+              <a
+                class="pull-start"
+                (click)="openFile(editForm.get('byteAnyMinbytesMika')!.value!, editForm.get('byteAnyMinbytesMikaContentType')!.value!)"
+                jhiTranslate="entity.action.open"
+                >Open</a
+              ><br />
+              <span class="pull-start"
+                >{{ editForm.get('byteAnyMinbytesMikaContentType')!.value }},
+                {{ byteSize(editForm.get('byteAnyMinbytesMika')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="editForm.patchValue({ byteAnyMinbytesMika: undefined, byteAnyMinbytesMikaContentType: undefined })"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteAnyMinbytesMika"
+              data-cy="byteAnyMinbytesMika"
+              (change)="setFileData($event, 'byteAnyMinbytesMika', false)"
+              jhiTranslate="entity.action.addblob"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMinbytesMika"
+            id="field_byteAnyMinbytesMika"
+            data-cy="byteAnyMinbytesMika"
+            formControlName="byteAnyMinbytesMika"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMinbytesMikaContentType"
+            id="field_byteAnyMinbytesMikaContentType"
+            formControlName="byteAnyMinbytesMikaContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('byteAnyMinbytesMika')!.invalid &&
+              (editForm.get('byteAnyMinbytesMika')!.dirty || editForm.get('byteAnyMinbytesMika')!.touched)
+            "
+          ></div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.byteAnyMaxbytesMika"
+            for="field_byteAnyMaxbytesMika"
+            >Byte Any Maxbytes Mika</label
+          >
+          <div>
+            <div *ngIf="editForm.get('byteAnyMaxbytesMika')!.value" class="form-text text-danger clearfix">
+              <a
+                class="pull-start"
+                (click)="openFile(editForm.get('byteAnyMaxbytesMika')!.value!, editForm.get('byteAnyMaxbytesMikaContentType')!.value!)"
+                jhiTranslate="entity.action.open"
+                >Open</a
+              ><br />
+              <span class="pull-start"
+                >{{ editForm.get('byteAnyMaxbytesMikaContentType')!.value }},
+                {{ byteSize(editForm.get('byteAnyMaxbytesMika')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="editForm.patchValue({ byteAnyMaxbytesMika: undefined, byteAnyMaxbytesMikaContentType: undefined })"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteAnyMaxbytesMika"
+              data-cy="byteAnyMaxbytesMika"
+              (change)="setFileData($event, 'byteAnyMaxbytesMika', false)"
+              jhiTranslate="entity.action.addblob"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMaxbytesMika"
+            id="field_byteAnyMaxbytesMika"
+            data-cy="byteAnyMaxbytesMika"
+            formControlName="byteAnyMaxbytesMika"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMaxbytesMikaContentType"
+            id="field_byteAnyMaxbytesMikaContentType"
+            formControlName="byteAnyMaxbytesMikaContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('byteAnyMaxbytesMika')!.invalid &&
+              (editForm.get('byteAnyMaxbytesMika')!.dirty || editForm.get('byteAnyMaxbytesMika')!.touched)
+            "
+          ></div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.byteTextMika"
+            for="field_byteTextMika"
+            >Byte Text Mika</label
+          >
+          <textarea
+            class="form-control"
+            name="byteTextMika"
+            id="field_byteTextMika"
+            data-cy="byteTextMika"
+            formControlName="byteTextMika"
+          ></textarea>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.byteTextRequiredMika"
+            for="field_byteTextRequiredMika"
+            >Byte Text Required Mika</label
+          >
+          <textarea
+            class="form-control"
+            name="byteTextRequiredMika"
+            id="field_byteTextRequiredMika"
+            data-cy="byteTextRequiredMika"
+            formControlName="byteTextRequiredMika"
+          ></textarea>
+          <div
+            *ngIf="
+              editForm.get('byteTextRequiredMika')!.invalid &&
+              (editForm.get('byteTextRequiredMika')!.dirty || editForm.get('byteTextRequiredMika')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('byteTextRequiredMika')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,1679 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-field-test-infinite-scroll-entity-heading"
+        data-cy="FieldTestInfiniteScrollEntityCreateUpdateHeading"
+        jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.home.createOrEditLabel"
+      >
+        Create or edit a Field Test Infinite Scroll Entity
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.stringHugo"
+            for="field_stringHugo"
+            >String Hugo</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringHugo"
+            id="field_stringHugo"
+            data-cy="stringHugo"
+            formControlName="stringHugo"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.stringRequiredHugo"
+            for="field_stringRequiredHugo"
+            >String Required Hugo</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringRequiredHugo"
+            id="field_stringRequiredHugo"
+            data-cy="stringRequiredHugo"
+            formControlName="stringRequiredHugo"
+          />
+          <div
+            *ngIf="
+              editForm.get('stringRequiredHugo')!.invalid &&
+              (editForm.get('stringRequiredHugo')!.dirty || editForm.get('stringRequiredHugo')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('stringRequiredHugo')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.stringMinlengthHugo"
+            for="field_stringMinlengthHugo"
+            >String Minlength Hugo</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringMinlengthHugo"
+            id="field_stringMinlengthHugo"
+            data-cy="stringMinlengthHugo"
+            formControlName="stringMinlengthHugo"
+          />
+          <div
+            *ngIf="
+              editForm.get('stringMinlengthHugo')!.invalid &&
+              (editForm.get('stringMinlengthHugo')!.dirty || editForm.get('stringMinlengthHugo')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('stringMinlengthHugo')?.errors?.minlength"
+              jhiTranslate="entity.validation.minlength"
+              [translateValues]="{ min: 0 }"
+            >
+              This field is required to be at least 0 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.stringMaxlengthHugo"
+            for="field_stringMaxlengthHugo"
+            >String Maxlength Hugo</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringMaxlengthHugo"
+            id="field_stringMaxlengthHugo"
+            data-cy="stringMaxlengthHugo"
+            formControlName="stringMaxlengthHugo"
+          />
+          <div
+            *ngIf="
+              editForm.get('stringMaxlengthHugo')!.invalid &&
+              (editForm.get('stringMaxlengthHugo')!.dirty || editForm.get('stringMaxlengthHugo')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('stringMaxlengthHugo')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 20 }"
+            >
+              This field cannot be longer than 20 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.stringPatternHugo"
+            for="field_stringPatternHugo"
+            >String Pattern Hugo</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringPatternHugo"
+            id="field_stringPatternHugo"
+            data-cy="stringPatternHugo"
+            formControlName="stringPatternHugo"
+          />
+          <div
+            *ngIf="
+              editForm.get('stringPatternHugo')!.invalid &&
+              (editForm.get('stringPatternHugo')!.dirty || editForm.get('stringPatternHugo')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('stringPatternHugo')?.errors?.pattern"
+              jhiTranslate="entity.validation.pattern"
+              [translateValues]="{ pattern: 'String Pattern Hugo' }"
+            >
+              This field should follow pattern for String Pattern Hugo.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.integerHugo"
+            for="field_integerHugo"
+            >Integer Hugo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerHugo"
+            id="field_integerHugo"
+            data-cy="integerHugo"
+            formControlName="integerHugo"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.integerRequiredHugo"
+            for="field_integerRequiredHugo"
+            >Integer Required Hugo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerRequiredHugo"
+            id="field_integerRequiredHugo"
+            data-cy="integerRequiredHugo"
+            formControlName="integerRequiredHugo"
+          />
+          <div
+            *ngIf="
+              editForm.get('integerRequiredHugo')!.invalid &&
+              (editForm.get('integerRequiredHugo')!.dirty || editForm.get('integerRequiredHugo')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('integerRequiredHugo')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('integerRequiredHugo')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.integerMinHugo"
+            for="field_integerMinHugo"
+            >Integer Min Hugo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerMinHugo"
+            id="field_integerMinHugo"
+            data-cy="integerMinHugo"
+            formControlName="integerMinHugo"
+          />
+          <div
+            *ngIf="
+              editForm.get('integerMinHugo')!.invalid && (editForm.get('integerMinHugo')!.dirty || editForm.get('integerMinHugo')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('integerMinHugo')?.errors?.min"
+              jhiTranslate="entity.validation.min"
+              [translateValues]="{ min: 0 }"
+            >
+              This field should be at least 0.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('integerMinHugo')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.integerMaxHugo"
+            for="field_integerMaxHugo"
+            >Integer Max Hugo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerMaxHugo"
+            id="field_integerMaxHugo"
+            data-cy="integerMaxHugo"
+            formControlName="integerMaxHugo"
+          />
+          <div
+            *ngIf="
+              editForm.get('integerMaxHugo')!.invalid && (editForm.get('integerMaxHugo')!.dirty || editForm.get('integerMaxHugo')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('integerMaxHugo')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be more than 100.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('integerMaxHugo')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.longHugo" for="field_longHugo"
+            >Long Hugo</label
+          >
+          <input type="number" class="form-control" name="longHugo" id="field_longHugo" data-cy="longHugo" formControlName="longHugo" />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.longRequiredHugo"
+            for="field_longRequiredHugo"
+            >Long Required Hugo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="longRequiredHugo"
+            id="field_longRequiredHugo"
+            data-cy="longRequiredHugo"
+            formControlName="longRequiredHugo"
+          />
+          <div
+            *ngIf="
+              editForm.get('longRequiredHugo')!.invalid &&
+              (editForm.get('longRequiredHugo')!.dirty || editForm.get('longRequiredHugo')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('longRequiredHugo')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('longRequiredHugo')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.longMinHugo"
+            for="field_longMinHugo"
+            >Long Min Hugo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="longMinHugo"
+            id="field_longMinHugo"
+            data-cy="longMinHugo"
+            formControlName="longMinHugo"
+          />
+          <div *ngIf="editForm.get('longMinHugo')!.invalid && (editForm.get('longMinHugo')!.dirty || editForm.get('longMinHugo')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('longMinHugo')?.errors?.min"
+              jhiTranslate="entity.validation.min"
+              [translateValues]="{ min: 0 }"
+            >
+              This field should be at least 0.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('longMinHugo')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.longMaxHugo"
+            for="field_longMaxHugo"
+            >Long Max Hugo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="longMaxHugo"
+            id="field_longMaxHugo"
+            data-cy="longMaxHugo"
+            formControlName="longMaxHugo"
+          />
+          <div *ngIf="editForm.get('longMaxHugo')!.invalid && (editForm.get('longMaxHugo')!.dirty || editForm.get('longMaxHugo')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('longMaxHugo')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be more than 100.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('longMaxHugo')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.floatHugo"
+            for="field_floatHugo"
+            >Float Hugo</label
+          >
+          <input type="number" class="form-control" name="floatHugo" id="field_floatHugo" data-cy="floatHugo" formControlName="floatHugo" />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.floatRequiredHugo"
+            for="field_floatRequiredHugo"
+            >Float Required Hugo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="floatRequiredHugo"
+            id="field_floatRequiredHugo"
+            data-cy="floatRequiredHugo"
+            formControlName="floatRequiredHugo"
+          />
+          <div
+            *ngIf="
+              editForm.get('floatRequiredHugo')!.invalid &&
+              (editForm.get('floatRequiredHugo')!.dirty || editForm.get('floatRequiredHugo')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('floatRequiredHugo')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('floatRequiredHugo')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.floatMinHugo"
+            for="field_floatMinHugo"
+            >Float Min Hugo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="floatMinHugo"
+            id="field_floatMinHugo"
+            data-cy="floatMinHugo"
+            formControlName="floatMinHugo"
+          />
+          <div
+            *ngIf="editForm.get('floatMinHugo')!.invalid && (editForm.get('floatMinHugo')!.dirty || editForm.get('floatMinHugo')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('floatMinHugo')?.errors?.min"
+              jhiTranslate="entity.validation.min"
+              [translateValues]="{ min: 0 }"
+            >
+              This field should be at least 0.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('floatMinHugo')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.floatMaxHugo"
+            for="field_floatMaxHugo"
+            >Float Max Hugo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="floatMaxHugo"
+            id="field_floatMaxHugo"
+            data-cy="floatMaxHugo"
+            formControlName="floatMaxHugo"
+          />
+          <div
+            *ngIf="editForm.get('floatMaxHugo')!.invalid && (editForm.get('floatMaxHugo')!.dirty || editForm.get('floatMaxHugo')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('floatMaxHugo')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be more than 100.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('floatMaxHugo')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.doubleRequiredHugo"
+            for="field_doubleRequiredHugo"
+            >Double Required Hugo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="doubleRequiredHugo"
+            id="field_doubleRequiredHugo"
+            data-cy="doubleRequiredHugo"
+            formControlName="doubleRequiredHugo"
+          />
+          <div
+            *ngIf="
+              editForm.get('doubleRequiredHugo')!.invalid &&
+              (editForm.get('doubleRequiredHugo')!.dirty || editForm.get('doubleRequiredHugo')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('doubleRequiredHugo')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('doubleRequiredHugo')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.doubleMinHugo"
+            for="field_doubleMinHugo"
+            >Double Min Hugo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="doubleMinHugo"
+            id="field_doubleMinHugo"
+            data-cy="doubleMinHugo"
+            formControlName="doubleMinHugo"
+          />
+          <div
+            *ngIf="
+              editForm.get('doubleMinHugo')!.invalid && (editForm.get('doubleMinHugo')!.dirty || editForm.get('doubleMinHugo')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('doubleMinHugo')?.errors?.min"
+              jhiTranslate="entity.validation.min"
+              [translateValues]="{ min: 0 }"
+            >
+              This field should be at least 0.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('doubleMinHugo')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.doubleMaxHugo"
+            for="field_doubleMaxHugo"
+            >Double Max Hugo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="doubleMaxHugo"
+            id="field_doubleMaxHugo"
+            data-cy="doubleMaxHugo"
+            formControlName="doubleMaxHugo"
+          />
+          <div
+            *ngIf="
+              editForm.get('doubleMaxHugo')!.invalid && (editForm.get('doubleMaxHugo')!.dirty || editForm.get('doubleMaxHugo')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('doubleMaxHugo')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be more than 100.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('doubleMaxHugo')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.bigDecimalRequiredHugo"
+            for="field_bigDecimalRequiredHugo"
+            >Big Decimal Required Hugo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bigDecimalRequiredHugo"
+            id="field_bigDecimalRequiredHugo"
+            data-cy="bigDecimalRequiredHugo"
+            formControlName="bigDecimalRequiredHugo"
+          />
+          <div
+            *ngIf="
+              editForm.get('bigDecimalRequiredHugo')!.invalid &&
+              (editForm.get('bigDecimalRequiredHugo')!.dirty || editForm.get('bigDecimalRequiredHugo')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('bigDecimalRequiredHugo')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('bigDecimalRequiredHugo')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.bigDecimalMinHugo"
+            for="field_bigDecimalMinHugo"
+            >Big Decimal Min Hugo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bigDecimalMinHugo"
+            id="field_bigDecimalMinHugo"
+            data-cy="bigDecimalMinHugo"
+            formControlName="bigDecimalMinHugo"
+          />
+          <div
+            *ngIf="
+              editForm.get('bigDecimalMinHugo')!.invalid &&
+              (editForm.get('bigDecimalMinHugo')!.dirty || editForm.get('bigDecimalMinHugo')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('bigDecimalMinHugo')?.errors?.min"
+              jhiTranslate="entity.validation.min"
+              [translateValues]="{ min: 0 }"
+            >
+              This field should be at least 0.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('bigDecimalMinHugo')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.bigDecimalMaxHugo"
+            for="field_bigDecimalMaxHugo"
+            >Big Decimal Max Hugo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bigDecimalMaxHugo"
+            id="field_bigDecimalMaxHugo"
+            data-cy="bigDecimalMaxHugo"
+            formControlName="bigDecimalMaxHugo"
+          />
+          <div
+            *ngIf="
+              editForm.get('bigDecimalMaxHugo')!.invalid &&
+              (editForm.get('bigDecimalMaxHugo')!.dirty || editForm.get('bigDecimalMaxHugo')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('bigDecimalMaxHugo')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 100 }"
+            >
+              This field cannot be more than 100.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('bigDecimalMaxHugo')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.localDateHugo"
+            for="field_localDateHugo"
+            >Local Date Hugo</label
+          >
+          <div class="input-group">
+            <input
+              id="field_localDateHugo"
+              data-cy="localDateHugo"
+              type="text"
+              class="form-control"
+              name="localDateHugo"
+              ngbDatepicker
+              #localDateHugoDp="ngbDatepicker"
+              formControlName="localDateHugo"
+            />
+            <button type="button" class="btn btn-secondary" (click)="localDateHugoDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.localDateRequiredHugo"
+            for="field_localDateRequiredHugo"
+            >Local Date Required Hugo</label
+          >
+          <div class="input-group">
+            <input
+              id="field_localDateRequiredHugo"
+              data-cy="localDateRequiredHugo"
+              type="text"
+              class="form-control"
+              name="localDateRequiredHugo"
+              ngbDatepicker
+              #localDateRequiredHugoDp="ngbDatepicker"
+              formControlName="localDateRequiredHugo"
+            />
+            <button type="button" class="btn btn-secondary" (click)="localDateRequiredHugoDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+          <div
+            *ngIf="
+              editForm.get('localDateRequiredHugo')!.invalid &&
+              (editForm.get('localDateRequiredHugo')!.dirty || editForm.get('localDateRequiredHugo')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('localDateRequiredHugo')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.instantHugo"
+            for="field_instantHugo"
+            >Instant Hugo</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_instantHugo"
+              data-cy="instantHugo"
+              type="datetime-local"
+              class="form-control"
+              name="instantHugo"
+              formControlName="instantHugo"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.instanteRequiredHugo"
+            for="field_instanteRequiredHugo"
+            >Instante Required Hugo</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_instanteRequiredHugo"
+              data-cy="instanteRequiredHugo"
+              type="datetime-local"
+              class="form-control"
+              name="instanteRequiredHugo"
+              formControlName="instanteRequiredHugo"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          <div
+            *ngIf="
+              editForm.get('instanteRequiredHugo')!.invalid &&
+              (editForm.get('instanteRequiredHugo')!.dirty || editForm.get('instanteRequiredHugo')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('instanteRequiredHugo')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('instanteRequiredHugo')?.errors?.datetimelocal"
+              jhiTranslate="entity.validation.datetimelocal"
+            >
+              This field should be a date and time.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.zonedDateTimeHugo"
+            for="field_zonedDateTimeHugo"
+            >Zoned Date Time Hugo</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_zonedDateTimeHugo"
+              data-cy="zonedDateTimeHugo"
+              type="datetime-local"
+              class="form-control"
+              name="zonedDateTimeHugo"
+              formControlName="zonedDateTimeHugo"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.zonedDateTimeRequiredHugo"
+            for="field_zonedDateTimeRequiredHugo"
+            >Zoned Date Time Required Hugo</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_zonedDateTimeRequiredHugo"
+              data-cy="zonedDateTimeRequiredHugo"
+              type="datetime-local"
+              class="form-control"
+              name="zonedDateTimeRequiredHugo"
+              formControlName="zonedDateTimeRequiredHugo"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          <div
+            *ngIf="
+              editForm.get('zonedDateTimeRequiredHugo')!.invalid &&
+              (editForm.get('zonedDateTimeRequiredHugo')!.dirty || editForm.get('zonedDateTimeRequiredHugo')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('zonedDateTimeRequiredHugo')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('zonedDateTimeRequiredHugo')?.errors?.datetimelocal"
+              jhiTranslate="entity.validation.datetimelocal"
+            >
+              This field should be a date and time.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.durationHugo"
+            for="field_durationHugo"
+            >Duration Hugo</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="durationHugo"
+            id="field_durationHugo"
+            data-cy="durationHugo"
+            formControlName="durationHugo"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.durationRequiredHugo"
+            for="field_durationRequiredHugo"
+            >Duration Required Hugo</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="durationRequiredHugo"
+            id="field_durationRequiredHugo"
+            data-cy="durationRequiredHugo"
+            formControlName="durationRequiredHugo"
+          />
+          <div
+            *ngIf="
+              editForm.get('durationRequiredHugo')!.invalid &&
+              (editForm.get('durationRequiredHugo')!.dirty || editForm.get('durationRequiredHugo')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('durationRequiredHugo')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('durationRequiredHugo')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.booleanHugo"
+            for="field_booleanHugo"
+            >Boolean Hugo</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="booleanHugo"
+            id="field_booleanHugo"
+            data-cy="booleanHugo"
+            formControlName="booleanHugo"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.booleanRequiredHugo"
+            for="field_booleanRequiredHugo"
+            >Boolean Required Hugo</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="booleanRequiredHugo"
+            id="field_booleanRequiredHugo"
+            data-cy="booleanRequiredHugo"
+            formControlName="booleanRequiredHugo"
+          />
+          <div
+            *ngIf="
+              editForm.get('booleanRequiredHugo')!.invalid &&
+              (editForm.get('booleanRequiredHugo')!.dirty || editForm.get('booleanRequiredHugo')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('booleanRequiredHugo')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.enumHugo" for="field_enumHugo"
+            >Enum Hugo</label
+          >
+          <select class="form-control" name="enumHugo" formControlName="enumHugo" id="field_enumHugo" data-cy="enumHugo">
+            <option [ngValue]="null">{{ 'sampleWebfluxMongodbOauth2App.EnumFieldClass.null' | translate }}</option>
+            <option *ngFor="let enumFieldClass of enumFieldClassValues" [value]="enumFieldClass">
+              {{ 'sampleWebfluxMongodbOauth2App.EnumFieldClass.' + enumFieldClass | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.enumRequiredHugo"
+            for="field_enumRequiredHugo"
+            >Enum Required Hugo</label
+          >
+          <select
+            class="form-control"
+            name="enumRequiredHugo"
+            formControlName="enumRequiredHugo"
+            id="field_enumRequiredHugo"
+            data-cy="enumRequiredHugo"
+          >
+            <option [ngValue]="null">{{ 'sampleWebfluxMongodbOauth2App.EnumRequiredFieldClass.null' | translate }}</option>
+            <option *ngFor="let enumRequiredFieldClass of enumRequiredFieldClassValues" [value]="enumRequiredFieldClass">
+              {{ 'sampleWebfluxMongodbOauth2App.EnumRequiredFieldClass.' + enumRequiredFieldClass | translate }}
+            </option>
+          </select>
+          <div
+            *ngIf="
+              editForm.get('enumRequiredHugo')!.invalid &&
+              (editForm.get('enumRequiredHugo')!.dirty || editForm.get('enumRequiredHugo')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('enumRequiredHugo')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.uuidHugo" for="field_uuidHugo"
+            >Uuid Hugo</label
+          >
+          <input type="text" class="form-control" name="uuidHugo" id="field_uuidHugo" data-cy="uuidHugo" formControlName="uuidHugo" />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.uuidRequiredHugo"
+            for="field_uuidRequiredHugo"
+            >Uuid Required Hugo</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="uuidRequiredHugo"
+            id="field_uuidRequiredHugo"
+            data-cy="uuidRequiredHugo"
+            formControlName="uuidRequiredHugo"
+          />
+          <div
+            *ngIf="
+              editForm.get('uuidRequiredHugo')!.invalid &&
+              (editForm.get('uuidRequiredHugo')!.dirty || editForm.get('uuidRequiredHugo')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('uuidRequiredHugo')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.byteImageHugo"
+            for="field_byteImageHugo"
+            >Byte Image Hugo</label
+          >
+          <div>
+            <img
+              [src]="'data:' + editForm.get('byteImageHugoContentType')!.value + ';base64,' + editForm.get('byteImageHugo')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('byteImageHugo')!.value"
+              alt="fieldTestInfiniteScrollEntity image"
+            />
+            <div *ngIf="editForm.get('byteImageHugo')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('byteImageHugoContentType')!.value }}, {{ byteSize(editForm.get('byteImageHugo')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('byteImageHugo', 'byteImageHugoContentType', 'file_byteImageHugo')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteImageHugo"
+              data-cy="byteImageHugo"
+              (change)="setFileData($event, 'byteImageHugo', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageHugo"
+            id="field_byteImageHugo"
+            data-cy="byteImageHugo"
+            formControlName="byteImageHugo"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageHugoContentType"
+            id="field_byteImageHugoContentType"
+            formControlName="byteImageHugoContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.byteImageRequiredHugo"
+            for="field_byteImageRequiredHugo"
+            >Byte Image Required Hugo</label
+          >
+          <div>
+            <img
+              [src]="
+                'data:' +
+                editForm.get('byteImageRequiredHugoContentType')!.value +
+                ';base64,' +
+                editForm.get('byteImageRequiredHugo')!.value
+              "
+              style="max-height: 100px"
+              *ngIf="editForm.get('byteImageRequiredHugo')!.value"
+              alt="fieldTestInfiniteScrollEntity image"
+            />
+            <div *ngIf="editForm.get('byteImageRequiredHugo')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('byteImageRequiredHugoContentType')!.value }},
+                {{ byteSize(editForm.get('byteImageRequiredHugo')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('byteImageRequiredHugo', 'byteImageRequiredHugoContentType', 'file_byteImageRequiredHugo')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteImageRequiredHugo"
+              data-cy="byteImageRequiredHugo"
+              (change)="setFileData($event, 'byteImageRequiredHugo', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageRequiredHugo"
+            id="field_byteImageRequiredHugo"
+            data-cy="byteImageRequiredHugo"
+            formControlName="byteImageRequiredHugo"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageRequiredHugoContentType"
+            id="field_byteImageRequiredHugoContentType"
+            formControlName="byteImageRequiredHugoContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('byteImageRequiredHugo')!.invalid &&
+              (editForm.get('byteImageRequiredHugo')!.dirty || editForm.get('byteImageRequiredHugo')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('byteImageRequiredHugo')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.byteImageMinbytesHugo"
+            for="field_byteImageMinbytesHugo"
+            >Byte Image Minbytes Hugo</label
+          >
+          <div>
+            <img
+              [src]="
+                'data:' +
+                editForm.get('byteImageMinbytesHugoContentType')!.value +
+                ';base64,' +
+                editForm.get('byteImageMinbytesHugo')!.value
+              "
+              style="max-height: 100px"
+              *ngIf="editForm.get('byteImageMinbytesHugo')!.value"
+              alt="fieldTestInfiniteScrollEntity image"
+            />
+            <div *ngIf="editForm.get('byteImageMinbytesHugo')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('byteImageMinbytesHugoContentType')!.value }},
+                {{ byteSize(editForm.get('byteImageMinbytesHugo')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('byteImageMinbytesHugo', 'byteImageMinbytesHugoContentType', 'file_byteImageMinbytesHugo')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteImageMinbytesHugo"
+              data-cy="byteImageMinbytesHugo"
+              (change)="setFileData($event, 'byteImageMinbytesHugo', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMinbytesHugo"
+            id="field_byteImageMinbytesHugo"
+            data-cy="byteImageMinbytesHugo"
+            formControlName="byteImageMinbytesHugo"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMinbytesHugoContentType"
+            id="field_byteImageMinbytesHugoContentType"
+            formControlName="byteImageMinbytesHugoContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('byteImageMinbytesHugo')!.invalid &&
+              (editForm.get('byteImageMinbytesHugo')!.dirty || editForm.get('byteImageMinbytesHugo')!.touched)
+            "
+          ></div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.byteImageMaxbytesHugo"
+            for="field_byteImageMaxbytesHugo"
+            >Byte Image Maxbytes Hugo</label
+          >
+          <div>
+            <img
+              [src]="
+                'data:' +
+                editForm.get('byteImageMaxbytesHugoContentType')!.value +
+                ';base64,' +
+                editForm.get('byteImageMaxbytesHugo')!.value
+              "
+              style="max-height: 100px"
+              *ngIf="editForm.get('byteImageMaxbytesHugo')!.value"
+              alt="fieldTestInfiniteScrollEntity image"
+            />
+            <div *ngIf="editForm.get('byteImageMaxbytesHugo')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start"
+                >{{ editForm.get('byteImageMaxbytesHugoContentType')!.value }},
+                {{ byteSize(editForm.get('byteImageMaxbytesHugo')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="clearInputImage('byteImageMaxbytesHugo', 'byteImageMaxbytesHugoContentType', 'file_byteImageMaxbytesHugo')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteImageMaxbytesHugo"
+              data-cy="byteImageMaxbytesHugo"
+              (change)="setFileData($event, 'byteImageMaxbytesHugo', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMaxbytesHugo"
+            id="field_byteImageMaxbytesHugo"
+            data-cy="byteImageMaxbytesHugo"
+            formControlName="byteImageMaxbytesHugo"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMaxbytesHugoContentType"
+            id="field_byteImageMaxbytesHugoContentType"
+            formControlName="byteImageMaxbytesHugoContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('byteImageMaxbytesHugo')!.invalid &&
+              (editForm.get('byteImageMaxbytesHugo')!.dirty || editForm.get('byteImageMaxbytesHugo')!.touched)
+            "
+          ></div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.byteAnyHugo"
+            for="field_byteAnyHugo"
+            >Byte Any Hugo</label
+          >
+          <div>
+            <div *ngIf="editForm.get('byteAnyHugo')!.value" class="form-text text-danger clearfix">
+              <a
+                class="pull-start"
+                (click)="openFile(editForm.get('byteAnyHugo')!.value!, editForm.get('byteAnyHugoContentType')!.value!)"
+                jhiTranslate="entity.action.open"
+                >Open</a
+              ><br />
+              <span class="pull-start"
+                >{{ editForm.get('byteAnyHugoContentType')!.value }}, {{ byteSize(editForm.get('byteAnyHugo')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="editForm.patchValue({ byteAnyHugo: undefined, byteAnyHugoContentType: undefined })"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteAnyHugo"
+              data-cy="byteAnyHugo"
+              (change)="setFileData($event, 'byteAnyHugo', false)"
+              jhiTranslate="entity.action.addblob"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyHugo"
+            id="field_byteAnyHugo"
+            data-cy="byteAnyHugo"
+            formControlName="byteAnyHugo"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyHugoContentType"
+            id="field_byteAnyHugoContentType"
+            formControlName="byteAnyHugoContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.byteAnyRequiredHugo"
+            for="field_byteAnyRequiredHugo"
+            >Byte Any Required Hugo</label
+          >
+          <div>
+            <div *ngIf="editForm.get('byteAnyRequiredHugo')!.value" class="form-text text-danger clearfix">
+              <a
+                class="pull-start"
+                (click)="openFile(editForm.get('byteAnyRequiredHugo')!.value!, editForm.get('byteAnyRequiredHugoContentType')!.value!)"
+                jhiTranslate="entity.action.open"
+                >Open</a
+              ><br />
+              <span class="pull-start"
+                >{{ editForm.get('byteAnyRequiredHugoContentType')!.value }},
+                {{ byteSize(editForm.get('byteAnyRequiredHugo')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="editForm.patchValue({ byteAnyRequiredHugo: undefined, byteAnyRequiredHugoContentType: undefined })"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteAnyRequiredHugo"
+              data-cy="byteAnyRequiredHugo"
+              (change)="setFileData($event, 'byteAnyRequiredHugo', false)"
+              jhiTranslate="entity.action.addblob"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyRequiredHugo"
+            id="field_byteAnyRequiredHugo"
+            data-cy="byteAnyRequiredHugo"
+            formControlName="byteAnyRequiredHugo"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyRequiredHugoContentType"
+            id="field_byteAnyRequiredHugoContentType"
+            formControlName="byteAnyRequiredHugoContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('byteAnyRequiredHugo')!.invalid &&
+              (editForm.get('byteAnyRequiredHugo')!.dirty || editForm.get('byteAnyRequiredHugo')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('byteAnyRequiredHugo')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.byteAnyMinbytesHugo"
+            for="field_byteAnyMinbytesHugo"
+            >Byte Any Minbytes Hugo</label
+          >
+          <div>
+            <div *ngIf="editForm.get('byteAnyMinbytesHugo')!.value" class="form-text text-danger clearfix">
+              <a
+                class="pull-start"
+                (click)="openFile(editForm.get('byteAnyMinbytesHugo')!.value!, editForm.get('byteAnyMinbytesHugoContentType')!.value!)"
+                jhiTranslate="entity.action.open"
+                >Open</a
+              ><br />
+              <span class="pull-start"
+                >{{ editForm.get('byteAnyMinbytesHugoContentType')!.value }},
+                {{ byteSize(editForm.get('byteAnyMinbytesHugo')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="editForm.patchValue({ byteAnyMinbytesHugo: undefined, byteAnyMinbytesHugoContentType: undefined })"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteAnyMinbytesHugo"
+              data-cy="byteAnyMinbytesHugo"
+              (change)="setFileData($event, 'byteAnyMinbytesHugo', false)"
+              jhiTranslate="entity.action.addblob"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMinbytesHugo"
+            id="field_byteAnyMinbytesHugo"
+            data-cy="byteAnyMinbytesHugo"
+            formControlName="byteAnyMinbytesHugo"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMinbytesHugoContentType"
+            id="field_byteAnyMinbytesHugoContentType"
+            formControlName="byteAnyMinbytesHugoContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('byteAnyMinbytesHugo')!.invalid &&
+              (editForm.get('byteAnyMinbytesHugo')!.dirty || editForm.get('byteAnyMinbytesHugo')!.touched)
+            "
+          ></div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.byteAnyMaxbytesHugo"
+            for="field_byteAnyMaxbytesHugo"
+            >Byte Any Maxbytes Hugo</label
+          >
+          <div>
+            <div *ngIf="editForm.get('byteAnyMaxbytesHugo')!.value" class="form-text text-danger clearfix">
+              <a
+                class="pull-start"
+                (click)="openFile(editForm.get('byteAnyMaxbytesHugo')!.value!, editForm.get('byteAnyMaxbytesHugoContentType')!.value!)"
+                jhiTranslate="entity.action.open"
+                >Open</a
+              ><br />
+              <span class="pull-start"
+                >{{ editForm.get('byteAnyMaxbytesHugoContentType')!.value }},
+                {{ byteSize(editForm.get('byteAnyMaxbytesHugo')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="editForm.patchValue({ byteAnyMaxbytesHugo: undefined, byteAnyMaxbytesHugoContentType: undefined })"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_byteAnyMaxbytesHugo"
+              data-cy="byteAnyMaxbytesHugo"
+              (change)="setFileData($event, 'byteAnyMaxbytesHugo', false)"
+              jhiTranslate="entity.action.addblob"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMaxbytesHugo"
+            id="field_byteAnyMaxbytesHugo"
+            data-cy="byteAnyMaxbytesHugo"
+            formControlName="byteAnyMaxbytesHugo"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMaxbytesHugoContentType"
+            id="field_byteAnyMaxbytesHugoContentType"
+            formControlName="byteAnyMaxbytesHugoContentType"
+          />
+          <div
+            *ngIf="
+              editForm.get('byteAnyMaxbytesHugo')!.invalid &&
+              (editForm.get('byteAnyMaxbytesHugo')!.dirty || editForm.get('byteAnyMaxbytesHugo')!.touched)
+            "
+          ></div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.byteTextHugo"
+            for="field_byteTextHugo"
+            >Byte Text Hugo</label
+          >
+          <textarea
+            class="form-control"
+            name="byteTextHugo"
+            id="field_byteTextHugo"
+            data-cy="byteTextHugo"
+            formControlName="byteTextHugo"
+          ></textarea>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestInfiniteScrollEntity.byteTextRequiredHugo"
+            for="field_byteTextRequiredHugo"
+            >Byte Text Required Hugo</label
+          >
+          <textarea
+            class="form-control"
+            name="byteTextRequiredHugo"
+            id="field_byteTextRequiredHugo"
+            data-cy="byteTextRequiredHugo"
+            formControlName="byteTextRequiredHugo"
+          ></textarea>
+          <div
+            *ngIf="
+              editForm.get('byteTextRequiredHugo')!.invalid &&
+              (editForm.get('byteTextRequiredHugo')!.dirty || editForm.get('byteTextRequiredHugo')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('byteTextRequiredHugo')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

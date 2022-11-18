@@ -1,0 +1,296 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="fieldTestEntity">
+      <h2 data-cy="fieldTestEntityDetailsHeading">
+        <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.detail.title">Field Test Entity</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ fieldTestEntity.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.stringTom">String Tom</span></dt>
+        <dd>
+          <span>{{ fieldTestEntity.stringTom }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.stringRequiredTom">String Required Tom</span></dt>
+        <dd>
+          <span>{{ fieldTestEntity.stringRequiredTom }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.stringMinlengthTom">String Minlength Tom</span></dt>
+        <dd>
+          <span>{{ fieldTestEntity.stringMinlengthTom }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.stringMaxlengthTom">String Maxlength Tom</span></dt>
+        <dd>
+          <span>{{ fieldTestEntity.stringMaxlengthTom }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.stringPatternTom">String Pattern Tom</span></dt>
+        <dd>
+          <span>{{ fieldTestEntity.stringPatternTom }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.numberPatternTom">Number Pattern Tom</span></dt>
+        <dd>
+          <span>{{ fieldTestEntity.numberPatternTom }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.numberPatternRequiredTom">Number Pattern Required Tom</span>
+        </dt>
+        <dd>
+          <span>{{ fieldTestEntity.numberPatternRequiredTom }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.integerTom">Integer Tom</span></dt>
+        <dd>
+          <span>{{ fieldTestEntity.integerTom }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.integerRequiredTom">Integer Required Tom</span></dt>
+        <dd>
+          <span>{{ fieldTestEntity.integerRequiredTom }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.integerMinTom">Integer Min Tom</span></dt>
+        <dd>
+          <span>{{ fieldTestEntity.integerMinTom }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.integerMaxTom">Integer Max Tom</span></dt>
+        <dd>
+          <span>{{ fieldTestEntity.integerMaxTom }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.longTom">Long Tom</span></dt>
+        <dd>
+          <span>{{ fieldTestEntity.longTom }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.longRequiredTom">Long Required Tom</span></dt>
+        <dd>
+          <span>{{ fieldTestEntity.longRequiredTom }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.longMinTom">Long Min Tom</span></dt>
+        <dd>
+          <span>{{ fieldTestEntity.longMinTom }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.longMaxTom">Long Max Tom</span></dt>
+        <dd>
+          <span>{{ fieldTestEntity.longMaxTom }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.floatTom">Float Tom</span></dt>
+        <dd>
+          <span>{{ fieldTestEntity.floatTom }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.floatRequiredTom">Float Required Tom</span></dt>
+        <dd>
+          <span>{{ fieldTestEntity.floatRequiredTom }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.floatMinTom">Float Min Tom</span></dt>
+        <dd>
+          <span>{{ fieldTestEntity.floatMinTom }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.floatMaxTom">Float Max Tom</span></dt>
+        <dd>
+          <span>{{ fieldTestEntity.floatMaxTom }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.doubleRequiredTom">Double Required Tom</span></dt>
+        <dd>
+          <span>{{ fieldTestEntity.doubleRequiredTom }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.doubleMinTom">Double Min Tom</span></dt>
+        <dd>
+          <span>{{ fieldTestEntity.doubleMinTom }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.doubleMaxTom">Double Max Tom</span></dt>
+        <dd>
+          <span>{{ fieldTestEntity.doubleMaxTom }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.bigDecimalRequiredTom">Big Decimal Required Tom</span></dt>
+        <dd>
+          <span>{{ fieldTestEntity.bigDecimalRequiredTom }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.bigDecimalMinTom">Big Decimal Min Tom</span></dt>
+        <dd>
+          <span>{{ fieldTestEntity.bigDecimalMinTom }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.bigDecimalMaxTom">Big Decimal Max Tom</span></dt>
+        <dd>
+          <span>{{ fieldTestEntity.bigDecimalMaxTom }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.localDateTom">Local Date Tom</span></dt>
+        <dd>
+          <span>{{ fieldTestEntity.localDateTom | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.localDateRequiredTom">Local Date Required Tom</span></dt>
+        <dd>
+          <span>{{ fieldTestEntity.localDateRequiredTom | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.instantTom">Instant Tom</span></dt>
+        <dd>
+          <span>{{ fieldTestEntity.instantTom | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.instantRequiredTom">Instant Required Tom</span></dt>
+        <dd>
+          <span>{{ fieldTestEntity.instantRequiredTom | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.zonedDateTimeTom">Zoned Date Time Tom</span></dt>
+        <dd>
+          <span>{{ fieldTestEntity.zonedDateTimeTom | formatMediumDatetime }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.zonedDateTimeRequiredTom">Zoned Date Time Required Tom</span>
+        </dt>
+        <dd>
+          <span>{{ fieldTestEntity.zonedDateTimeRequiredTom | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.durationTom">Duration Tom</span></dt>
+        <dd>
+          <span>{{ fieldTestEntity.durationTom | duration }} ({{ fieldTestEntity.durationTom }})</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.durationRequiredTom">Duration Required Tom</span></dt>
+        <dd>
+          <span>{{ fieldTestEntity.durationRequiredTom | duration }} ({{ fieldTestEntity.durationRequiredTom }})</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.booleanTom">Boolean Tom</span></dt>
+        <dd>
+          <span>{{ fieldTestEntity.booleanTom }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.booleanRequiredTom">Boolean Required Tom</span></dt>
+        <dd>
+          <span>{{ fieldTestEntity.booleanRequiredTom }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.enumTom">Enum Tom</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'sampleWebfluxMongodbOauth2App.EnumFieldClass.' + fieldTestEntity.enumTom }}">{{
+            fieldTestEntity.enumTom
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.enumRequiredTom">Enum Required Tom</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'sampleWebfluxMongodbOauth2App.EnumRequiredFieldClass.' + fieldTestEntity.enumRequiredTom }}">{{
+            fieldTestEntity.enumRequiredTom
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.uuidTom">Uuid Tom</span></dt>
+        <dd>
+          <span>{{ fieldTestEntity.uuidTom }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.uuidRequiredTom">Uuid Required Tom</span></dt>
+        <dd>
+          <span>{{ fieldTestEntity.uuidRequiredTom }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.byteImageTom">Byte Image Tom</span></dt>
+        <dd>
+          <div *ngIf="fieldTestEntity.byteImageTom">
+            <a (click)="openFile(fieldTestEntity.byteImageTom, fieldTestEntity.byteImageTomContentType)">
+              <img
+                [src]="'data:' + fieldTestEntity.byteImageTomContentType + ';base64,' + fieldTestEntity.byteImageTom"
+                style="max-width: 100%"
+                alt="fieldTestEntity image"
+              />
+            </a>
+            {{ fieldTestEntity.byteImageTomContentType }}, {{ byteSize(fieldTestEntity.byteImageTom) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.byteImageRequiredTom">Byte Image Required Tom</span></dt>
+        <dd>
+          <div *ngIf="fieldTestEntity.byteImageRequiredTom">
+            <a (click)="openFile(fieldTestEntity.byteImageRequiredTom, fieldTestEntity.byteImageRequiredTomContentType)">
+              <img
+                [src]="'data:' + fieldTestEntity.byteImageRequiredTomContentType + ';base64,' + fieldTestEntity.byteImageRequiredTom"
+                style="max-width: 100%"
+                alt="fieldTestEntity image"
+              />
+            </a>
+            {{ fieldTestEntity.byteImageRequiredTomContentType }}, {{ byteSize(fieldTestEntity.byteImageRequiredTom) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.byteImageMinbytesTom">Byte Image Minbytes Tom</span></dt>
+        <dd>
+          <div *ngIf="fieldTestEntity.byteImageMinbytesTom">
+            <a (click)="openFile(fieldTestEntity.byteImageMinbytesTom, fieldTestEntity.byteImageMinbytesTomContentType)">
+              <img
+                [src]="'data:' + fieldTestEntity.byteImageMinbytesTomContentType + ';base64,' + fieldTestEntity.byteImageMinbytesTom"
+                style="max-width: 100%"
+                alt="fieldTestEntity image"
+              />
+            </a>
+            {{ fieldTestEntity.byteImageMinbytesTomContentType }}, {{ byteSize(fieldTestEntity.byteImageMinbytesTom) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.byteImageMaxbytesTom">Byte Image Maxbytes Tom</span></dt>
+        <dd>
+          <div *ngIf="fieldTestEntity.byteImageMaxbytesTom">
+            <a (click)="openFile(fieldTestEntity.byteImageMaxbytesTom, fieldTestEntity.byteImageMaxbytesTomContentType)">
+              <img
+                [src]="'data:' + fieldTestEntity.byteImageMaxbytesTomContentType + ';base64,' + fieldTestEntity.byteImageMaxbytesTom"
+                style="max-width: 100%"
+                alt="fieldTestEntity image"
+              />
+            </a>
+            {{ fieldTestEntity.byteImageMaxbytesTomContentType }}, {{ byteSize(fieldTestEntity.byteImageMaxbytesTom) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.byteAnyTom">Byte Any Tom</span></dt>
+        <dd>
+          <div *ngIf="fieldTestEntity.byteAnyTom">
+            <a (click)="openFile(fieldTestEntity.byteAnyTom, fieldTestEntity.byteAnyTomContentType)" jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            {{ fieldTestEntity.byteAnyTomContentType }}, {{ byteSize(fieldTestEntity.byteAnyTom) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.byteAnyRequiredTom">Byte Any Required Tom</span></dt>
+        <dd>
+          <div *ngIf="fieldTestEntity.byteAnyRequiredTom">
+            <a
+              (click)="openFile(fieldTestEntity.byteAnyRequiredTom, fieldTestEntity.byteAnyRequiredTomContentType)"
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            {{ fieldTestEntity.byteAnyRequiredTomContentType }}, {{ byteSize(fieldTestEntity.byteAnyRequiredTom) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.byteAnyMinbytesTom">Byte Any Minbytes Tom</span></dt>
+        <dd>
+          <div *ngIf="fieldTestEntity.byteAnyMinbytesTom">
+            <a
+              (click)="openFile(fieldTestEntity.byteAnyMinbytesTom, fieldTestEntity.byteAnyMinbytesTomContentType)"
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            {{ fieldTestEntity.byteAnyMinbytesTomContentType }}, {{ byteSize(fieldTestEntity.byteAnyMinbytesTom) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.byteAnyMaxbytesTom">Byte Any Maxbytes Tom</span></dt>
+        <dd>
+          <div *ngIf="fieldTestEntity.byteAnyMaxbytesTom">
+            <a
+              (click)="openFile(fieldTestEntity.byteAnyMaxbytesTom, fieldTestEntity.byteAnyMaxbytesTomContentType)"
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            {{ fieldTestEntity.byteAnyMaxbytesTomContentType }}, {{ byteSize(fieldTestEntity.byteAnyMaxbytesTom) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.byteTextTom">Byte Text Tom</span></dt>
+        <dd>
+          <span>{{ fieldTestEntity.byteTextTom }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestEntity.byteTextRequiredTom">Byte Text Required Tom</span></dt>
+        <dd>
+          <span>{{ fieldTestEntity.byteTextRequiredTom }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/field-test-entity', fieldTestEntity.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

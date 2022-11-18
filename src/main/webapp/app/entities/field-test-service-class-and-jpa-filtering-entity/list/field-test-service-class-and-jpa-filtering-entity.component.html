@@ -1,0 +1,673 @@
+<div>
+  <h2 id="page-heading" data-cy="FieldTestServiceClassAndJpaFilteringEntityHeading">
+    <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.home.title"
+      >Field Test Service Class And Jpa Filtering Entities</span
+    >
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.home.refreshListLabel"
+          >Refresh list</span
+        >
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-field-test-service-class-and-jpa-filtering-entity"
+        [routerLink]="['/field-test-service-class-and-jpa-filtering-entity/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.home.createLabel">
+          Create a new Field Test Service Class And Jpa Filtering Entity
+        </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="fieldTestServiceClassAndJpaFilteringEntities?.length === 0">
+    <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.home.notFound"
+      >No Field Test Service Class And Jpa Filtering Entities found</span
+    >
+  </div>
+
+  <div
+    class="table-responsive table-entities"
+    id="entities"
+    *ngIf="fieldTestServiceClassAndJpaFilteringEntities && fieldTestServiceClassAndJpaFilteringEntities.length > 0"
+  >
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="stringBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.stringBob">String Bob</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="stringRequiredBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.stringRequiredBob"
+                >String Required Bob</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="stringMinlengthBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.stringMinlengthBob"
+                >String Minlength Bob</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="stringMaxlengthBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.stringMaxlengthBob"
+                >String Maxlength Bob</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="stringPatternBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.stringPatternBob"
+                >String Pattern Bob</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="integerBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.integerBob">Integer Bob</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="integerRequiredBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.integerRequiredBob"
+                >Integer Required Bob</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="integerMinBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.integerMinBob"
+                >Integer Min Bob</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="integerMaxBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.integerMaxBob"
+                >Integer Max Bob</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="longBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.longBob">Long Bob</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="longRequiredBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.longRequiredBob"
+                >Long Required Bob</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="longMinBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.longMinBob">Long Min Bob</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="longMaxBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.longMaxBob">Long Max Bob</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="floatBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.floatBob">Float Bob</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="floatRequiredBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.floatRequiredBob"
+                >Float Required Bob</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="floatMinBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.floatMinBob">Float Min Bob</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="floatMaxBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.floatMaxBob">Float Max Bob</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="doubleRequiredBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.doubleRequiredBob"
+                >Double Required Bob</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="doubleMinBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.doubleMinBob"
+                >Double Min Bob</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="doubleMaxBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.doubleMaxBob"
+                >Double Max Bob</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="bigDecimalRequiredBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.bigDecimalRequiredBob"
+                >Big Decimal Required Bob</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="bigDecimalMinBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.bigDecimalMinBob"
+                >Big Decimal Min Bob</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="bigDecimalMaxBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.bigDecimalMaxBob"
+                >Big Decimal Max Bob</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="localDateBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.localDateBob"
+                >Local Date Bob</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="localDateRequiredBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.localDateRequiredBob"
+                >Local Date Required Bob</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="instantBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.instantBob">Instant Bob</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="instanteRequiredBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.instanteRequiredBob"
+                >Instante Required Bob</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="zonedDateTimeBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.zonedDateTimeBob"
+                >Zoned Date Time Bob</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="zonedDateTimeRequiredBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.zonedDateTimeRequiredBob"
+                >Zoned Date Time Required Bob</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="durationBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.durationBob">Duration Bob</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="durationRequiredBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.durationRequiredBob"
+                >Duration Required Bob</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="booleanBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.booleanBob">Boolean Bob</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="booleanRequiredBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.booleanRequiredBob"
+                >Boolean Required Bob</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="enumBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.enumBob">Enum Bob</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="enumRequiredBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.enumRequiredBob"
+                >Enum Required Bob</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="uuidBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.uuidBob">Uuid Bob</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="uuidRequiredBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.uuidRequiredBob"
+                >Uuid Required Bob</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteImageBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.byteImageBob"
+                >Byte Image Bob</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteImageRequiredBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.byteImageRequiredBob"
+                >Byte Image Required Bob</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteImageMinbytesBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.byteImageMinbytesBob"
+                >Byte Image Minbytes Bob</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteImageMaxbytesBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.byteImageMaxbytesBob"
+                >Byte Image Maxbytes Bob</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteAnyBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.byteAnyBob">Byte Any Bob</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteAnyRequiredBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.byteAnyRequiredBob"
+                >Byte Any Required Bob</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteAnyMinbytesBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.byteAnyMinbytesBob"
+                >Byte Any Minbytes Bob</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteAnyMaxbytesBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.byteAnyMaxbytesBob"
+                >Byte Any Maxbytes Bob</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteTextBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.byteTextBob">Byte Text Bob</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteTextRequiredBob">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceClassAndJpaFilteringEntity.byteTextRequiredBob"
+                >Byte Text Required Bob</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let fieldTestServiceClassAndJpaFilteringEntity of fieldTestServiceClassAndJpaFilteringEntities; trackBy: trackId"
+          data-cy="entityTable"
+        >
+          <td>
+            <a
+              [routerLink]="['/field-test-service-class-and-jpa-filtering-entity', fieldTestServiceClassAndJpaFilteringEntity.id, 'view']"
+              >{{ fieldTestServiceClassAndJpaFilteringEntity.id }}</a
+            >
+          </td>
+          <td>{{ fieldTestServiceClassAndJpaFilteringEntity.stringBob }}</td>
+          <td>{{ fieldTestServiceClassAndJpaFilteringEntity.stringRequiredBob }}</td>
+          <td>{{ fieldTestServiceClassAndJpaFilteringEntity.stringMinlengthBob }}</td>
+          <td>{{ fieldTestServiceClassAndJpaFilteringEntity.stringMaxlengthBob }}</td>
+          <td>{{ fieldTestServiceClassAndJpaFilteringEntity.stringPatternBob }}</td>
+          <td>{{ fieldTestServiceClassAndJpaFilteringEntity.integerBob }}</td>
+          <td>{{ fieldTestServiceClassAndJpaFilteringEntity.integerRequiredBob }}</td>
+          <td>{{ fieldTestServiceClassAndJpaFilteringEntity.integerMinBob }}</td>
+          <td>{{ fieldTestServiceClassAndJpaFilteringEntity.integerMaxBob }}</td>
+          <td>{{ fieldTestServiceClassAndJpaFilteringEntity.longBob }}</td>
+          <td>{{ fieldTestServiceClassAndJpaFilteringEntity.longRequiredBob }}</td>
+          <td>{{ fieldTestServiceClassAndJpaFilteringEntity.longMinBob }}</td>
+          <td>{{ fieldTestServiceClassAndJpaFilteringEntity.longMaxBob }}</td>
+          <td>{{ fieldTestServiceClassAndJpaFilteringEntity.floatBob }}</td>
+          <td>{{ fieldTestServiceClassAndJpaFilteringEntity.floatRequiredBob }}</td>
+          <td>{{ fieldTestServiceClassAndJpaFilteringEntity.floatMinBob }}</td>
+          <td>{{ fieldTestServiceClassAndJpaFilteringEntity.floatMaxBob }}</td>
+          <td>{{ fieldTestServiceClassAndJpaFilteringEntity.doubleRequiredBob }}</td>
+          <td>{{ fieldTestServiceClassAndJpaFilteringEntity.doubleMinBob }}</td>
+          <td>{{ fieldTestServiceClassAndJpaFilteringEntity.doubleMaxBob }}</td>
+          <td>{{ fieldTestServiceClassAndJpaFilteringEntity.bigDecimalRequiredBob }}</td>
+          <td>{{ fieldTestServiceClassAndJpaFilteringEntity.bigDecimalMinBob }}</td>
+          <td>{{ fieldTestServiceClassAndJpaFilteringEntity.bigDecimalMaxBob }}</td>
+          <td>{{ fieldTestServiceClassAndJpaFilteringEntity.localDateBob | formatMediumDate }}</td>
+          <td>{{ fieldTestServiceClassAndJpaFilteringEntity.localDateRequiredBob | formatMediumDate }}</td>
+          <td>{{ fieldTestServiceClassAndJpaFilteringEntity.instantBob | formatMediumDatetime }}</td>
+          <td>{{ fieldTestServiceClassAndJpaFilteringEntity.instanteRequiredBob | formatMediumDatetime }}</td>
+          <td>{{ fieldTestServiceClassAndJpaFilteringEntity.zonedDateTimeBob | formatMediumDatetime }}</td>
+          <td>{{ fieldTestServiceClassAndJpaFilteringEntity.zonedDateTimeRequiredBob | formatMediumDatetime }}</td>
+          <td title="{{ fieldTestServiceClassAndJpaFilteringEntity.durationBob }}">
+            {{ fieldTestServiceClassAndJpaFilteringEntity.durationBob | duration }}
+          </td>
+          <td title="{{ fieldTestServiceClassAndJpaFilteringEntity.durationRequiredBob }}">
+            {{ fieldTestServiceClassAndJpaFilteringEntity.durationRequiredBob | duration }}
+          </td>
+          <td>{{ fieldTestServiceClassAndJpaFilteringEntity.booleanBob }}</td>
+          <td>{{ fieldTestServiceClassAndJpaFilteringEntity.booleanRequiredBob }}</td>
+          <td jhiTranslate="{{ 'sampleWebfluxMongodbOauth2App.EnumFieldClass.' + fieldTestServiceClassAndJpaFilteringEntity.enumBob }}">
+            {{ fieldTestServiceClassAndJpaFilteringEntity.enumBob }}
+          </td>
+          <td
+            jhiTranslate="{{
+              'sampleWebfluxMongodbOauth2App.EnumRequiredFieldClass.' + fieldTestServiceClassAndJpaFilteringEntity.enumRequiredBob
+            }}"
+          >
+            {{ fieldTestServiceClassAndJpaFilteringEntity.enumRequiredBob }}
+          </td>
+          <td>{{ fieldTestServiceClassAndJpaFilteringEntity.uuidBob }}</td>
+          <td>{{ fieldTestServiceClassAndJpaFilteringEntity.uuidRequiredBob }}</td>
+          <td>
+            <a
+              *ngIf="fieldTestServiceClassAndJpaFilteringEntity.byteImageBob"
+              (click)="
+                openFile(
+                  fieldTestServiceClassAndJpaFilteringEntity.byteImageBob,
+                  fieldTestServiceClassAndJpaFilteringEntity.byteImageBobContentType
+                )
+              "
+            >
+              <img
+                [src]="
+                  'data:' +
+                  fieldTestServiceClassAndJpaFilteringEntity.byteImageBobContentType +
+                  ';base64,' +
+                  fieldTestServiceClassAndJpaFilteringEntity.byteImageBob
+                "
+                style="max-height: 30px"
+                alt="fieldTestServiceClassAndJpaFilteringEntity image"
+              />
+            </a>
+            <span *ngIf="fieldTestServiceClassAndJpaFilteringEntity.byteImageBob"
+              >{{ fieldTestServiceClassAndJpaFilteringEntity.byteImageBobContentType }},
+              {{ byteSize(fieldTestServiceClassAndJpaFilteringEntity.byteImageBob) }}</span
+            >
+          </td>
+          <td>
+            <a
+              *ngIf="fieldTestServiceClassAndJpaFilteringEntity.byteImageRequiredBob"
+              (click)="
+                openFile(
+                  fieldTestServiceClassAndJpaFilteringEntity.byteImageRequiredBob,
+                  fieldTestServiceClassAndJpaFilteringEntity.byteImageRequiredBobContentType
+                )
+              "
+            >
+              <img
+                [src]="
+                  'data:' +
+                  fieldTestServiceClassAndJpaFilteringEntity.byteImageRequiredBobContentType +
+                  ';base64,' +
+                  fieldTestServiceClassAndJpaFilteringEntity.byteImageRequiredBob
+                "
+                style="max-height: 30px"
+                alt="fieldTestServiceClassAndJpaFilteringEntity image"
+              />
+            </a>
+            <span *ngIf="fieldTestServiceClassAndJpaFilteringEntity.byteImageRequiredBob"
+              >{{ fieldTestServiceClassAndJpaFilteringEntity.byteImageRequiredBobContentType }},
+              {{ byteSize(fieldTestServiceClassAndJpaFilteringEntity.byteImageRequiredBob) }}</span
+            >
+          </td>
+          <td>
+            <a
+              *ngIf="fieldTestServiceClassAndJpaFilteringEntity.byteImageMinbytesBob"
+              (click)="
+                openFile(
+                  fieldTestServiceClassAndJpaFilteringEntity.byteImageMinbytesBob,
+                  fieldTestServiceClassAndJpaFilteringEntity.byteImageMinbytesBobContentType
+                )
+              "
+            >
+              <img
+                [src]="
+                  'data:' +
+                  fieldTestServiceClassAndJpaFilteringEntity.byteImageMinbytesBobContentType +
+                  ';base64,' +
+                  fieldTestServiceClassAndJpaFilteringEntity.byteImageMinbytesBob
+                "
+                style="max-height: 30px"
+                alt="fieldTestServiceClassAndJpaFilteringEntity image"
+              />
+            </a>
+            <span *ngIf="fieldTestServiceClassAndJpaFilteringEntity.byteImageMinbytesBob"
+              >{{ fieldTestServiceClassAndJpaFilteringEntity.byteImageMinbytesBobContentType }},
+              {{ byteSize(fieldTestServiceClassAndJpaFilteringEntity.byteImageMinbytesBob) }}</span
+            >
+          </td>
+          <td>
+            <a
+              *ngIf="fieldTestServiceClassAndJpaFilteringEntity.byteImageMaxbytesBob"
+              (click)="
+                openFile(
+                  fieldTestServiceClassAndJpaFilteringEntity.byteImageMaxbytesBob,
+                  fieldTestServiceClassAndJpaFilteringEntity.byteImageMaxbytesBobContentType
+                )
+              "
+            >
+              <img
+                [src]="
+                  'data:' +
+                  fieldTestServiceClassAndJpaFilteringEntity.byteImageMaxbytesBobContentType +
+                  ';base64,' +
+                  fieldTestServiceClassAndJpaFilteringEntity.byteImageMaxbytesBob
+                "
+                style="max-height: 30px"
+                alt="fieldTestServiceClassAndJpaFilteringEntity image"
+              />
+            </a>
+            <span *ngIf="fieldTestServiceClassAndJpaFilteringEntity.byteImageMaxbytesBob"
+              >{{ fieldTestServiceClassAndJpaFilteringEntity.byteImageMaxbytesBobContentType }},
+              {{ byteSize(fieldTestServiceClassAndJpaFilteringEntity.byteImageMaxbytesBob) }}</span
+            >
+          </td>
+          <td>
+            <a
+              *ngIf="fieldTestServiceClassAndJpaFilteringEntity.byteAnyBob"
+              (click)="
+                openFile(
+                  fieldTestServiceClassAndJpaFilteringEntity.byteAnyBob,
+                  fieldTestServiceClassAndJpaFilteringEntity.byteAnyBobContentType
+                )
+              "
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            <span *ngIf="fieldTestServiceClassAndJpaFilteringEntity.byteAnyBob"
+              >{{ fieldTestServiceClassAndJpaFilteringEntity.byteAnyBobContentType }},
+              {{ byteSize(fieldTestServiceClassAndJpaFilteringEntity.byteAnyBob) }}</span
+            >
+          </td>
+          <td>
+            <a
+              *ngIf="fieldTestServiceClassAndJpaFilteringEntity.byteAnyRequiredBob"
+              (click)="
+                openFile(
+                  fieldTestServiceClassAndJpaFilteringEntity.byteAnyRequiredBob,
+                  fieldTestServiceClassAndJpaFilteringEntity.byteAnyRequiredBobContentType
+                )
+              "
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            <span *ngIf="fieldTestServiceClassAndJpaFilteringEntity.byteAnyRequiredBob"
+              >{{ fieldTestServiceClassAndJpaFilteringEntity.byteAnyRequiredBobContentType }},
+              {{ byteSize(fieldTestServiceClassAndJpaFilteringEntity.byteAnyRequiredBob) }}</span
+            >
+          </td>
+          <td>
+            <a
+              *ngIf="fieldTestServiceClassAndJpaFilteringEntity.byteAnyMinbytesBob"
+              (click)="
+                openFile(
+                  fieldTestServiceClassAndJpaFilteringEntity.byteAnyMinbytesBob,
+                  fieldTestServiceClassAndJpaFilteringEntity.byteAnyMinbytesBobContentType
+                )
+              "
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            <span *ngIf="fieldTestServiceClassAndJpaFilteringEntity.byteAnyMinbytesBob"
+              >{{ fieldTestServiceClassAndJpaFilteringEntity.byteAnyMinbytesBobContentType }},
+              {{ byteSize(fieldTestServiceClassAndJpaFilteringEntity.byteAnyMinbytesBob) }}</span
+            >
+          </td>
+          <td>
+            <a
+              *ngIf="fieldTestServiceClassAndJpaFilteringEntity.byteAnyMaxbytesBob"
+              (click)="
+                openFile(
+                  fieldTestServiceClassAndJpaFilteringEntity.byteAnyMaxbytesBob,
+                  fieldTestServiceClassAndJpaFilteringEntity.byteAnyMaxbytesBobContentType
+                )
+              "
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            <span *ngIf="fieldTestServiceClassAndJpaFilteringEntity.byteAnyMaxbytesBob"
+              >{{ fieldTestServiceClassAndJpaFilteringEntity.byteAnyMaxbytesBobContentType }},
+              {{ byteSize(fieldTestServiceClassAndJpaFilteringEntity.byteAnyMaxbytesBob) }}</span
+            >
+          </td>
+          <td>{{ fieldTestServiceClassAndJpaFilteringEntity.byteTextBob }}</td>
+          <td>{{ fieldTestServiceClassAndJpaFilteringEntity.byteTextRequiredBob }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/field-test-service-class-and-jpa-filtering-entity', fieldTestServiceClassAndJpaFilteringEntity.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/field-test-service-class-and-jpa-filtering-entity', fieldTestServiceClassAndJpaFilteringEntity.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button
+                type="submit"
+                (click)="delete(fieldTestServiceClassAndJpaFilteringEntity)"
+                class="btn btn-danger btn-sm"
+                data-cy="entityDeleteButton"
+              >
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

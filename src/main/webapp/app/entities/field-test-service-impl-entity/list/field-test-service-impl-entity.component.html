@@ -1,0 +1,575 @@
+<div>
+  <h2 id="page-heading" data-cy="FieldTestServiceImplEntityHeading">
+    <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.home.title">Field Test Service Impl Entities</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-field-test-service-impl-entity"
+        [routerLink]="['/field-test-service-impl-entity/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.home.createLabel">
+          Create a new Field Test Service Impl Entity
+        </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="fieldTestServiceImplEntities?.length === 0">
+    <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.home.notFound"
+      >No Field Test Service Impl Entities found</span
+    >
+  </div>
+
+  <div
+    class="table-responsive table-entities"
+    id="entities"
+    *ngIf="fieldTestServiceImplEntities && fieldTestServiceImplEntities.length > 0"
+  >
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="stringMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.stringMika">String Mika</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="stringRequiredMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.stringRequiredMika">String Required Mika</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="stringMinlengthMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.stringMinlengthMika">String Minlength Mika</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="stringMaxlengthMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.stringMaxlengthMika">String Maxlength Mika</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="stringPatternMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.stringPatternMika">String Pattern Mika</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="integerMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.integerMika">Integer Mika</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="integerRequiredMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.integerRequiredMika">Integer Required Mika</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="integerMinMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.integerMinMika">Integer Min Mika</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="integerMaxMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.integerMaxMika">Integer Max Mika</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="longMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.longMika">Long Mika</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="longRequiredMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.longRequiredMika">Long Required Mika</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="longMinMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.longMinMika">Long Min Mika</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="longMaxMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.longMaxMika">Long Max Mika</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="floatMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.floatMika">Float Mika</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="floatRequiredMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.floatRequiredMika">Float Required Mika</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="floatMinMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.floatMinMika">Float Min Mika</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="floatMaxMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.floatMaxMika">Float Max Mika</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="doubleRequiredMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.doubleRequiredMika">Double Required Mika</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="doubleMinMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.doubleMinMika">Double Min Mika</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="doubleMaxMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.doubleMaxMika">Double Max Mika</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="bigDecimalRequiredMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.bigDecimalRequiredMika"
+                >Big Decimal Required Mika</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="bigDecimalMinMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.bigDecimalMinMika">Big Decimal Min Mika</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="bigDecimalMaxMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.bigDecimalMaxMika">Big Decimal Max Mika</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="localDateMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.localDateMika">Local Date Mika</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="localDateRequiredMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.localDateRequiredMika"
+                >Local Date Required Mika</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="instantMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.instantMika">Instant Mika</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="instanteRequiredMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.instanteRequiredMika"
+                >Instante Required Mika</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="zonedDateTimeMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.zonedDateTimeMika">Zoned Date Time Mika</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="zonedDateTimeRequiredMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.zonedDateTimeRequiredMika"
+                >Zoned Date Time Required Mika</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="durationMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.durationMika">Duration Mika</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="durationRequiredMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.durationRequiredMika"
+                >Duration Required Mika</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="booleanMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.booleanMika">Boolean Mika</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="booleanRequiredMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.booleanRequiredMika">Boolean Required Mika</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="enumMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.enumMika">Enum Mika</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="enumRequiredMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.enumRequiredMika">Enum Required Mika</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="uuidMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.uuidMika">Uuid Mika</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="uuidRequiredMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.uuidRequiredMika">Uuid Required Mika</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteImageMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.byteImageMika">Byte Image Mika</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteImageRequiredMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.byteImageRequiredMika"
+                >Byte Image Required Mika</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteImageMinbytesMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.byteImageMinbytesMika"
+                >Byte Image Minbytes Mika</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteImageMaxbytesMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.byteImageMaxbytesMika"
+                >Byte Image Maxbytes Mika</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteAnyMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.byteAnyMika">Byte Any Mika</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteAnyRequiredMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.byteAnyRequiredMika"
+                >Byte Any Required Mika</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteAnyMinbytesMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.byteAnyMinbytesMika"
+                >Byte Any Minbytes Mika</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteAnyMaxbytesMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.byteAnyMaxbytesMika"
+                >Byte Any Maxbytes Mika</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteTextMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.byteTextMika">Byte Text Mika</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="byteTextRequiredMika">
+            <div class="d-flex">
+              <span jhiTranslate="sampleWebfluxMongodbOauth2App.fieldTestServiceImplEntity.byteTextRequiredMika"
+                >Byte Text Required Mika</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let fieldTestServiceImplEntity of fieldTestServiceImplEntities; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/field-test-service-impl-entity', fieldTestServiceImplEntity.id, 'view']">{{
+              fieldTestServiceImplEntity.id
+            }}</a>
+          </td>
+          <td>{{ fieldTestServiceImplEntity.stringMika }}</td>
+          <td>{{ fieldTestServiceImplEntity.stringRequiredMika }}</td>
+          <td>{{ fieldTestServiceImplEntity.stringMinlengthMika }}</td>
+          <td>{{ fieldTestServiceImplEntity.stringMaxlengthMika }}</td>
+          <td>{{ fieldTestServiceImplEntity.stringPatternMika }}</td>
+          <td>{{ fieldTestServiceImplEntity.integerMika }}</td>
+          <td>{{ fieldTestServiceImplEntity.integerRequiredMika }}</td>
+          <td>{{ fieldTestServiceImplEntity.integerMinMika }}</td>
+          <td>{{ fieldTestServiceImplEntity.integerMaxMika }}</td>
+          <td>{{ fieldTestServiceImplEntity.longMika }}</td>
+          <td>{{ fieldTestServiceImplEntity.longRequiredMika }}</td>
+          <td>{{ fieldTestServiceImplEntity.longMinMika }}</td>
+          <td>{{ fieldTestServiceImplEntity.longMaxMika }}</td>
+          <td>{{ fieldTestServiceImplEntity.floatMika }}</td>
+          <td>{{ fieldTestServiceImplEntity.floatRequiredMika }}</td>
+          <td>{{ fieldTestServiceImplEntity.floatMinMika }}</td>
+          <td>{{ fieldTestServiceImplEntity.floatMaxMika }}</td>
+          <td>{{ fieldTestServiceImplEntity.doubleRequiredMika }}</td>
+          <td>{{ fieldTestServiceImplEntity.doubleMinMika }}</td>
+          <td>{{ fieldTestServiceImplEntity.doubleMaxMika }}</td>
+          <td>{{ fieldTestServiceImplEntity.bigDecimalRequiredMika }}</td>
+          <td>{{ fieldTestServiceImplEntity.bigDecimalMinMika }}</td>
+          <td>{{ fieldTestServiceImplEntity.bigDecimalMaxMika }}</td>
+          <td>{{ fieldTestServiceImplEntity.localDateMika | formatMediumDate }}</td>
+          <td>{{ fieldTestServiceImplEntity.localDateRequiredMika | formatMediumDate }}</td>
+          <td>{{ fieldTestServiceImplEntity.instantMika | formatMediumDatetime }}</td>
+          <td>{{ fieldTestServiceImplEntity.instanteRequiredMika | formatMediumDatetime }}</td>
+          <td>{{ fieldTestServiceImplEntity.zonedDateTimeMika | formatMediumDatetime }}</td>
+          <td>{{ fieldTestServiceImplEntity.zonedDateTimeRequiredMika | formatMediumDatetime }}</td>
+          <td title="{{ fieldTestServiceImplEntity.durationMika }}">{{ fieldTestServiceImplEntity.durationMika | duration }}</td>
+          <td title="{{ fieldTestServiceImplEntity.durationRequiredMika }}">
+            {{ fieldTestServiceImplEntity.durationRequiredMika | duration }}
+          </td>
+          <td>{{ fieldTestServiceImplEntity.booleanMika }}</td>
+          <td>{{ fieldTestServiceImplEntity.booleanRequiredMika }}</td>
+          <td jhiTranslate="{{ 'sampleWebfluxMongodbOauth2App.EnumFieldClass.' + fieldTestServiceImplEntity.enumMika }}">
+            {{ fieldTestServiceImplEntity.enumMika }}
+          </td>
+          <td jhiTranslate="{{ 'sampleWebfluxMongodbOauth2App.EnumRequiredFieldClass.' + fieldTestServiceImplEntity.enumRequiredMika }}">
+            {{ fieldTestServiceImplEntity.enumRequiredMika }}
+          </td>
+          <td>{{ fieldTestServiceImplEntity.uuidMika }}</td>
+          <td>{{ fieldTestServiceImplEntity.uuidRequiredMika }}</td>
+          <td>
+            <a
+              *ngIf="fieldTestServiceImplEntity.byteImageMika"
+              (click)="openFile(fieldTestServiceImplEntity.byteImageMika, fieldTestServiceImplEntity.byteImageMikaContentType)"
+            >
+              <img
+                [src]="
+                  'data:' + fieldTestServiceImplEntity.byteImageMikaContentType + ';base64,' + fieldTestServiceImplEntity.byteImageMika
+                "
+                style="max-height: 30px"
+                alt="fieldTestServiceImplEntity image"
+              />
+            </a>
+            <span *ngIf="fieldTestServiceImplEntity.byteImageMika"
+              >{{ fieldTestServiceImplEntity.byteImageMikaContentType }}, {{ byteSize(fieldTestServiceImplEntity.byteImageMika) }}</span
+            >
+          </td>
+          <td>
+            <a
+              *ngIf="fieldTestServiceImplEntity.byteImageRequiredMika"
+              (click)="
+                openFile(fieldTestServiceImplEntity.byteImageRequiredMika, fieldTestServiceImplEntity.byteImageRequiredMikaContentType)
+              "
+            >
+              <img
+                [src]="
+                  'data:' +
+                  fieldTestServiceImplEntity.byteImageRequiredMikaContentType +
+                  ';base64,' +
+                  fieldTestServiceImplEntity.byteImageRequiredMika
+                "
+                style="max-height: 30px"
+                alt="fieldTestServiceImplEntity image"
+              />
+            </a>
+            <span *ngIf="fieldTestServiceImplEntity.byteImageRequiredMika"
+              >{{ fieldTestServiceImplEntity.byteImageRequiredMikaContentType }},
+              {{ byteSize(fieldTestServiceImplEntity.byteImageRequiredMika) }}</span
+            >
+          </td>
+          <td>
+            <a
+              *ngIf="fieldTestServiceImplEntity.byteImageMinbytesMika"
+              (click)="
+                openFile(fieldTestServiceImplEntity.byteImageMinbytesMika, fieldTestServiceImplEntity.byteImageMinbytesMikaContentType)
+              "
+            >
+              <img
+                [src]="
+                  'data:' +
+                  fieldTestServiceImplEntity.byteImageMinbytesMikaContentType +
+                  ';base64,' +
+                  fieldTestServiceImplEntity.byteImageMinbytesMika
+                "
+                style="max-height: 30px"
+                alt="fieldTestServiceImplEntity image"
+              />
+            </a>
+            <span *ngIf="fieldTestServiceImplEntity.byteImageMinbytesMika"
+              >{{ fieldTestServiceImplEntity.byteImageMinbytesMikaContentType }},
+              {{ byteSize(fieldTestServiceImplEntity.byteImageMinbytesMika) }}</span
+            >
+          </td>
+          <td>
+            <a
+              *ngIf="fieldTestServiceImplEntity.byteImageMaxbytesMika"
+              (click)="
+                openFile(fieldTestServiceImplEntity.byteImageMaxbytesMika, fieldTestServiceImplEntity.byteImageMaxbytesMikaContentType)
+              "
+            >
+              <img
+                [src]="
+                  'data:' +
+                  fieldTestServiceImplEntity.byteImageMaxbytesMikaContentType +
+                  ';base64,' +
+                  fieldTestServiceImplEntity.byteImageMaxbytesMika
+                "
+                style="max-height: 30px"
+                alt="fieldTestServiceImplEntity image"
+              />
+            </a>
+            <span *ngIf="fieldTestServiceImplEntity.byteImageMaxbytesMika"
+              >{{ fieldTestServiceImplEntity.byteImageMaxbytesMikaContentType }},
+              {{ byteSize(fieldTestServiceImplEntity.byteImageMaxbytesMika) }}</span
+            >
+          </td>
+          <td>
+            <a
+              *ngIf="fieldTestServiceImplEntity.byteAnyMika"
+              (click)="openFile(fieldTestServiceImplEntity.byteAnyMika, fieldTestServiceImplEntity.byteAnyMikaContentType)"
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            <span *ngIf="fieldTestServiceImplEntity.byteAnyMika"
+              >{{ fieldTestServiceImplEntity.byteAnyMikaContentType }}, {{ byteSize(fieldTestServiceImplEntity.byteAnyMika) }}</span
+            >
+          </td>
+          <td>
+            <a
+              *ngIf="fieldTestServiceImplEntity.byteAnyRequiredMika"
+              (click)="openFile(fieldTestServiceImplEntity.byteAnyRequiredMika, fieldTestServiceImplEntity.byteAnyRequiredMikaContentType)"
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            <span *ngIf="fieldTestServiceImplEntity.byteAnyRequiredMika"
+              >{{ fieldTestServiceImplEntity.byteAnyRequiredMikaContentType }},
+              {{ byteSize(fieldTestServiceImplEntity.byteAnyRequiredMika) }}</span
+            >
+          </td>
+          <td>
+            <a
+              *ngIf="fieldTestServiceImplEntity.byteAnyMinbytesMika"
+              (click)="openFile(fieldTestServiceImplEntity.byteAnyMinbytesMika, fieldTestServiceImplEntity.byteAnyMinbytesMikaContentType)"
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            <span *ngIf="fieldTestServiceImplEntity.byteAnyMinbytesMika"
+              >{{ fieldTestServiceImplEntity.byteAnyMinbytesMikaContentType }},
+              {{ byteSize(fieldTestServiceImplEntity.byteAnyMinbytesMika) }}</span
+            >
+          </td>
+          <td>
+            <a
+              *ngIf="fieldTestServiceImplEntity.byteAnyMaxbytesMika"
+              (click)="openFile(fieldTestServiceImplEntity.byteAnyMaxbytesMika, fieldTestServiceImplEntity.byteAnyMaxbytesMikaContentType)"
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            <span *ngIf="fieldTestServiceImplEntity.byteAnyMaxbytesMika"
+              >{{ fieldTestServiceImplEntity.byteAnyMaxbytesMikaContentType }},
+              {{ byteSize(fieldTestServiceImplEntity.byteAnyMaxbytesMika) }}</span
+            >
+          </td>
+          <td>{{ fieldTestServiceImplEntity.byteTextMika }}</td>
+          <td>{{ fieldTestServiceImplEntity.byteTextRequiredMika }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/field-test-service-impl-entity', fieldTestServiceImplEntity.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/field-test-service-impl-entity', fieldTestServiceImplEntity.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(fieldTestServiceImplEntity)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

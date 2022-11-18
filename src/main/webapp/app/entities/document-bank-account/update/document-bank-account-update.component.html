@@ -1,0 +1,252 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-document-bank-account-heading"
+        data-cy="DocumentBankAccountCreateUpdateHeading"
+        jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.home.createOrEditLabel"
+      >
+        Create or edit a Document Bank Account
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+          <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('name')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.bankNumber" for="field_bankNumber"
+            >Bank Number</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bankNumber"
+            id="field_bankNumber"
+            data-cy="bankNumber"
+            formControlName="bankNumber"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.agencyNumber" for="field_agencyNumber"
+            >Agency Number</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="agencyNumber"
+            id="field_agencyNumber"
+            data-cy="agencyNumber"
+            formControlName="agencyNumber"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.lastOperationDuration"
+            for="field_lastOperationDuration"
+            >Last Operation Duration</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="lastOperationDuration"
+            id="field_lastOperationDuration"
+            data-cy="lastOperationDuration"
+            formControlName="lastOperationDuration"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.meanOperationDuration"
+            for="field_meanOperationDuration"
+            >Mean Operation Duration</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="meanOperationDuration"
+            id="field_meanOperationDuration"
+            data-cy="meanOperationDuration"
+            formControlName="meanOperationDuration"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.balance" for="field_balance"
+            >Balance</label
+          >
+          <input type="number" class="form-control" name="balance" id="field_balance" data-cy="balance" formControlName="balance" />
+          <div *ngIf="editForm.get('balance')!.invalid && (editForm.get('balance')!.dirty || editForm.get('balance')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('balance')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('balance')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.openingDay" for="field_openingDay"
+            >Opening Day</label
+          >
+          <div class="input-group">
+            <input
+              id="field_openingDay"
+              data-cy="openingDay"
+              type="text"
+              class="form-control"
+              name="openingDay"
+              ngbDatepicker
+              #openingDayDp="ngbDatepicker"
+              formControlName="openingDay"
+            />
+            <button type="button" class="btn btn-secondary" (click)="openingDayDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.lastOperationDate"
+            for="field_lastOperationDate"
+            >Last Operation Date</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_lastOperationDate"
+              data-cy="lastOperationDate"
+              type="datetime-local"
+              class="form-control"
+              name="lastOperationDate"
+              formControlName="lastOperationDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.active" for="field_active"
+            >Active</label
+          >
+          <input type="checkbox" class="form-check" name="active" id="field_active" data-cy="active" formControlName="active" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.accountType" for="field_accountType"
+            >Account Type</label
+          >
+          <select class="form-control" name="accountType" formControlName="accountType" id="field_accountType" data-cy="accountType">
+            <option [ngValue]="null">{{ 'sampleWebfluxMongodbOauth2App.BankAccountType.null' | translate }}</option>
+            <option *ngFor="let bankAccountType of bankAccountTypeValues" [value]="bankAccountType">
+              {{ 'sampleWebfluxMongodbOauth2App.BankAccountType.' + bankAccountType | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.attachment" for="field_attachment"
+            >Attachment</label
+          >
+          <div>
+            <div *ngIf="editForm.get('attachment')!.value" class="form-text text-danger clearfix">
+              <a
+                class="pull-start"
+                (click)="openFile(editForm.get('attachment')!.value!, editForm.get('attachmentContentType')!.value!)"
+                jhiTranslate="entity.action.open"
+                >Open</a
+              ><br />
+              <span class="pull-start"
+                >{{ editForm.get('attachmentContentType')!.value }}, {{ byteSize(editForm.get('attachment')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="editForm.patchValue({ attachment: undefined, attachmentContentType: undefined })"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_attachment"
+              data-cy="attachment"
+              (change)="setFileData($event, 'attachment', false)"
+              jhiTranslate="entity.action.addblob"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="attachment"
+            id="field_attachment"
+            data-cy="attachment"
+            formControlName="attachment"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="attachmentContentType"
+            id="field_attachmentContentType"
+            formControlName="attachmentContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.description" for="field_description"
+            >Description</label
+          >
+          <textarea
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          ></textarea>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

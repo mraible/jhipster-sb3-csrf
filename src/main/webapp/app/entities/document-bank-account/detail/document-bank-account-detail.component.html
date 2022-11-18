@@ -1,0 +1,87 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="documentBankAccount">
+      <h2 data-cy="documentBankAccountDetailsHeading">
+        <span jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.detail.title">Document Bank Account</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ documentBankAccount.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.name">Name</span></dt>
+        <dd>
+          <span>{{ documentBankAccount.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.bankNumber">Bank Number</span></dt>
+        <dd>
+          <span>{{ documentBankAccount.bankNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.agencyNumber">Agency Number</span></dt>
+        <dd>
+          <span>{{ documentBankAccount.agencyNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.lastOperationDuration">Last Operation Duration</span></dt>
+        <dd>
+          <span>{{ documentBankAccount.lastOperationDuration }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.meanOperationDuration">Mean Operation Duration</span></dt>
+        <dd>
+          <span>{{ documentBankAccount.meanOperationDuration }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.balance">Balance</span></dt>
+        <dd>
+          <span>{{ documentBankAccount.balance }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.openingDay">Opening Day</span></dt>
+        <dd>
+          <span>{{ documentBankAccount.openingDay | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.lastOperationDate">Last Operation Date</span></dt>
+        <dd>
+          <span>{{ documentBankAccount.lastOperationDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.active">Active</span></dt>
+        <dd>
+          <span>{{ documentBankAccount.active }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.accountType">Account Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'sampleWebfluxMongodbOauth2App.BankAccountType.' + documentBankAccount.accountType }}">{{
+            documentBankAccount.accountType
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.attachment">Attachment</span></dt>
+        <dd>
+          <div *ngIf="documentBankAccount.attachment">
+            <a
+              (click)="openFile(documentBankAccount.attachment, documentBankAccount.attachmentContentType)"
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            {{ documentBankAccount.attachmentContentType }}, {{ byteSize(documentBankAccount.attachment) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="sampleWebfluxMongodbOauth2App.documentBankAccount.description">Description</span></dt>
+        <dd>
+          <span>{{ documentBankAccount.description }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/document-bank-account', documentBankAccount.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
